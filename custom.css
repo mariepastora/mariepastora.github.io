@@ -1,0 +1,157 @@
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+.display-3{
+  font-size:3.5em;
+}
+.lead{
+  font-size:1.5em;
+}
+
+.title-section{
+  text-align: center;
+}
+
+a {
+  color: #007bff;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+.snippet-header {
+  padding: 60px 0;
+}
+
+.simple-nav {
+  padding: 10px;
+}
+
+.simple-nav h4 {
+  display: inline;
+  margin-right: 15px;
+}
+
+.nav.colored {
+  background: rgba(92,176,153,0.7);
+  font-weight:500;
+  font-size:1.1em;
+}
+
+.nav.colored a {
+  color: #fff;
+}
+.nav.colored a:hover{
+  color:grey;
+}
+
+.fancy-header {
+  background-color: #f8ceec;
+  background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+  padding: 8em 0;
+  height:500px;
+}
+
+.alt-color {
+  background-color: #f39f86;
+  background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
+}
+
+.alt-color-2 {
+  background-color: #f6f0c4;
+  background-image: linear-gradient(315deg, #f6f0c4 0%, #d99ec9 74%);
+}
+
+.background {
+  background-image: url('background.jpg');
+  background-size: cover;
+}
+
+.shadow-background {
+  color: white;
+  text-shadow: rgba(0,0,0,0.4) 0 0 30px;
+/*  color: black; */
+/*  text-shadow: rgba(255,255,255,0.4) 0 0 30px; */
+}
+
+img {
+  max-width: 100%;
+}
+
+.section {
+  padding-top: 30px;
+}
+
+.text-highlight h1 {
+  background: rgba(92,176,153,0.7);
+  color: white;
+  display:inline;
+  line-height: 1.15;
+
+}
+
+.text-highlight p {
+  background: rgba(92,176,153,0.7);
+  color: white;
+  display:inline;
+  line-height: 1.8;
+}
+
+.footer {
+  background: rgba(92,176,153,0.7);
+  color:white;
+}
+
+.footer .container {
+  padding: 30px 0;
+}
+
+.text-muted{
+  color:white !important;
+}
+
+.footer-link{
+  color:white;
+}
+
+a:hover{
+  text-decoration: none;
+  color:grey;
+
+}
+
+.image-container {
+  position: relative;
+  width: 100%%;
+  margin-bottom:1em;
+
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: #82C6B5; /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  height:100%;
+  font-size: 20px;
+  text-align: center;
+  padding:3.5em;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+

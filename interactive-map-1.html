@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- 
+      1. To change fonts, visit https://fonts.google.com/
+      2. After you pick your fonts, click 'Customize'
+      3. Pick a few weights for your body font 
+          400 = regular, regular italic, 700 = bold
+      4. And whichever weight you want for your title font (regular? bold?)
+      5. Replace the <link... down below
+      6. Edit custom.css with your new font names. Be sure to add the weight!
+    -->
+
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i|Lato:400,400i,700,700i|Raleway:400,400i,500,500i" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <!-- Our custom CSS file -->
+    <link rel="stylesheet" href="custom.css">
+
+    <style>
+    #map{
+      height:660px
+    }
+    .title {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255,255,255,0.8);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+    .legend {
+        line-height: 20px;
+        color: #555;
+    }
+    .legend i {
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <!-- Omnivore plugin -->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+
+    <title>2010 Election</title>
+  </head>
+  <body>
+
+
+    <ul class="nav justify-content-center colored">
+      <li class="nav-item">
+        <a class="nav-link active" href="samples.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="graphs.html">Graphs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="interactive-map-1.html">Interactive maps</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="static-maps.html">Static maps</a>
+      </li>
+    </ul>
+    
+    <div class="container">
+
+    <div class = "row">
+      <div class="col-sm-8 offset-sm-2">
+        <br>
+        <h2>2010 New York State Election Map</h2>
+        <br>
+        <p>The map represents the vote margin of Democrats in the 2010 Gubernatorial election. The more blue the census tract gets, the more it voted for Democrat Andrew Cuomo, who won the election against Republican Carl Paladino.  </p>
+        <br>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+          <div id="map"></div>
+        </div>
+      </div>
+</div>
+<br>
+    <footer class="footer text-center">
+      <div class="container">
+        <span class="text-muted"><a href="https://twitter.com/mariepastora" class="footer-link">Twitter | </a><a href="https://github.com/mariepastora" class="footer-link">Github | </a><a href="https://www.instagram.com/mariepastora/" class="footer-link">Instagram | </a><a href="https://www.linkedin.com/in/mariepastora" class="footer-link">LinkedIn | </a><a href="mailto:mpp2134@columbia.edu" class="footer-link">Email  </a></span>
+      </div>
+    </footer>
+  <script>
+    var map = L.map('map').setView([42.8, -74.2179], 7)
+
+    L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map)
+
+  // Creating custom layer
+    function getColor(n) {
+        return n > 30 ? '#2166ac' :
+               n > 15 ? '#67a9cf' :
+               n > 0  ? '#d1e5f0' :
+               n > (-15) ?  '#fddbc7' :
+               n > (-30) ? '#ef8a62':
+                 '#b2182b'
+    }
+
+    var customLayer = L.geoJSON(null, {
+        // http://leafletjs.com/reference.html#geojson-style
+        style: function (feature) {
+            return {
+            fillColor: getColor(feature.properties.MARGIN_DEM),
+            weight: 0.2,
+            opacity: 1,
+            color: 'white',
+            fillOpacity: 0.8
+          }
+        }
+    }).bindPopup(function (layer) {
+      return "<b>Vote margin of Democrats:</b><br/>" + layer.feature.properties.MARGIN_DEM.toString() + " pp"})
+
+    // Reading file as topojson 
+    omnivore.topojson('ny_final2.json', null, customLayer).addTo(map)
+
+  // Adding title 
+    var title = L.control()
+
+    title.onAdd = function (map) {
+      this._div = L.DomUtil.create('div', 'title')
+      this._div.innerHTML = '<b>New York State 2010 Gubernatorial Election</b> <br/> Click on a tract to see the vote margin of the Democratic Party'
+      return this._div
+    }
+    title.addTo(map)
+
+  // Creating legend 
+    var legend = L.control({position: 'bottomright'})
+
+    legend.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'title legend'),
+        grades = [-100,-30, -15, 0, 15, 30,],
+        labels = [],
+        from, to
+      for (var i = 0; i < grades.length; i++) {
+        from = grades[i]
+        to = grades[i + 1]
+
+        labels.push(
+          '<i style="background:' + getColor(from + 1) + '"></i> ' +
+          from + (to ? ' &ndash; ' + to : '+'))
+      }
+      div.innerHTML = labels.join('<br>')
+      return div
+      }
+    legend.addTo(map)
+  </script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  </body>
+  </html>
