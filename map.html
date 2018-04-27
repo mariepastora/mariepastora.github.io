@@ -127,7 +127,7 @@
             })
             }
         }).bindPopup(function (layer) {
-            return layer.feature.properties.Name + "<br>" + layer.feature.properties.City
+            return "Name: " + layer.feature.properties.Name.bold() + "<br>" + "City: "+layer.feature.properties.City.bold()
         })
 
 
