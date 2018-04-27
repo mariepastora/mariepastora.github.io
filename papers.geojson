@@ -1,0 +1,2513 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Birmingham Post-Herald",
+        "City": "Birmingham",
+        "State": "Alabama",
+        "Date in ": "1850s",
+        "Date": 2005,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Scripps"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.80248999999998,
+          33.5206608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Hoover Gazette",
+        "City": "Hoover",
+        "State": "Alabama",
+        "Date in ": 2006,
+        "Date": 2007,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Eagle Publishing Company LLC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.81137810000001,
+          33.4053867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Weekly Post",
+        "City": "Fort Payne ",
+        "State": "Alabama",
+        "Date in ": "1870s",
+        "Date": 2010,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Southern Newspapers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.71968930000003,
+          34.44425470000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Tundra Times",
+        "City": "Fairbanks",
+        "State": "Alaska",
+        "Date in ": 1962,
+        "Date": 1997,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": "Indep"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -147.7163888,
+          64.8377778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Anchorage Times",
+        "City": "Anchorage",
+        "State": "Alaska",
+        "Date in ": 1915,
+        "Date": 1992,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Robert Atwood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.90027780000003,
+          61.2180556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Phoenix Gazette",
+        "City": "Phoenix",
+        "State": "Arizona",
+        "Date in ": 1881,
+        "Date": 1997,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Central Newspapers INC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.07403729999999,
+          33.4483771
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Tucson Citizen",
+        "City": "Tucson",
+        "State": "Arizona",
+        "Date in ": "1870s",
+        "Date": 2014,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Gannett"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.97471080000003,
+          32.2226066
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Arkansas Gazette",
+        "City": "Little Rock",
+        "State": "Arkansas",
+        "Date in ": 1819,
+        "Date": 1991,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "William E Woodruff"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.28959479999997,
+          34.7464809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Argus",
+        "City": "Fremont",
+        "State": "California",
+        "Date in ": "",
+        "Date": 2016,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Media News Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.98857190000001,
+          37.5482697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Alameda Times Star",
+        "City": "Alameda",
+        "State": "California",
+        "Date in ": "",
+        "Date": 2011,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Media News Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.24163550000003,
+          37.7652065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Armenian Reporter",
+        "City": "Burbank",
+        "State": "California",
+        "Date in ": 1967,
+        "Date": 2014,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "CS Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.30896610000002,
+          34.1808392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Beverly Hills Post",
+        "City": "Beverly Hills",
+        "State": "California",
+        "Date in ": 1928,
+        "Date": 1994,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Peggy and Walter Harris"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.4003563,
+          34.0736204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Daily Report",
+        "City": "Ontario",
+        "State": "California",
+        "Date in ": 1885,
+        "Date": 1990,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Partners"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.65088760000003,
+          34.0633443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Fresno Metronews",
+        "City": "Fresno",
+        "State": "California",
+        "Date in ": 1983,
+        "Date": 1998,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Press Communications INC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.78712469999999,
+          36.7377981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hemet News",
+        "City": "Hemet",
+        "State": "California",
+        "Date in ": 1894,
+        "Date": 1999,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "A.H. Belo Corporation"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.97196839999998,
+          33.7475203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hokubei Mainichi Newspaper",
+        "City": "San Francisco",
+        "State": "California",
+        "Date in ": 1948,
+        "Date": 2009,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Hokubei Mainichi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41941550000001,
+          37.7749295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Napa Sentinel",
+        "City": "Napa",
+        "State": "California",
+        "Date in ": 1980,
+        "Date": 2005,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Harry V. Martin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.28686500000003,
+          38.2975381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "New Times LA ",
+        "City": "Los Angeles",
+        "State": "California",
+        "Date in ": 1996,
+        "Date": 2002,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "New Times Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.2436849,
+          34.0522342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Nichi Bei Times",
+        "City": "San Francisco",
+        "State": "California",
+        "Date in ": 1899,
+        "Date": 2008,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Kyutaro Abiko; William Yasuo Abiko"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41941550000001,
+          37.7749295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "San Mateo Daily News",
+        "City": "San Mateo",
+        "State": "California",
+        "Date in ": 2000,
+        "Date": 2009,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Media News Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3255254,
+          37.5629917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "San Bruno Herald",
+        "City": "San Bruno",
+        "State": "California",
+        "Date in ": 1914,
+        "Date": 1998,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Media News Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41108350000002,
+          37.6304904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Sacramento Union",
+        "City": "Sacramento",
+        "State": "California",
+        "Date in ": 1851,
+        "Date": 2009,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Sacramento Union LLC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.49439960000001,
+          38.58157189999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Oxnard Press-Courier",
+        "City": "Oxnard",
+        "State": "California",
+        "Date in ": 1967,
+        "Date": 1994,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Thomson Newspapers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.17705160000003,
+          34.19750479999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "North County Times",
+        "City": "San Diego",
+        "State": "California",
+        "Date in ": 1995,
+        "Date": 2012,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "MLIM Holdings"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.16108380000003,
+          32.715738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Rocky Mountain News",
+        "City": "Denver ",
+        "State": "Colorado",
+        "Date in ": 1859,
+        "Date": 2009,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Denver Newspaper Agency"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.990251,
+          39.7392358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Boca Raton News",
+        "City": "Boca Raton",
+        "State": "Florida",
+        "Date in ": 1955,
+        "Date": 2007,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Craig Still"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.12893209999999,
+          26.3683064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Central Florida Future",
+        "City": "Orlando",
+        "State": "Florida",
+        "Date in ": 1968,
+        "Date": 2016,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Gannett"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.37923649999999,
+          28.5383355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Coral Gables Gazette",
+        "City": "Coral Gables",
+        "State": "Florida",
+        "Date in ": "",
+        "Date": 2012,
+        "Cat": "Online since 2009",
+        "Owner / Publisher when none": "Limestone Communications, Inc."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.26838379999998,
+          25.72149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Florida Jewish News",
+        "City": "Jacksonville",
+        "State": "Florida",
+        "Date in ": 2005,
+        "Date": 2007,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": "Avi Frier"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.65565099999998,
+          30.3321838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hernando Today",
+        "City": "Brooksville",
+        "State": "Florida",
+        "Date in ": "",
+        "Date": 2012,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Tampa Media Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.3878709,
+          28.5552719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Highlands Today",
+        "City": "Sebring ",
+        "State": "Florida",
+        "Date in ": "",
+        "Date": 2016,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Times Publishing Company"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.44090699999998,
+          27.495592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Miami SunPost",
+        "City": "Miami",
+        "State": "Florida",
+        "Date in ": 1985,
+        "Date": 2014,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "SunPost Weekly INC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.19179020000001,
+          25.7616798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pasco News",
+        "City": "Dade City",
+        "State": "Florida",
+        "Date in ": "",
+        "Date": 2006,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Bazzell Family"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.19591780000002,
+          28.3647248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "South Florida Blade",
+        "City": "Miami",
+        "State": "Florida",
+        "Date in ": 2000,
+        "Date": 2009,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Window Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.19179020000001,
+          25.7616798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Tampa Tribune",
+        "City": "Tampa",
+        "State": "Florida",
+        "Date in ": 1867,
+        "Date": 2016,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Tampa Media Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.45717760000002,
+          27.95057499999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Daily Sun",
+        "City": "Warner Robins",
+        "State": "Georgia",
+        "Date in ": 1969,
+        "Date": 2003,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Knight Ridder"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.62420099999997,
+          32.6130007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Daily Journal",
+        "City": "Wheaton ",
+        "State": "Illinois",
+        "Date in ": 1933,
+        "Date": 1992,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Copley Newspapers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.10701269999998,
+          41.8661403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Weekly Thursday News",
+        "City": "Mt. Pulaski",
+        "State": "Illinois",
+        "Date in ": 1997,
+        "Date": 1997,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Michael Lakin(pub)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.28231399999999,
+          40.0108767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hawaii Island Journal",
+        "City": "Hilo",
+        "State": "Hawaii",
+        "Date in ": 1999,
+        "Date": 2008,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": "Laurie Carlson"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.0868193,
+          19.7241106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Honolulu Weekly",
+        "City": "Honolulu",
+        "State": "Hawaii",
+        "Date in ": 1991,
+        "Date": 2013,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Laurie Carlson"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.85833330000003,
+          21.3069444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Honolulu Advertiser",
+        "City": "Honolulu",
+        "State": "Hawaii",
+        "Date in ": 1856,
+        "Date": 2010,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Black Press"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.85833330000003,
+          21.3069444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Star Bulletin",
+        "City": "Honolulu",
+        "State": "Hawaii",
+        "Date in ": 1912,
+        "Date": 2010,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Black Press"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.85833330000003,
+          21.3069444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Molokai Island Times",
+        "City": "Kaunakakai",
+        "State": "Hawaii",
+        "Date in ": 2004,
+        "Date": 2008,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": " Lester Keanini and Eric Wong"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.02388889999997,
+          21.09333329999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Evansville Press",
+        "City": "Evansville",
+        "State": "Indiana",
+        "Date in ": 1906,
+        "Date": 1998,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "E.W. Scripps Company"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.57108979999998,
+          37.9715592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Indianapolis News",
+        "City": "Indianapolis",
+        "State": "Indiana",
+        "Date in ": 1869,
+        "Date": 1999,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Publisher: John H. Holliday"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.15806800000001,
+          39.768403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Cincinnati Post",
+        "City": "Cincinnati",
+        "State": "Ohio",
+        "Date in ": 1881,
+        "Date": 2007,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Scripps-Howard Newspapers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.51201960000003,
+          39.1031182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Snitch Neewsweekly",
+        "City": "Louisville",
+        "State": "Kentucky",
+        "Date in ": 2005,
+        "Date": 2007,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": " Louisville Crime, LLC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.75845570000001,
+          38.25266469999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Shreveport Journal",
+        "City": "Shreveport",
+        "State": "Louisiana",
+        "Date in ": 1897,
+        "Date": 1991,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Charles T. Beaird"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.75017889999998,
+          32.5251516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Evening Express",
+        "City": "Portland ",
+        "State": "Maine",
+        "Date in ": 1882,
+        "Date": 1991,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Guy Gannett Publishing Co."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.25681889999998,
+          43.65909930000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Limelite",
+        "City": "Loring Air Force Base",
+        "State": "Maine",
+        "Date in ": 1953,
+        "Date": 1994,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "United States Air Force"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.89208719999999,
+          46.9455896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Detroit Sunday Journal",
+        "City": "Detroit",
+        "State": "Michigan",
+        "Date in ": 1995,
+        "Date": 1999,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "By Union Workers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0457538,
+          42.33142699999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Kansas City Times",
+        "City": "Kansas City",
+        "State": "Missouri",
+        "Date in ": 1867,
+        "Date": 1990,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Capital Cities / ABC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.57856670000001,
+          39.0997265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Ripsaw",
+        "City": "Duluth",
+        "State": "Minnesota",
+        "Date in ": 1999,
+        "Date": 2005,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Brad Nelson "
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.10048519999998,
+          46.78667189999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Baltimore Examiner",
+        "City": "Baltimore",
+        "State": "Maryland",
+        "Date in ": 2005,
+        "Date": 2012,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Clarity Media Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61218930000001,
+          39.2903848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Gazette",
+        "City": "Gaithersburg",
+        "State": "Maryland",
+        "Date in ": 1959,
+        "Date": 2015,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "The Washington Post"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.2013705,
+          39.1434406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "St Louis Sun",
+        "City": "St Louis",
+        "State": "Missouri",
+        "Date in ": 1989,
+        "Date": 1990,
+        "Cat": "Daily",
+        "Owner / Publisher when none": " Ingersoll Publications"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.1994042,
+          38.62700249999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Boston Courant",
+        "City": "Boston",
+        "State": "Massachusetts",
+        "Date in ": 1995,
+        "Date": 2016,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "David Jacobs, Genevieve Tracy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.05888010000001,
+          42.3600825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Editorial Humor",
+        "City": "Somerville",
+        "State": "Massachusetts",
+        "Date in ": 1989,
+        "Date": 2003,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0994968,
+          42.3875968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Armenian Reporter",
+        "City": "Paramus",
+        "State": "New Jersey",
+        "Date in ": 1967,
+        "Date": 2014,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "CS Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.07541889999999,
+          40.9445428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Gloucester County Times",
+        "City": "Woodbury",
+        "State": "New Jersey",
+        "Date in ": 1897,
+        "Date": 2012,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Advance Publications"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.15267740000002,
+          39.83816909999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hudson Dispatch",
+        "City": "Union City",
+        "State": "New Jersey",
+        "Date in ": 1874,
+        "Date": 1991,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Newhouse Newspapers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.02375119999999,
+          40.77954549999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Elizabeth Daily Journal ",
+        "City": "Chatham",
+        "State": "New Jersey",
+        "Date in ": 1779,
+        "Date": 1992,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "North Jersey Newspapers Co."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.38376240000002,
+          40.740934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Today's Sunbeam",
+        "City": "Salem",
+        "State": "New Jersey",
+        "Date in ": 1819,
+        "Date": 2012,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Advance Publications"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.46714229999998,
+          39.5717796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Albuquerque Tribune",
+        "City": "Albuquerque",
+        "State": "New Mexico",
+        "Date in ": 1922,
+        "Date": 2008,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "E.W. Scripps Company"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.65042199999999,
+          35.0843859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Christian Herald",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1878,
+        "Date": 2006,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Louis Klopsch"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Työmies-Eteenpäin",
+        "City": "Superior ",
+        "State": "Wisconsin",
+        "Date in ": 1950,
+        "Date": 1995,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "East Coast organ of Finnish-American members of Communist Party USA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.10407959999998,
+          46.7207737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Gracies Dinnertime Theatre",
+        "City": "Rochester ",
+        "State": "New York",
+        "Date in ": 1995,
+        "Date": 2005,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Indep from Rutgers Institute of Technology"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.60884650000003,
+          43.15657789999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Rochester Times-Union",
+        "City": "Rochester ",
+        "State": "New York",
+        "Date in ": 1918,
+        "Date": 1997,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Gannett"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.60884650000003,
+          43.15657789999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Syracuse Herald-Journal",
+        "City": "Syracuse",
+        "State": "New York",
+        "Date in ": 1939,
+        "Date": 2001,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Hearst Newspapers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.14742439999998,
+          43.04812210000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The City Sun",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1984,
+        "Date": 1996,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Andrew W. Cooper"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Ming Pao New York",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1990,
+        "Date": 2009,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Media Chinese International Limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Ming Pao San Francisco",
+        "City": "San Francisco",
+        "State": "California",
+        "Date in ": 1990,
+        "Date": 2009,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Media Chinese International Limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41941550000001,
+          37.7749295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "National Guardian",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1948,
+        "Date": 1992,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Editor: C. Belfrage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The National Sports Daily",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1990,
+        "Date": 1991,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Emilio Azcárraga Milmo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The New York Blade",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1997,
+        "Date": 2009,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": "HX Media, LLC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "New York Native",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1980,
+        "Date": 1997,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": "Charles Ortleb (publisher & founder)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "New York Press",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1988,
+        "Date": 2011,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Manhattan Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "New York Sports Express",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 2003,
+        "Date": 2004,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "New York Press"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Staten Island Register",
+        "City": "New York City",
+        "State": "New York",
+        "Date in ": 1966,
+        "Date": 2005,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Staten Island Media Group, LLC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059728,
+          40.7127753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Fayetteville Times",
+        "City": "Fayetteville",
+        "State": "North Carolina",
+        "Date in ": 1970,
+        "Date": 1990,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Publisher: Fayetteville Pub. Co.\r"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.87835849999999,
+          35.0526641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Bellevue Gazette",
+        "City": "Bellevue ",
+        "State": "Ohio",
+        "Date in ": 1851,
+        "Date": 2016,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Civitas Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.84157629999999,
+          41.2736647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Fairfield Echo",
+        "City": "Fairfield",
+        "State": "Ohio",
+        "Date in ": 1956,
+        "Date": 2013,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Cox Enterprises"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.56031869999998,
+          39.3454673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hamilton JournalNews",
+        "City": "Hamilton",
+        "State": "Ohio",
+        "Date in ": 1886,
+        "Date": 2013,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Cox Enterprises"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.56133549999998,
+          39.3995008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Kettering-Oakwood Times",
+        "City": "Davidson",
+        "State": "North Carolina",
+        "Date in ": 1956,
+        "Date": 2013,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Civitas Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.84868460000001,
+          35.4993031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Spectrum",
+        "City": "Toledo",
+        "State": "Ohio",
+        "Date in ": 1993,
+        "Date": 1994,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Students of University of Toledo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.53786739999998,
+          41.6528052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Tipp City Independent Voice",
+        "City": "Tipp City",
+        "State": "Ohio",
+        "Date in ": 2005,
+        "Date": 2009,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "TGM Designs"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.17216380000002,
+          39.9583892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Toledo Free Press",
+        "City": "Toledo",
+        "State": "Ohio",
+        "Date in ": 2005,
+        "Date": 2015,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Thomas F. Pound (publisher & founder)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.53786739999998,
+          41.6528052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Western Star (Ohio)",
+        "City": "Liberty Township",
+        "State": "Ohio",
+        "Date in ": 1807,
+        "Date": 2013,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Cox Enterprises"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.40676100000002,
+          39.4039859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Tulsa Tribune",
+        "City": "Tulsa",
+        "State": "Ohklahoma",
+        "Date in ": 1919,
+        "Date": 1992,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Richard Lloyd Jones, Sr., Jenkin Lloyd Jones, Richard Lloyd Jones, Jr."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.992775,
+          36.15398159999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Forest Grove Leader",
+        "City": "Forest Grove",
+        "State": "Oregon",
+        "Date in ": 2012,
+        "Date": 2017,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Advance Publications Inc."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11066310000001,
+          45.5198364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Hillsboro Argus",
+        "City": "Hillsboro",
+        "State": "Oregon",
+        "Date in ": 1894,
+        "Date": 2017,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": "Advance Publications Inc."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.98982699999999,
+          45.5228939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "PDXS",
+        "City": "Portland ",
+        "State": "Oregon",
+        "Date in ": 1990,
+        "Date": 2000,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": " Jim and Bill Redden (Founder)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.67648150000002,
+          45.52306220000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Rocket",
+        "City": "Portland ",
+        "State": "Oregon",
+        "Date in ": 1979,
+        "Date": 2000,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": "Dave Roberts"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.67648150000002,
+          45.52306220000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Sun",
+        "City": "Sheridan",
+        "State": "Oregon",
+        "Date in ": 1890,
+        "Date": 2014,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "O. D. Hamstreet "
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.39482909999998,
+          45.0992814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Lehigh Valley Exposed",
+        "City": "Easton",
+        "State": "Pennsylvania",
+        "Date in ": 2008,
+        "Date": 2008,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "The Express-Times"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.22073230000001,
+          40.688432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Valley Beat",
+        "City": "Allentown",
+        "State": "Pennsylvania",
+        "Date in ": 2015,
+        "Date": 2015,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "The Valley Beat Newspaper, Inc."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4714098,
+          40.6022939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Bulletin",
+        "City": "Philadelphia",
+        "State": "Pennsylvania",
+        "Date in ": 2004,
+        "Date": 2009,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "The Bulletin, Inc."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.16522150000003,
+          39.9525839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Philadelphia City Paper",
+        "City": "Philadelphia",
+        "State": "Pennsylvania",
+        "Date in ": 1981,
+        "Date": 2015,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Metro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.16522150000003,
+          39.9525839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pittsburgh Press",
+        "City": "Pittsburgh",
+        "State": "Pennsylvania",
+        "Date in ": 1923,
+        "Date": 1992,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "E. W. Scripps Company"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.99588640000002,
+          40.44062479999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Boston Phoenix",
+        "City": "Boston",
+        "State": "Massachusetts",
+        "Date in ": 1966,
+        "Date": 2013,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Phoenix Media/Communications Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.05888010000001,
+          42.3600825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Providence Phoenix",
+        "City": "Providence",
+        "State": "Rhode Island",
+        "Date in ": 1966,
+        "Date": 2014,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Phoenix Media/Communications Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.41283429999999,
+          41.8239891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Worcester Phoenix",
+        "City": "Worcester",
+        "State": "Massachusetts",
+        "Date in ": 1966,
+        "Date": 2013,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Phoenix Media/Communications Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.8022934,
+          42.2625932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Warwick Daily Times",
+        "City": "Warwick",
+        "State": "Rhode Island",
+        "Date in ": 2006,
+        "Date": 2007,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "RISN Operations Inc."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4161671,
+          41.7001009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Green Sheet",
+        "City": "Murray",
+        "State": "Utah",
+        "Date in ": 1891,
+        "Date": 2000,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Jeffrey B. Hatch & John N. Ward"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.88799089999998,
+          40.6668916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Blount Today",
+        "City": "Maryville",
+        "State": "Tennessee",
+        "Date in ": 2004,
+        "Date": 2011,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "E. W. Scripps Company"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.97045930000002,
+          35.7564719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Knoxville Voice",
+        "City": "Knoxville",
+        "State": "Tennessee",
+        "Date in ": 2006,
+        "Date": 2009,
+        "Cat": "Alt Bi-weekly",
+        "Owner / Publisher when none": "Knoxville Voice, LLC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.92073920000001,
+          35.9606384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Metro Pulse",
+        "City": "Knoxville",
+        "State": "Tennessee",
+        "Date in ": 1991,
+        "Date": 2014,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "E. W. Scripps Company"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.92073920000001,
+          35.9606384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Nashville Banner",
+        "City": "Nashville",
+        "State": "Tennessee",
+        "Date in ": 1876,
+        "Date": 1998,
+        "Cat": "Daily",
+        "Owner / Publisher when none": " Irby C. Simpkins, Jr.\rBrownlee O. Currey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.78160159999999,
+          36.1626638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "A.M. Journal Express",
+        "City": "Dallas",
+        "State": "Texas",
+        "Date in ": 2003,
+        "Date": 2007,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "American Consolidated Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.79698789999998,
+          32.7766642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Dallas Times Herald",
+        "City": "Dallas",
+        "State": "Texas",
+        "Date in ": 1888,
+        "Date": 1991,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Belo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.79698789999998,
+          32.7766642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Houston Post",
+        "City": "Houston",
+        "State": "Texas",
+        "Date in ": 1880,
+        "Date": 1995,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "MediaNews Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.3698028,
+          29.7604267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Broadside",
+        "City": "Fairfax",
+        "State": "Virginia",
+        "Date in ": 1963,
+        "Date": 2013,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Published by George Mason University"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.30637330000002,
+          38.84622359999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Charlottesville-Albemarle Tribune",
+        "City": "Charlotesville",
+        "State": "Virginia",
+        "Date in ": 1954,
+        "Date": 2011,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "White family"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.47667810000002,
+          38.0293059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Hook",
+        "City": "Charlotesville",
+        "State": "Virginia",
+        "Date in ": 2002,
+        "Date": 2013,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "Hawes Spencer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.47667810000002,
+          38.0293059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "News & Messenger",
+        "City": "Manassas",
+        "State": "Virginia",
+        "Date in ": 2010,
+        "Date": 2012,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Berkshire Hathaway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.47526670000002,
+          38.7509488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Northern Virginia Sun",
+        "City": "Arlington",
+        "State": "Virginia",
+        "Date in ": "1930s",
+        "Date": 1998,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Herman J. Obermayer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.1067698,
+          38.8799697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Port Folio Weekly",
+        "City": "Hampton Roads area",
+        "State": "Virginia",
+        "Date in ": 1983,
+        "Date": 2012,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Landmark Communications"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.386818,
+          36.9614181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Richmond News Leader",
+        "City": "Richmond",
+        "State": "Virginia",
+        "Date in ": 1888,
+        "Date": 1992,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Media General"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.4360481,
+          37.5407246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Spotlight",
+        "City": "Washington D.C.",
+        "State": "Washington D.C.",
+        "Date in ": 1975,
+        "Date": 2001,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Publisher: Liberty Lobby"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03687070000001,
+          38.9071923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Rocket",
+        "City": "Seattle",
+        "State": "Washington ",
+        "Date in ": 1979,
+        "Date": 2000,
+        "Cat": "Bi-Weekly",
+        "Owner / Publisher when none": "Dave Roberts"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3320708,
+          47.6062095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Spokane Daily Chronicle",
+        "City": "Spokane",
+        "State": "Washington ",
+        "Date in ": 1881,
+        "Date": 1992,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Cowles Publishing Company"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.42604649999998,
+          47.6587802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Tablet",
+        "City": "Seattle",
+        "State": "Washington ",
+        "Date in ": 2000,
+        "Date": 2005,
+        "Cat": "Alt Bi-weekly",
+        "Owner / Publisher when none": " De Kwok, Eric Hildebrandt, Dan Halligan and Sarah Sherman"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3320708,
+          47.6062095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Charleston Daily Mail",
+        "City": "Charleston",
+        "State": "West Virginia",
+        "Date in ": 1914,
+        "Date": 2015,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Daily Gazette Company"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.6326234,
+          38.3498195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Green Bay News-Chronicle",
+        "City": "Green Bay",
+        "State": "Wisconsin",
+        "Date in ": 1972,
+        "Date": 2005,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Gannett"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.01329579999998,
+          44.5133188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Oakland Tribune",
+        "City": "San José",
+        "State": "California",
+        "Date in ": 1874,
+        "Date": 2016,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Digital First Media"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.88632860000001,
+          37.3382082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "San Mateo County Times",
+        "City": "San Francisco",
+        "State": "California",
+        "Date in ": 1979,
+        "Date": 2011,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Bay Area News Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41941550000001,
+          37.7749295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "San Francisco Bay Guardian",
+        "City": "San Francisco",
+        "State": "California",
+        "Date in ": 1966,
+        "Date": 2014,
+        "Cat": "Alt-Weekly",
+        "Owner / Publisher when none": "San Francisco Newspaper Company LLC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41941550000001,
+          37.7749295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Leesburg news",
+        "City": "Leesburg",
+        "State": "Indiana",
+        "Date in ": 1939,
+        "Date": 1999,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Publisher: New Pub. Co."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.84999210000001,
+          41.3319904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Elkhart truth",
+        "City": "Elkhart",
+        "State": "Indiana",
+        "Date in ": 1906,
+        "Date": 2001,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Publisher: Truth Pub. Co."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.97666709999999,
+          41.6819935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Citizen",
+        "City": "Laconia",
+        "State": "New Hampshire",
+        "Date in ": 1926,
+        "Date": 2016,
+        "Cat": "Daily",
+        "Owner / Publisher when none": "Sample News Group"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.47035089999997,
+          43.5278546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Ameryka",
+        "City": "Philadelphia",
+        "State": "Pennsylvania",
+        "Date in ": "1900s",
+        "Date": 2017,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Providence Association of Ukrainian Catholics in America"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.16522150000003,
+          39.9525839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Cresson Gallitzin mainliner",
+        "City": "Cresson",
+        "State": "Pennsylvania",
+        "Date in ": 1975,
+        "Date": 1999,
+        "Cat": "Weekly",
+        "Owner / Publisher when none": "Publisher: Mainline Newspapers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.59168369999998,
+          40.45979379999999
+        ]
+      }
+    }
+  ]
+}
