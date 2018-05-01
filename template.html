@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mapping with D3</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="d3-tip.css">
+    <style>
+      svg { 
+        background: white;
+        display: block;
+        margin: 0 auto;
+      }
+
+      h1 { 
+        max-width:46rem;
+        margin:auto;
+        margin-bottom: 2rem; 
+      }
+
+      body {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+
+      h3 { 
+        margin-top: 3rem; 
+        margin-bottom: 1rem;
+
+      }
+
+      .bg-info{
+        max-width:46rem;
+        margin:auto;
+
+      }
+
+      img.block {
+        display: block;
+        border: solid #333 1p;
+        margin: 0 auto;
+      }
+
+      .states{
+        fill:#DDDDDD;
+        stroke:white;
+        stroke-width:0.5;
+      }
+
+      .powerplants{
+        opacity:0.4;
+      }
+
+      .circle_selected{
+        opacity:0.9;
+      }
+
+      .bg-info{
+        padding: .75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        color: #383838;
+        background-color: rgb(223, 240, 216) !important;
+        border-color: #c6d6c0 !important;
+      }
+
+      .btn { 
+        cursor: pointer; 
+      }
+
+      #btn-div{
+        margin:auto !important;
+        max-width:46rem;
+      }
+
+
+    </style>
+  </head>
+</head>
+<body>
+<div class="container">
+  <h1>D3 and maps</h1>
+
+  <p class="bg-info">All powerplants in the US, by source of energy</p>
+
+  <br>
+
+  <div id="btn-div">
+    <button id="reset-button" class="btn btn-secondary btn-sm">Reset</button>
+    <button id="hydroelectric-button" class="btn btn-secondary btn-sm">Hydroelectric</button>
+    <button id="nuclear-button" class="btn btn-secondary btn-sm">Nuclear</button>
+    <button id="wind-button" class="btn btn-secondary btn-sm">Wind</button>
+    <button id="solar-button" class="btn btn-secondary btn-sm">Solar</button>
+    <button id="naturalgas-button" class="btn btn-secondary btn-sm">Natural Gas</button>
+    <button id="coal-button" class="btn btn-secondary btn-sm">Coal</button>
+  </div>
+
+  <div id="chart"></div>
+
+  <!-- This is D3, our graphing library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+  <!-- topojson -->
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+  <!-- Now we include our actual visualization -->
+  <script src="d3-tip.js"></script>
+  <script src="template.js"></script>
+</div>
+</body>
+</html>
