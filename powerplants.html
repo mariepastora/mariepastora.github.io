@@ -1,0 +1,216 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Powerplants in the US</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700i,900i" rel="stylesheet">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="d3-tip.css">
+    <link rel="stylesheet" href="main.css">
+  </head>
+
+  <body>
+    <ul class="nav justify-content-center colored">
+      <li class="nav-item">
+        <a class="nav-link active" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="graphs.html">Graphs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="interactive-map-1.html">Interactive maps</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="static-maps.html">Static maps</a>
+      </li>
+    </ul>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-lg-12 col-md-12">
+          <h5 id="deck">
+            <span id="deck-span">Maps & Graphs<span>
+          </h5>
+        </div>
+      </div>
+      <div class="row" id="row-title">
+        <div class="col-sm-12 col-lg-12 col-md-12">
+          <h1 id="title">
+              Mapping power generation in the U.S.
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-map">
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class"row">
+      <div class="col-sm-12 line">
+        <hr id='line-intro' style="color:#A9A9A9; background-color:#A9A9A9; height:1.5px; border:none;">
+      </div>
+    </div>
+
+    <div class="row" id="row-byline">
+      <div class="col-sm-12 col-lg-12 col-md-12">
+          <h5 id="byline">
+                Totally inspired by <a href="https://www.washingtonpost.com/graphics/national/power-plants/?utm_term=.68fb86348f4f">The Washington Post</a>
+                <br>
+                May 8th 2018          
+          </h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="step" id="first-step">
+          <p>In 2001, more than half the electricity generated in the United States was coming from coal. However, the trend has changed in the past decade. Today, most of the electricity produced in the United States comes from natural gas. President Trump passed a new law last March that might bring coal back to the front stage.</p>
+        </div>
+        <div class="step" id="second-step">
+          <p>But let's dive deeper into the details of energy production in the United States, and what is produced where. Here is a graphic of the current situation. For more details on each powerplant, hover over each circle on the above map.</p>
+        </div>
+        <div class="step" id="third-step">
+          <h3>Let's start with <span style="color:#98969A">coal</span></h3>
+            <p>Last year, there were 400 powerplants producing electricity from coal. These plants generated about 30% of the electricity consumed nationwide. About 10% of the US coal production is exported.</p>
+        </div>
+        <div class="step" id="fourth-step">
+          <h3><span style="color:#F08A33">Natural gas</span> has taken off</h3>
+            <p>Natural gas has taken off in recent years, and this was made possible by advances in fracking technology. There are currently 1793 powerplants generating natural gas in the US. Together, they produce 34% of the electricity consumed in the country. Of all states, Texas is the biggest producer of natural gas - and the biggest electricity producer, all in all.</p>
+        </div>
+        <div class="step" id="fifth-step">
+          <h3><span style="color:#D04A9A">Nuclear</span> plants</h3>
+            <p>There are only 61 nuclear plants in the country, but they altogether produce 20% of the nation's electricity. If this type of powerplants is particularly absent from the western part of the country, eastern States such as Pennsylvania or New Hampshire heavily rely on nuclear energy.</p>
+        </div>
+      </div>
+      <div class="col-sm-7 graphic sticky">
+        <div id="chart"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row" style="padding-bottom:90px;margin-bottom:10px">
+      <div class="col-sm-5 col-xs-12 graphic sticky">
+        <h3><span id="oil-1">Oil</span>, <span id="wind-1">wind</span>, <span id="solar-1">solar</span> and <span id="hydro-1">hydroelectric</span> powerplants </h3>
+          <p>Altogether, these types of powerplants generate 17% of all energy produced nationwide. Powerplants generating electricity through solar - photovoltaic - technology, wind or hydroelectric energy cannot be placed anywhere in the country.
+          <br><br>
+          <span id="solar-2">Energy coming from solar panels is particularly reliable in California,</span> while <span id="wind-2">wind-powered energy is very reliable in Middle America.</span> 
+          <br><br>
+        <span id="oil-2"> Hawaii and Alaska produce the most oil in the country.</span></p>
+      </div>
+      <div class="d-none d-sm-block col-sm-7">
+        <div class="step" id="sixth-step">
+           <div id="chart-2" class="hidden-sm-down"></div>
+        </div>
+        <div class="step" id="seventh-step">
+            <div id="chart-3" class="hidden-sm-down"></div>
+        </div>
+        <div class="step" id="eigth-step">
+            <div id="chart-4" class="hidden-sm-down"></div>
+        </div>
+        <div class="step" id="ninth-step">
+            <div id="chart-5" class="hidden-sm-down"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>What energy does your State generate?</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- Buttons call function to redraw graphs - which makes it not smooth AT ALL -->
+        <button type="button" class="btn btn-outline-dark btn-sm" onclick="absolute()" >MWH generated</button>
+        <button type="button" class="btn btn-outline-dark btn-sm" onclick="percentage()" >Percentages</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" >
+        <div id = "chart-end" ></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="text-align:center">
+        <div>
+        <span class="legend-chart" style="color:#98969A">&#x25CF;</span> Coal
+        <span class="legend-chart" style="color:#EA3F33">&#x25CF;</span>  Oil
+        <span class="legend-chart" style="color:#F08A33">&#x25CF;</span>  Natural Gas
+        <span class="legend-chart" style="color:#2C7EC1">&#x25CF;</span> Hydroelectric
+        <span class="legend-chart" style="color:#D8CA44">&#x25CF;</span>  Solar
+        <span class="legend-chart" style="color:#5AB24D">&#x25CF;</span>  Wind 
+        <span class="legend-chart" style="color:#D04A9A">&#x25CF;</span>  Nuclear
+        <span class="legend-chart" style="color:#FDEFD7">&#x25CF;</span>  Others 
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+
+  </div>
+
+  <footer class="footer text-center">
+    <div class="container">
+      <span class="text-muted"><a href="https://twitter.com/mariepastora" class="footer-link">Twitter | </a><a href="https://github.com/mariepastora" class="footer-link">Github | </a><a href="https://www.instagram.com/mariepastora/" class="footer-link">Instagram | </a><a href="https://www.linkedin.com/in/mariepastora" class="footer-link">LinkedIn | </a><a href="mailto:mpp2134@columbia.edu" class="footer-link">Email  </a></span>
+    </div>
+  </footer>
+
+    <!-- This is D3, our graphing library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+    <!-- include our scrolling library -->
+    <script src='https://unpkg.com/intersection-observer'></script>
+    <script src='https://unpkg.com/scrollama'></script>
+    <script src='stickyfill.min.js'></script>
+
+    <script>
+      /* Allow position: sticky to work in old browsers */
+      var elements = document.querySelectorAll('.sticky');
+      Stickyfill.add(elements);
+
+      // instantiate the scrollama
+      var scroller = scrollama();
+
+      scroller
+        .setup({
+          // IF YOU CHANGE THIS CHANGE THE .sticky CSS
+          offset: 0.30, // how far from the top?
+          step: '.step', // class for stepping through
+          debug: false, // shows the line
+          container: 'container'
+        })
+        .onStepEnter(function(response) {
+          // trigger the stepin event
+          d3.select(response.element).dispatch('stepin')
+          d3.select(response.element).classed('active', true)
+        })
+        .onStepExit(function(response) {
+          // trigger the stepout event
+          d3.select(response.element).dispatch('stepout')
+          d3.select(response.element).classed('active', false)
+        })
+    </script>
+    <!-- Tips -->
+    <script src="d3-tip.js"></script>
+    <!-- All maps -->
+    <script src='template-1.js'></script>
+    <script src='template-2.js'></script>
+    <script src='template-3.js'></script>
+    <script src='template-4.js'></script>
+    <script src='template-5.js'></script>
+    <!-- Graphs at the end -->
+    <script src='chart-end.js'></script>
+    <script src='chart-end-second.js'></script>
+  </body>
+</html>

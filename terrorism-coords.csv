@@ -1,0 +1,15 @@
+country,killed,wounded,region,lat,lng
+Belgium,36,276.0,Europe & Russia,50.503887,4.469936
+Brazil,1,0.0,South America,-14.235004,-51.92528
+Burkina Faso,62,40.0,Africa & Middle East,12.238333,-1.561593
+Cameroon,245,324.0,Africa & Middle East,7.3697219999999986,12.354722
+France,95,470.0,Europe & Russia,46.227638,2.213749
+Georgia,1,7.0,Asia,32.1656221,-82.9000751
+Germany,27,117.0,Europe & Russia,51.165690999999995,10.451526
+Madagascar,3,91.0,Africa & Middle East,-18.766947000000002,46.869107
+Mexico,4,0.0,North & Central America,23.634501,-102.552784
+Nepal,5,15.0,Asia,28.394857000000002,84.12400799999998
+Netherlands,1,3.0,Europe & Russia,52.132633,5.2912659999999985
+Paraguay,10,2.0,South America,-23.442503,-58.44383199999999
+Peru,11,7.0,South America,-9.189967,-75.015152
+United States,68,139.0,North & Central America,37.09024,-95.712891
