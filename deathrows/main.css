@@ -231,3 +231,11 @@ a:hover{
 b{
   font-weight: 700;
 }
+
+.dot {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
