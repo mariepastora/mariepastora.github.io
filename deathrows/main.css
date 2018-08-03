@@ -34,6 +34,18 @@ img.block {
       }
 
 
+.sticky-aa{
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  height: fit-content;
+        /* IF YOU CHANGE THIS CHANGE THE JAVASCRIPT NEAR THE BOTTOM */
+  top: 0%;
+
+}
+
 
 /* Footer and navbar*/
 
@@ -49,7 +61,7 @@ img.block {
 .container{
   margin-top:60px;
   font-size:18px;
-  text-align:center;
+  text-align:left;
 
 }
 
@@ -238,4 +250,3 @@ b{
   border-radius: 50%;
   display: inline-block;
 }
-
