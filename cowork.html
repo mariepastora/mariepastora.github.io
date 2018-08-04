@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+<head>
+	<title>3. Bubbles</title>
+	<style>
+#map{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: height 0.5s ease-in-out;
+}
+        .title {
+            padding: 6px 8px;
+            font: 16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .legend {
+            line-height: 20px;
+            color: #555;
+        }
+        .legend i {
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+	</style>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <!-- Omnivore plugin -->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+    <!-- Marker Cluster -->
+     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.4/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.4/dist/MarkerCluster.css">
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.4/dist/leaflet.markercluster.js"></script>
+    <!-- Custom Markers -->
+    <link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
+    <script src="js/leaflet.extra-markers.min.js"></script>
+</head>
+
+<body>
+	<div id="map"></div>
+    <script>
+
+
+        var map = L.map('map').setView([37.8, -96], 3)
+       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+}).addTo(map)
+
+
+
+    // Reading rgb
+        function rgb(r, g, b){
+            return "rgb("+r+","+g+","+b+")"
+        }
+
+
+    // Creating custom layer
+
+        var LeafIcon = L.Icon.extend({
+            options: {
+               iconSize:     [38, 95],
+               shadowSize:   [50, 64],
+               iconAnchor:   [22, 94],
+               shadowAnchor: [4, 62],
+               popupAnchor:  [-3, -76]
+            }
+        });
+
+
+      var redMarker = L.ExtraMarkers.icon({
+        icon: 'fa-coffee',
+        markerColor: 'orange',
+        shape: 'star',
+        prefix: 'fa',
+        iconColor: '#ffffff'
+      });
+
+
+       var myFeatures = L.geoJSON(null, {
+            pointToLayer: function (feature, latlng) {
+            
+            return L.marker(latlng, {icon:redMarker
+            })
+            }
+        }).bindPopup(function (layer) {
+            return layer.feature.properties.NAME.bold() + "<br>" +layer.feature.properties.ADDRESS+ ", " + layer.feature.properties.CITY + "<br>" + '<a target= "_blank" href="' + layer.feature.properties.WEBSITE + '">Website</a>'
+        })
+
+
+    // Adding title 
+        var title = L.control()
+
+        title.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'title')
+            this._div.innerHTML = 'All the Black owned co-working spaces'
+            return this._div
+        }
+        title.addTo(map)
+
+
+    var powerplants = omnivore.geojson("cowork.geojson", null, myFeatures).addTo(map)
+
+ setTimeout(function(){ map.invalidateSize()}, 400);
+
+
+
+L.Draggable = L.Class.extend({
+    includes: L.Mixin.Events,
+
+    statics: {
+        START: L.Browser.touch ? ['touchstart', 'mousedown'] : ['mousedown'],
+        END: {
+            mousedown: 'mouseup',
+            touchstart: 'touchend',
+            MSPointerDown: 'touchend'
+        },
+        MOVE: {
+            mousedown: 'mousemove',
+            touchstart: 'touchmove',
+            MSPointerDown: 'touchmove'
+        },
+        TAP_TOLERANCE: 15
+    },
+
+    initialize: function (element, dragStartTarget, longPress) {
+        this._element = element;
+        this._dragStartTarget = dragStartTarget || element;
+        this._longPress = longPress && !L.Browser.msTouch;
+    },
+
+    enable: function () {
+        if (this._enabled) { return; }
+
+        for (var i = L.Draggable.START.length - 1; i >= 0; i--) {
+            L.DomEvent.on(this._dragStartTarget, L.Draggable.START[i], this._onDown, this);
+        }
+
+        this._enabled = true;
+    },
+
+    disable: function () {
+        if (!this._enabled) { return; }
+
+        for (var i = L.Draggable.START.length - 1; i >= 0; i--) {
+            L.DomEvent.off(this._dragStartTarget, L.Draggable.START[i], this._onDown, this);
+        }
+
+        this._enabled = false;
+        this._moved = false;
+    },
+
+    _onDown: function (e) {
+        if (e.shiftKey || ((e.which !== 1) && (e.button !== 1) && !e.touches)) { return; }
+
+        L.DomEvent
+            .preventDefault(e)
+            .stopPropagation(e);
+
+        if (L.Draggable._disabled) { return; }
+
+        this._simulateClick = true;
+
+        var touchesNum = (e.touches && e.touches.length) || 0;
+
+        // don't simulate click or track longpress if more than 1 touch
+        if (touchesNum > 1) {
+            this._simulateClick = false;
+            clearTimeout(this._longPressTimeout);
+            return;
+        }
+
+        var first = touchesNum === 1 ? e.touches[0] : e,
+            el = first.target;
+
+        // if touching a link, highlight it
+        if (L.Browser.touch && el.tagName.toLowerCase() === 'a') {
+            L.DomUtil.addClass(el, 'leaflet-active');
+        }
+
+        this._moved = false;
+
+        if (this._moving) { return; }
+
+        this._startPoint = new L.Point(first.clientX, first.clientY);
+        this._startPos = this._newPos = L.DomUtil.getPosition(this._element);
+
+        // touch contextmenu event emulation
+        if (touchesNum === 1 && L.Browser.touch && this._longPress) {
+
+            this._longPressTimeout = setTimeout(L.bind(function () {
+                var dist = (this._newPos && this._newPos.distanceTo(this._startPos)) || 0;
+
+                if (dist < L.Draggable.TAP_TOLERANCE) {
+                    this._simulateClick = false;
+                    this._onUp();
+                    this._simulateEvent('contextmenu', first);
+                }
+            }, this), 1000);
+        }
+
+        L.DomEvent
+            .on(document, L.Draggable.MOVE[e.type], this._onMove, this)
+            .on(document, L.Draggable.END[e.type], this._onUp, this);
+    },
+
+    _onMove: function (e) {
+        if (e.touches && e.touches.length > 1) { return; }
+
+        var first = (e.touches && e.touches.length === 1 ? e.touches[0] : e),
+            newPoint = new L.Point(first.clientX, first.clientY),
+            offset = newPoint.subtract(this._startPoint);
+
+        if (!offset.x && !offset.y) { return; }
+
+        L.DomEvent.preventDefault(e);
+
+        if (!this._moved) {
+            this.fire('dragstart');
+
+            this._moved = true;
+            this._startPos = L.DomUtil.getPosition(this._element).subtract(offset);
+
+            if (!L.Browser.touch) {
+                L.DomUtil.disableTextSelection();
+                L.DomUtil.addClass(document.body, 'leaflet-dragging');
+            }
+        }
+
+        this._newPos = this._startPos.add(offset);
+        this._moving = true;
+
+        L.Util.cancelAnimFrame(this._animRequest);
+        this._animRequest = L.Util.requestAnimFrame(this._updatePosition, this, true, this._dragStartTarget);
+    },
+
+    _updatePosition: function () {
+        this.fire('predrag');
+        L.DomUtil.setPosition(this._element, this._newPos);
+        this.fire('drag');
+    },
+
+    _onUp: function (e) {
+        var first, el, dist, simulateClickTouch, i;
+
+        clearTimeout(this._longPressTimeout);
+
+        if (this._simulateClick && e.changedTouches) {
+
+            dist = (this._newPos && this._newPos.distanceTo(this._startPos)) || 0;
+            first = e.changedTouches[0];
+            el = first.target;
+
+            if (el.tagName.toLowerCase() === 'a') {
+                L.DomUtil.removeClass(el, 'leaflet-active');
+            }
+
+            // simulate click if the touch didn't move too much
+            if (dist < L.Draggable.TAP_TOLERANCE) {
+                simulateClickTouch = true;
+            }
+        }
+
+        if (!L.Browser.touch) {
+            L.DomUtil.enableTextSelection();
+            L.DomUtil.removeClass(document.body, 'leaflet-dragging');
+        }
+
+        for (i in L.Draggable.MOVE) {
+            L.DomEvent
+                .off(document, L.Draggable.MOVE[i], this._onMove)
+                .off(document, L.Draggable.END[i], this._onUp);
+        }
+
+        if (this._moved) {
+            // ensure drag is not fired after dragend
+            L.Util.cancelAnimFrame(this._animRequest);
+
+            this.fire('dragend');
+        }
+
+        this._moving = false;
+
+        if (simulateClickTouch) {
+            this._moved = false;
+            this._simulateEvent('click', first);
+        }
+    },
+
+    _simulateEvent: function (type, e) {
+        var simulatedEvent = document.createEvent('MouseEvents');
+
+        simulatedEvent.initMouseEvent(
+                type, true, true, window, 1,
+                e.screenX, e.screenY,
+                e.clientX, e.clientY,
+                false, false, false, false, 0, null);
+
+        e.target.dispatchEvent(simulatedEvent);
+    }
+});
+    </script>
+</body
+</html>
