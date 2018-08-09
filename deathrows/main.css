@@ -183,7 +183,7 @@ font-family:'Open Sans';
 }
 
 .label{
-  fontsize:42px;
+  font-size:15px;
 }
 
 #tooltip {
@@ -249,4 +249,42 @@ b{
   width: 17px;
   border-radius: 50%;
   display: inline-block;
+}
+
+.axisWhiteBis text{
+  fill: white;
+}  
+
+.axisWhiteBis .domain { display: none; }
+
+.axisWhiteBis .tick line {display: none;}
+
+.form-control:focus {
+  border-color: white;
+  outline: -webkit-focus-ring-color auto 2px;
+  box-shadow: none;
+}
+
+
+.btn:hover{
+background-color:rgba(255,105,180,0.4) !important;
+color:green;
+}
+
+.btn:focus {
+  border-color: white;
+  outline: -webkit-focus-ring-color auto 2px;
+  box-shadow: none;
+}
+
+.search-form-button-sm:focus{
+border-color: white;
+  outline: none;
+  box-shadow: none;
+}
+
+.search-form-button:focus{
+border-color: white;
+  outline: none;
+  box-shadow: none;
 }
