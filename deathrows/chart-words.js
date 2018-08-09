@@ -11,8 +11,37 @@
   var svg = d3.select("#chart-words").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .call(responsivefy)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+// make svg responsive
+  function responsivefy(svg) {
+      // get container + svg aspect ratio
+      var container = d3.select(svg.node().parentNode),
+          width = parseInt(svg.style("width")),
+          height = parseInt(svg.style("height")),
+          aspect = width / height;
+
+      // add viewBox and preserveAspectRatio properties,
+      // and call resize so that svg resizes on inital page load
+      svg.attr("viewBox", "0 0 " + width  + " " + height)
+          .attr("preserveAspectRatio", "xMinYMid")
+          .call(resize);
+
+      // to register multiple listeners for same event type,
+      // you need to add namespace, i.e., 'click.foo'
+      // necessary if you call invoke this function for multiple svgs
+      // api docs: https://github.com/mbostock/d3/wiki/Selections#on
+      d3.select(window).on("resize." + container.attr("id"), resize);
+
+      // get width of container and resize svg to fit it
+      function resize() {
+          var targetWidth = parseInt(container.style("width"));
+          svg.attr("width", targetWidth);
+          svg.attr("height", Math.round(targetWidth / aspect));
+      }
+    }
 
   var tip = d3.tip()
     .attr('class', 'd3-tip')
@@ -88,8 +117,9 @@
     // Always cut and paste the code for the axes, too!
         var yAxis = d3.axisLeft(yPositionScale);
     svg.append("g")
-      .attr("class", "axis y-axis axisWhite")
-      .call(yAxis);
+      .attr("class", "axis y-axis axisWhiteBis")
+
+      .call(yAxis).tick;
 
     var xAxis = d3.axisBottom(xPositionScale)
     svg.append("g")
@@ -98,6 +128,8 @@
       .call(xAxis);
 
     svg.selectAll(".x-axis").remove()
+
+
 
 
   }

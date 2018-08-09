@@ -102,6 +102,8 @@
           <div class="col-sm-12 line">
             <hr id='line-intro' style="color:white; background-color:white; height:1px; border:none; width:200px">
           </div>
+
+
         <div class"row">
                 <div class="offset-md-3 col-sm-6 col-lg-6 col-md-6 text_paragraphs">
                     <p style="text-align:center; font-size:15px">
@@ -117,7 +119,7 @@
           <br>
 
         <div class="row">
-          <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="col-sm-5 col-lg-5 col-md-5">
             <div class="step" id="first-step">
                 <p>These are the 16 female inmates that have been executed since 1976. Half of them left a last statement, either spoken or written. </p>
             </div>
@@ -143,7 +145,7 @@
             </div>
 
           </div>
-          <div class="col-sm-8 col-md-8 col-lg-8 graphic sticky">
+          <div class="offset-md-1 col-sm-6 col-md-6 col-lg-6 graphic sticky">
             <div id="female-inmates"></div>
           </div>
       </div>
@@ -203,7 +205,7 @@
 
         <div class="row">
 
-          <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="col-sm-5 col-lg-5 col-md-5">
             <div class="step" id="seventh-step">
                 <p>Here are all the 506 African American inmates who were executed.</p>
             </div>
@@ -226,7 +228,7 @@
 
           </div>
 
-          <div class="col-sm-8 col-md-8 col-lg-8 graphic sticky-aa">
+          <div class="offset-md-1 col-sm-6 col-md-6 col-lg-6 graphic sticky-aa">
             <div id="african-american-inmates"></div>
           </div>
 
@@ -287,35 +289,39 @@
             </div>
         </div>
 
-       <br>
-        <br>
 
-        <div class"row">
+          <br>
+          <br>
+          <br>
+          
           <div class="col-sm-12 line">
             <hr id='line-intro' style="color:white; background-color:white; height:1px; border:none; width:200px">
           </div>
-        </div>
-
-        <br>
 
         <div class"row">
                 <div class="offset-md-3 col-sm-6 col-lg-6 col-md-6 text_paragraphs">
-                    <p>Now, see it for yourself. </p>
+                    <p style="text-align:center;font-family:Roboto Slab">Now see it for yourself </p>
                 </div>
         </div>
 
-
         <div class='row'>
-            <div class= 'col-12 col-md-12' style="text-align:center">
-                <input class="form-control" type="text" name="year" placeholder=" Enter a word" style="width:215px; align:center; margin-left:40%; text-align:center">
+            <div class= "offset-md-4 col-sm-5 col-lg-5 col-md-5 text-paragraphs">
+                <form class="form-inline md-form mr-auto mb-4">
+                    <input class="form-control mr-sm-3 search-form-input" type="text" placeholder="Search" aria-label="Search" style="width:50%;background-color:transparent; color:white;border-top:0; border-right:0;  border-left:0; border-radius:0;">
+                    <button class="btn aqua-gradient border search-form-button" style="background-color:transparent;color:white;border-radius:0;font-weight:normal;padding-left:20px;padding-right:20px" type="button" onclick="displayInfo()" >Search</button>
+                </form>
             </div>
         </div>
 
-        <div class="row">
-            <div class= 'col-12 col-md-12' style="text-align:center">
-                <input class="btn btn-light" type='button' value='Find out' onclick='displayInfo();'>
-            </div>
+        <div class"row">
+                <div class="offset-md-3 col-sm-6 col-lg-6 col-md-6">
+                    <p style="text-align:center;font-size:15px;line-height:3">Or try it with either 
+                        <button id='death' class="btn aqua-gradient border search-form-button-sm" style="background-color:rgba(255,255,255,0.8);color:black;border-radius:10px;font-size:15px;font-weight:normal;padding-top:3px;padding-bottom:3px" type="button" onclick="displaySpec()" >death</button> 
 
+                        <button id="friends" class="btn aqua-gradient border search-form-button-sm" style="background-color:rgba(255,255,255,0.8);color:black;border-radius:10px;font-weight:normal;padding-top:3px;padding-bottom:3px;font-size:15px" type="button" onclick="displaySpec()" >friends</button> or
+
+                        <button class="btn aqua-gradient border search-form-button-sm" style="background-color:rgba(255,255,255,0.8);color:black;border-radius:10px;font-size:15px;font-weight:normal;padding-top:3px;padding-bottom:3px" type="button" onclick="displaySpec()" id="daughter" >daughter</button> </p>
+                </div>
         </div>
 
         <br>
@@ -323,11 +329,11 @@
 
 
         <div class='row'>
-          <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="col-sm-5 col-lg-5 col-md-5">
                 <p id="info-person"></p>
             </div>
 
-            <div class= 'col-md-8 col-lg-8 col-sm-8'>
+            <div class= 'offset-md-1 col-md-6 col-lg-6 col-sm-6'>
                     <p style="text-align:left; font-size:15px; margin-left:48px">
                         <span class="dot" style="background-color:#A5A447"> </span> White  
                         <span class="dot" style="background-color:#E9B230"> </span> Black
@@ -407,6 +413,7 @@
     <script src='african-american.js'></script>
     <script src='race-issues.js'></script>
     <script src='final-search.js'></script>
+    <script src='spec.js'></script>
 
 </body>
 

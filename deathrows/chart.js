@@ -11,8 +11,38 @@
   var svg = d3.select("#chart-executions").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .call(responsivefy)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+
+// make svg responsive
+  function responsivefy(svg) {
+      // get container + svg aspect ratio
+      var container = d3.select(svg.node().parentNode),
+          width = parseInt(svg.style("width")),
+          height = parseInt(svg.style("height")),
+          aspect = width / height;
+
+      // add viewBox and preserveAspectRatio properties,
+      // and call resize so that svg resizes on inital page load
+      svg.attr("viewBox", "0 0 " + width  + " " + height)
+          .attr("preserveAspectRatio", "xMinYMid")
+          .call(resize);
+
+      // to register multiple listeners for same event type,
+      // you need to add namespace, i.e., 'click.foo'
+      // necessary if you call invoke this function for multiple svgs
+      // api docs: https://github.com/mbostock/d3/wiki/Selections#on
+      d3.select(window).on("resize." + container.attr("id"), resize);
+
+      // get width of container and resize svg to fit it
+      function resize() {
+          var targetWidth = parseInt(container.style("width"));
+          svg.attr("width", targetWidth);
+          svg.attr("height", Math.round(targetWidth / aspect));
+      }
+    }
 
   // Creating scales
   var xPositionScale = d3.scaleBand().rangeRound([0, width]).padding(0.1)
@@ -97,7 +127,6 @@
 
     // Always cut and paste the code for the axes, too!
         var yAxis = d3.axisLeft(yPositionScale)
-
     svg.append("g")
       .attr("class", "axis y-axis axisWhite")
           .transition()
@@ -105,14 +134,21 @@
         .duration(1000)
       .call(yAxis)
 
+
+
+
     var xAxis = d3.axisBottom(xPositionScale)
     svg.append("g")
-      .attr("class", "axis x-axis")
+      .attr("class", "axis x-axis axisWhite")      
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
 
-    svg.selectAll(".x-axis").remove()
 
+    xTickValues = [1977, 1987, 1997, 2007, 2017]
+    d3.select(".x-axis")
+        .transition()
+        .delay(1500)
+        .duration(1300)
+        .call(xAxis.tickValues(xTickValues))
 
   }
 
