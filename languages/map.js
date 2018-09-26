@@ -19,6 +19,9 @@
      .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
+  d3.queue()
+    .defer(d3.json, "geo_with_ldi.json")
+    .await(ready)
 
 // make svg responsive
   function responsivefy(svg_map) {
@@ -68,11 +71,15 @@
 
 
 
+function ready(error, data) {
 
-d3.json('geo_with_ldi.json', function(error, data) {
+	    if(error) {
+      console.log("Had an error, exiting")
+      return
+    }
 	 	
 	 	var tracts = topojson.feature(data, data.objects.geo_with_ldi).features
-
+	 	console.log(data)
 
 
     svg_map.selectAll(".tracts")
@@ -125,7 +132,7 @@ svg_map.append("g")
   .attr("transform", "translate(490,460)");
 
 var legendLinear = d3.legendColor()
-  .shapeWidth(8)
+  .shapeWidth(9)
   .cells(10)
   .labels([0,'','','','',0.5,'','','',1])
   .orient('horizontal')
@@ -137,6 +144,14 @@ svg_map.select(".legendLinear")
   .call(legendLinear)
   .attr('font-size', 9)
   .attr('fill', '#2E2E2E')
-          
 
-});
+svg_map.append('g')
+  .attr('class', 'textlegend')
+  .attr("transform", "translate(490,450)");
+
+svg_map.select(".textlegend")
+  .append('text')
+  .style("font-size", 10) 
+  .text("LDI scale");
+
+};

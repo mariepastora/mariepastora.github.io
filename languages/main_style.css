@@ -13,8 +13,8 @@
         padding-top:2em;
         padding-right:15px;
         padding-left:15px;
-        background-color:rgba(245,245,220,1);
-        border-color:dimgray;
+        background-color:rgba(255,255,252,1);
+        border-color:gray;
         border-width: 1.5px;
         border-style: solid;
         line-height:22px;
@@ -27,8 +27,8 @@
         padding-top:2em;
         padding-right:15px;
         padding-left:15px;
-        background-color:rgba(245,245,220,1);
-        border-color:dimgray;
+        background-color:rgba(255,255,252,1);
+        border-color:silver;
         border-width: 1px;
         border-style: solid;
         text-align:justify;

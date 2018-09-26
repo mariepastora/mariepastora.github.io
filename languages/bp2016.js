@@ -764,7 +764,7 @@ yiddish:['עס',
     let percentage = data[1]
     let words = loremIpsum.getAllParagraphs(
       language,
-      percentage * num_paragraph_to_generate
+      percentage * 1.6
     )
     var span =
       "<span style='background-color:" +

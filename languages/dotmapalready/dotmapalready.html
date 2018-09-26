@@ -77,7 +77,7 @@ d3.json( "geojson_good.json", function(error, blocks){
 
 		// creating variables for 38 languages,
 		// it's hell.
-
+		var sp = features[i].properties.all_simplified_spanish_spanish_creole
 		var fc = features[i].properties.all_simplified_french_creole ;	// one dot = 5 people
 		var it = features[i].properties.all_simplified_italian 
 		var fr = features[i].properties.all_simplified_french 
@@ -127,7 +127,7 @@ d3.json( "geojson_good.json", function(error, blocks){
 			hits = 0,
 			count = 0,
 			// If the limit isn't set this way then it will do weird things (like, weirder than setting the limit this way)
-			limit = yi*20 + fr*10 + it*10 + fc*10 + po*10 + ge*10 + sc*10 + gr*10 + pl*10 + se+10 + pe*10 + gu*10 + hi*10 + ur*10 + ch*10 + ja*10 + ko*10 + hmc*10 + hm*10 + th*10 + la*10 + vi*10 + oa*10 + ta*10 + op*10 + on*10 + na*10 + hu*10 + ar*10 + he*10 + af*10 + ou*10 + ow*10 + os*10 + oh*10 + oi*10 + ab*10 + ru*10,  	// limit tests just in case of infinite loops
+			limit = sp*20 + yi*20 + fr*10 + it*10 + fc*10 + po*10 + ge*10 + sc*10 + gr*10 + pl*10 + se+10 + pe*10 + gu*10 + hi*10 + ur*10 + ch*10 + ja*10 + ko*10 + hmc*10 + hm*10 + th*10 + la*10 + vi*10 + oa*10 + ta*10 + op*10 + on*10 + na*10 + hu*10 + ar*10 + he*10 + af*10 + ou*10 + ow*10 + os*10 + oh*10 + oi*10 + ab*10 + ru*10,  	// limit tests just in case of infinite loops
 			x,
 			y,
 			r = parseInt(i / 256),
@@ -142,7 +142,17 @@ d3.json( "geojson_good.json", function(error, blocks){
 
 		// test random points within feature bounding box
 		
+		while( hits < sp-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
 
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,244, 176, 103);	// Salmon color
+				hits++;
+			}
+			count ++;
+		}
 
 		// FRENCH CREOLE
 

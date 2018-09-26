@@ -17,14 +17,14 @@ d3.select("#g-en_sp_all-Plan_de_travail").style("opacity", 0)
         console.log("I was stepped into!")
 
       	d3.select("#g-en_sp_all-Plan_de_travail")
-				.attr("src", "en_sp_all-Plan_de_travail_2.jpg")
+				.attr("src", "alllang-Plan_de_travail_7.jpg")
 
       })
 
     d3.select("#third-step")
       .on('stepin', function(){
 		d3.select("#g-en_sp_all-Plan_de_travail")
-						.attr("src", "en_sp_all-Plan_de_travail_3.jpg")
+						.attr("src", "alllang-Plan_de_travail_6.jpg")
         console.log("I was stepped into!")
       })
 

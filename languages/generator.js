@@ -502,7 +502,7 @@ percentages.forEach(function (data) {
   console.log(size_font)
   let language = data[0]
   let percentage = data[1]
-  let words = loremIpsum.getAllParagraphs(language, percentage*num_paragraph_to_generate)
+  let words = loremIpsum.getAllParagraphs(language, percentage*1.5)
   var span = "<span style='background-color:" +colors[language]+";font-size:"+size_font+ "px' id='"+ language + "_boroughPark'>" + words + "</span>"
   element.innerHTML = element.innerHTML + span
   element.addEventListener("mouseover", function(){
