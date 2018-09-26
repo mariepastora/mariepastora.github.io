@@ -1,0 +1,20 @@
+[
+    [
+      {"area": "Chinese", "value": 629},
+      {"area": "Russian", "value": 572},
+      {"area": "Spanish", "value": 299},
+      {"area": "Hindi", "value": 311},
+      {"area": "English ", "value": 531},
+
+      {"area": "Gujarati", "value": 164},
+      
+  
+      {"area": "French creole ", "value": 235},
+      
+      {"area": "Urdu", "value": 142},
+      {"area": "Other Hindic", "value": 125},
+      {"area": "Other Asian", "value": 91},
+      {"area": "Hebrew", "value": 44},
+      {"area": "Tagalog", "value": 36}
+  	]
+  ]

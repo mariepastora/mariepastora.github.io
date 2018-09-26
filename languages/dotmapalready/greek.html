@@ -1,0 +1,697 @@
+<html>
+<head>
+	<title>Dot density map</title>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+
+</head>
+<body>
+
+<script>
+
+var width = 1600,
+	height = 1530;
+
+// invisible map of polygons
+var polyCanvas = d3.select("body")
+	.append("canvas")
+	.attr("width",width)
+	.attr("height",height)
+	.style("display","none");
+
+// using this div to crop the map; it has messy edges
+var container = d3.select("body")
+	.append("div")
+	.style({
+		"position": "relative",
+		"width": (width) + "px",
+		"height": (height) + "px",
+		"overflow": "hidden"
+	});
+
+// canvas for dot map
+var dotCanvas = container
+	.append("canvas")
+	.attr("width",width)
+	.attr("height",height)
+	.style({
+		"position": "absolute",
+		"top": "-100px",
+		"left": "-100px"
+	});
+
+// projection
+var projection = d3.geo.mercator()
+  .scale(150000)
+  .translate([width / 2, height / 2])
+  .center([-74.0060, 40.7128]);
+
+// creating path and context for both canvases
+var path = d3.geo.path().projection(projection);
+
+var polyContext = polyCanvas.node().getContext("2d"),
+	dotContext = dotCanvas.node().getContext("2d")
+
+var features
+
+// reading topojson
+d3.json( "geojson_good.json", function(error, blocks){
+	features = topojson.feature(blocks, blocks.objects.geojson_good).features;
+
+	// draw the polygons with a unique color for each
+	var i=features.length;
+
+	while(i--){
+		var r = parseInt(i / 256),
+			g = i % 256;
+		drawPolygon( features[i], polyContext, "rgb(" + r + "," + g + ",0)" );
+	};
+
+	// pixel data for the whole polygon map. we'll use color for point-in-polygon tests.
+	var imageData = polyContext.getImageData(0,0,width,height);
+
+	// now draw dots
+	i=features.length;
+	while(i--){
+
+		// creating variables for 38 languages,
+		// it's hell.
+
+		var fc = features[i].properties.all_simplified_french_creole ;	// one dot = 5 people
+		var it = features[i].properties.all_simplified_italian 
+		var fr = features[i].properties.all_simplified_french 
+		var yi = features[i].properties.all_simplified_yiddish
+		var po = features[i].properties.all_simplified_portuguese
+		var pl = features[i].properties.all_simplified_polish
+		var ge = features[i].properties.all_simplified_german
+		var sc = features[i].properties.all_simplified_scandinavian_langs
+		var gr = features[i].properties.all_simplified_greek
+		var se = features[i].properties.all_simplified_serbo_croation // ik it's spelled croatian 
+		var pe = features[i].properties.all_simplified_persian
+		var gu = features[i].properties.all_simplified_gujarati
+		var hi = features[i].properties.all_simplified_hindi
+		var ur = features[i].properties.all_simplified_urdu
+		var ch = features[i].properties.all_simplified_chinese
+		var ja = features[i].properties.all_simplified_japanese
+		var ko = features[i].properties.all_simplified_korean	
+		var hmc = features[i].properties.all_simplified_mon_khmer_cambodian
+		var hm = features[i].properties.all_simplified_hmong
+		var th = features[i].properties.all_simplified_thai
+		var la = features[i].properties.all_simplified_laotian
+		var vi = features[i].properties.all_simplified_vietnamese
+		var oa = features[i].properties.all_simplified_other_asian
+		var ta = features[i].properties.all_simplified_tagalog
+		var op = features[i].properties.all_simplified_other_pacific_island
+		var on = features[i].properties.all_simplified_other_native_na
+		var na = features[i].properties.all_simplified_navajo
+		var hu = features[i].properties.all_simplified_hungarian
+		var ar = features[i].properties.all_simplified_armenian
+		var he = features[i].properties.all_simplified_hebrew
+		var af = features[i].properties.all_simplified_african_lang
+		var ou = features[i].properties.all_simplified_others_unspec
+		var ow = features[i].properties.all_simplified_other_west_german
+		var os = features[i].properties.all_simplified_other_slavic
+		var oh = features[i].properties.all_simplified_other_hindic
+		var oi = features[i].properties.all_simplified_other_indo_european
+
+		if ( !features) continue;
+
+		var bounds = path.bounds(features[i]),
+			x0 = bounds[0][0],
+			y0 = bounds[0][1],
+			w = bounds[1][0] - x0,
+			h = bounds[1][1] - y0,
+			hits = 0,
+			count = 0,
+			// If the limit isn't set this way then it will do weird things (like, weirder than setting the limit this way)
+			limit = yi*20 + fr*10 + it*10 + fc*10 + po*10 + ge*10 + sc*10 + gr*10 + pl*10 + se+10 + pe*10 + gu*10 + hi*10 + ur*10 + ch*10 + ja*10 + ko*10 + hmc*10 + hm*10 + th*10 + la*10 + vi*10 + oa*10 + ta*10 + op*10 + on*10 + na*10 + hu*10 + ar*10 + he*10 + af*10 + ou*10 + ow*10 + os*10 + oh*10 + oi*10,  	// limit tests just in case of infinite loops
+			x,
+			y,
+			r = parseInt(i / 256),
+			g = i % 256;
+
+		// Here comes the copy pasting of the same function 36 times which is stupid I know there MUST be a better way
+		// But I freaked out.
+
+
+
+		// SPANISH SPANISH CREOLE
+
+		// test random points within feature bounding box
+		
+
+
+		// FRENCH CREOLE
+
+		// test random points within feature bounding box
+		while( hits < fc-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// frank green 
+				hits++;
+			}
+			count ++;
+		}
+
+		// ITALIAN
+
+				while( hits < it-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// # bright blue
+				hits++;
+			}
+			count ++;
+		}
+
+
+		// FRENCH
+
+				while( hits < fr-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #red
+				hits++;
+			}
+			count ++;
+		}
+
+
+
+		// YIDDISH
+
+				while( hits < yi-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #turquoise
+				hits++;
+			}
+			count ++;
+		}
+
+
+		// POLISH 
+
+				while( hits < pl-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #light purple
+				hits++;
+			}
+			count ++;
+		}
+
+
+		// PORTUGUESE
+
+				while( hits < po-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #bordeaux
+				hits++;
+			}
+			count ++;
+		}
+
+		//GERMAN
+
+				while( hits < ge-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #yellow beige
+				hits++;
+			}
+			count ++;
+		}
+
+		// SCANDINAVIAN LANG
+
+				while( hits < sc-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #dark green
+				hits++;
+			}
+			count ++;
+		}
+
+
+		//GREEK 
+
+				while( hits < gr-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,8,25,103);	// # dark blue
+				hits++;
+			}
+			count ++;
+		}
+
+
+		// SERBO CROATIAN
+
+				while( hits < se-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #grey blue
+				hits++;
+			}
+			count ++;
+		}
+
+		// PERSIAN
+
+				while( hits < pe-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #IVORYYYY
+				hits++;
+			}
+			count ++;
+		}
+
+		// GUJARATI
+
+				while( hits < gu-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #brown
+				hits++;
+			}
+			count ++;
+		}
+
+		// HINDI
+
+				while( hits < hi-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #vert pomme
+				hits++;
+			}
+			count ++;
+		}
+
+		// URDU
+
+				while( hits < ur-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #bleu je sais pas genre un peu clair mais pas trop
+				hits++;
+			}
+			count ++;
+		}
+
+		// CHINESE
+
+				while( hits < ch-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #yellow green-ish
+				hits++;
+			}
+			count ++;
+		}
+
+		// JAPANESE
+
+				while( hits < ja-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #salmon
+				hits++;
+			}
+			count ++;
+		}
+
+		// KOREAN
+
+				while( hits < ko-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #kaki
+				hits++;
+			}
+			count ++;
+		}
+
+		//MON KMER CAMB
+
+				while( hits < hmc-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #mean girls pink
+				hits++;
+			}
+			count ++;
+		}
+
+		// HMONG
+
+				while( hits < hm-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #orange
+				hits++;
+			}
+			count ++;
+		}
+
+		// THAI 
+
+				while( hits < th-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #dark purple
+				hits++;
+			}
+			count ++;
+		}
+
+		// LAOTIAN 
+
+				while( hits < la-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #very purple purple
+				hits++;
+			}
+			count ++;
+		}
+
+		// VIETNAMESE
+
+				while( hits < vi-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #other green not too bright not too dark kind of between both  
+				hits++;
+			}
+			count ++;
+		}
+
+		// OTHER ASIAN
+
+				while( hits < oa-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #millenial pink
+				hits++;
+			}
+			count ++;
+		}
+
+		// TAGALOG
+
+				while( hits < ta-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #rouge hemoglobine
+				hits++;
+			}
+			count ++;
+		}
+
+		// OTHER PACIFIC ISLAND
+
+				while( hits < op-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #verre d'eau (m d r)
+				hits++;
+			}
+			count ++;
+		}
+
+		// OTHER NATIVE
+
+				while( hits < on-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #dark brown
+				hits++;
+			}
+			count ++;
+		}
+
+		// NAVAJO
+
+				while( hits < na-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #lavender
+				hits++;
+			}
+			count ++;
+		}
+
+		// HUNGARIAN
+
+				while( hits < hu-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #dark kaki
+				hits++;
+			}
+			count ++;
+		}
+
+		// HEBREW
+
+				while( hits < he-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #vert layette (?)
+				hits++;
+			}
+			count ++;
+		}
+
+		// AFRICAN LANGUAGES
+
+				while( hits < af-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #minecraft green
+				hits++;
+			}
+			count ++;
+		}
+
+		// OTHERS UNSPEC
+
+				while( hits < ou-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #dark pink
+				hits++;
+			}
+			count ++;
+		}
+
+		// ARMENIAN
+
+				while( hits < ar-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #fuschia
+				hits++;
+			}
+			count ++;
+		}
+
+
+		// OTHER WEST GERMANIC
+
+				while( hits < ow-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #bleu cambouis
+				hits++;
+			}
+			count ++;
+		}
+
+		// OTHER SLAVIC
+
+				while( hits < os-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #rose poudré
+				hits++;
+			}
+			count ++;
+		}
+
+		// OTHER HIND
+
+				while( hits < oh-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #dark blue green 
+				hits++;
+			}
+			count ++;
+		}
+
+		// OTHER INDO EUROPEAN
+
+				while( hits < oi-1 && count < limit){	// we're done when we either have enough dots or have tried too many times
+			x = parseInt(x0 + Math.random()*w);
+			y = parseInt(y0 + Math.random()*h);
+
+			// use pixel color to determine if point is within polygon. draw the dot if so.
+			if ( testPixelColor(imageData,x,y,width,r,g) ){
+				drawPixel(x,y,169,169,169);	// #idk what pink. Basic pink.
+				hits++;
+			}
+			count ++;
+		}
+	}
+});
+
+// testing pixel
+
+function testPixelColor(imageData,x,y,w,r,g){
+	var index = (x + y * w) * 4;
+	return imageData.data[index + 0] == r && imageData.data[index + 1] == g;
+}
+
+// drawing invisible polygon
+
+function drawPolygon( feature, context, fill ){
+	var coordinates = feature.geometry.coordinates;
+	context.fillStyle = fill || "#000";
+	context.beginPath();
+	coordinates.forEach( function(ring){
+		ring.forEach( function(coord, i){
+			var projected = projection( coord );
+			if (i == 0) {
+                context.moveTo(projected[0], projected[1]);
+            } else {
+                context.lineTo(projected[0], projected[1]);
+            }
+		});
+	});
+	context.closePath();
+	context.fill();
+}
+
+// there are faster (or prettier) ways to draw lots of dots, but this works
+function drawPixel (x, y, r, g, b) {
+	dotContext.fillStyle = "rgba("+r+","+g+","+b+")";
+	dotContext.fillRect( x, y, 1, 1 );
+}
+
+
+</script>
+
+</body>
+</html>

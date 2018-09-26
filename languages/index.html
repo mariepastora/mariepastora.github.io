@@ -1,0 +1,526 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Languages of NYC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i|Special+Elite" rel="stylesheet">
+    <script src="radar.js"></script>
+    <script src="radar2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="main_style.css">
+    <link rel="stylesheet" href="d3-tip.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
+
+<style type='text/css' media='screen,print'>
+    #g-en_sp_all-box .g-artboard {
+        margin:0 auto;
+    }
+    #g-en_sp_all-box .g-artboard p {
+        margin:0;
+    }
+    .g-aiAbs {
+        position:relative;
+    }
+    .g-aiImg {
+        display:block;
+        width:100% !important;
+    }
+    .g-aiPointText p { white-space: nowrap; }
+    #g-en_sp_all-Plan_de_travail_1 {
+        position:relative;
+        overflow:hidden;
+    }
+    #g-en_sp_all-Plan_de_travail_2 {
+        position:relative;
+        overflow:hidden;
+    }
+    #g-en_sp_all-Plan_de_travail_3 {
+        position:relative;
+        overflow:hidden;
+    }
+
+    .block {
+        display: block;
+        border: solid #333 1px;
+        margin: 0 auto;
+      }
+    #text-generated{
+      text-align:justify;
+      line-height:1.4;
+      padding-bottom:20px;
+      margin-top:30px;
+    }
+
+    #text-generated span{
+       padding: 3px 7px;
+      display:inline;
+    }
+
+    #text-astoria{
+      text-align:justify;
+      line-height:1.4;
+      padding-bottom:20px;
+      margin-top:30px;
+      color:transparent;
+    }
+
+    #text-astoria span{
+       padding: 3px 7px;
+      display:inline;
+    }
+
+.dot {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-top {
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  margin-right:3px;
+  margin-left:3px;
+  display: inline-block;
+}
+
+hr { 
+    display: block;
+    margin-top:1.3em;
+    margin-bottom: 1.3em;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 0.5px !important inset !important;
+    border-color:dimgray !important;
+}
+.legend-charts{
+    font-family:'Lato';
+  font-size:14px;
+  line-height: 20px;
+  color:#202020;
+}
+
+.p-bottom{
+     font-size:13px;
+  line-height: 15px;
+  color:dimgray; 
+}
+</style>
+
+  </head>
+
+
+<body onload="boroughPark();astoria()" onresize="boroughPark();astoria()">
+
+
+       <div class="row">
+
+
+            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-6 graphic sticky" style="margin-top:-900px">
+                <div id="g-en_sp_all-box" class="ai2html">
+                    <!-- Artboard: Plan_de_travail_1 -->
+                    <div id="g-en_sp_all-Plan_de_travail_1" class="g-artboard g-artboard-v4" data-min-width='1600'>
+                        <img id="g-en_sp_all-Plan_de_travail" class="g-aiImg" src="en_sp_all-Plan_de_travail_1.jpg"/>
+                    </div>
+                </div>            
+
+            </div>
+
+            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-3 sticky" style="position:relative">
+
+                <div class="step" id="first-step">
+                    <div class="title" style='margin-top:50px'>
+                    Welcome to
+                        <div id="swapping">
+                            <p>New York</p>
+                            <p>Nueva York</p>
+                            <p>Nýja Jórvík</p>
+                            <p>纽约</p>
+                            <p>Նյու Յորք</p>
+                            <p>Nowy Jork</p>
+                            <p>ເມືອງ​ນີວ​ຢອກ</p>
+                            <p>ញូវយ៉ក</p>
+                            <p>ニューヨーク</p>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="exploration-top">
+                        <p class="p-article">With more than 8.5 million residents, New York City is one of the most diverse metropolis in the world. The 2016 American Community Survey identified the presence of more than 40 languages in the city.</p>
+                        <p class="p-article">According to the data, and without much surprise, English is the most spoken language in New York City. But let's take a closer look.</p>
+                                            </div>
+                        <br>
+                        <br>
+                            <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px">
+                                <span class="dot-top" style="background-color:rgba(146, 208, 203, 0.7)">  </span> English
+                                <span class="dot-top" style="background-color:rgba(244, 176, 103, 0.7)">  </span> Spanish  
+                               <span class="dot-top" id="dot-yiddish-bp" style="background-color:rgba(49,155,251,0.7)">  </span> Yiddish
+                                <span class="dot-top" style="background-color:rgba(209,245,35, 0.7)">  </span> Chinese 
+                                <span class="dot-top" style="background-color:rgba(27,71,85, 0.7)">  </span> Other Hindi 
+                            </p>
+
+                </div>
+
+                <div class="step" id="second-step">
+                    <div class="exploration-top">
+                    <p class="p-article">This is what happens when we strip New York City from its residents who speak English at home. Once again, no surprise: Spanish is the second-most spoken language in the city.</p>
+                    <p class="p-article">However, a few communities start to appear on the map, for example Chinese speakers, who are represented in light green, and Yiddish speakers in bright blue.</p>
+                </div>
+                    <br>
+                    <br>
+                    <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px">
+                            <span class="dot-top" style="background-color:rgba(244, 176, 103, 0.7)">  </span> Spanish  
+                           <span class="dot-top" id="dot-yiddish-bp" style="background-color:rgba(49,155,251,0.7)">  </span> Yiddish
+                            <span class="dot-top" style="background-color:rgba(209,245,35, 0.7)">  </span> Chinese 
+                            <span class="dot-top" style="background-color:rgba(27,71,85, 0.7)">  </span> Other Hindi 
+                            <span class="dot-top" style="background-color:rgba(127,242,26, 0.7)">  </span> French Creole 
+                            <span class="dot-top" style="background-color:rgba(8,25,103, 0.7)"> </span> Greek    
+                            <span class="dot-top" style="background-color:rgba(233,63,51,0.7)"> </span> French
+                            <span class="dot-top" style="background-color:rgba(237,164,253,0.7)"> </span> Polish
+                            <span class="dot-top" style="background-color:rgba(36,74,251,0.7)"> </span> Italian
+                    </p>
+                </div>
+
+                <div class="step" id="third-step">
+                    <div class="exploration-top">
+                    <p class="p-article">If we take away the layer of Spanish speakers, we are left with dozens of language communities. It's slightly dizzying, so let's start by taking a closer look at one neighborhood.</p>
+                </div>
+                    <br>
+                    <br>
+                        <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px">
+                           <span class="dot-top" id="dot-yiddish-bp" style="background-color:rgba(49,155,251,0.7)">  </span> Yiddish
+                            <span class="dot-top" style="background-color:rgba(209,245,35, 0.7)">  </span> Chinese 
+                            <span class="dot-top" style="background-color:rgba(27,71,85, 0.7)">  </span> Other Hindi 
+                            <span class="dot-top" style="background-color:rgba(127,242,26, 0.7)">  </span> French Creole 
+                            <span class="dot-top" style="background-color:rgba(8,25,103, 0.7)">  </span> Greek    
+                            <span class="dot-top" style="background-color:rgba(233,63,51,0.7)">  </span> French
+                            <span class="dot-top" style="background-color:rgba(237,164,253,0.7)">  </span> Polish
+                            <span class="dot-top" style="background-color:rgba(36,74,251,0.7)">  </span> Italian
+                            <span class="dot-top" style="background-color:rgba(242, 165, 144, 0.7)">  </span> Russian
+                            <span class="dot-top" style="background-color:rgba(3,117,251,0.7)">  </span> Urdu
+                            <span class="dot-top" style="background-color:rgba(239,145,124, 0.7)">  </span> Japanese
+                            <span class="dot-top" style="background-color:rgba(106,130,108,0.7)">  </span> Korean
+                            <span class="dot-top" style="background-color:rgba(164,41,33,0.7)">  </span> Tagalog
+                            <span class="dot-top" style="background-color:rgba(38,52,1,0.7)">  </span> Hungarian  
+                            <span class="dot-top" style="background-color:rgba(150,39,58,0.7)">  </span> Portuguese 
+                            <span class="dot-top" style="background-color:rgba(46,125,181, 0.7)">  </span> Serbo-croatian
+                             <span class="dot-top" style="background-color:rgba(234, 105, 175, 0.7)">  </span> Arabic  
+                    </p>
+                </div>
+
+                <div class="step exploration-top" id="fourth-step">
+                  <p class="p-article">As we were taking English and Spanish speakers out of the picture, the Greek community of Astoria, Queens, became more visible, so it seems like a good place to start.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row" style='margin-top:50px'>
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-6">
+                <br>
+                <p class="p-article" style="text-align:center;font-family:'Special Elite';font-size:17px">Astoria, Queens</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row" style='margin-top:50px'>
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <p class="p-article" style="text-align:left">Greek immigrants started to settle in Astoria after the end of World War II. Before that, the neighborhood used to be home to mostly Italian residents. In the 90s, Greeks accounted for about half of Astoria residents, and this number has decreased since then. The area is culturally very mixed, but only 4% of Astoria residents speak Greek at home, according to 2016 ACS data.</p>
+                <p class="p-article" style="text-align:left">The neighborhood is expectedly undergoing gentrification, and the average price per square foot <a href="https://macaulay.cuny.edu/seminars/rosenberg09/articles/t/h/e/The_Gentrification_of_Astoria_3a1c.html">jumped in 2003</a>. </p>      
+                <p class="p-article" style="text-align:left">Let's look at what language diversity looks like in Astoria, according to 2016 ACS data.</p>           
+            </div>
+        </div>
+
+
+    <div class="row" style='margin-top:40px'>
+        <div class="offset-md-4 offset-lg-4 offset-sm-3 col-sm-6 col-md-4 col-lg-4 graphic sticky"style="height:100%">
+            <div id="text-astoria" style="font-family:'Special Elite'">THIS</div>
+                    <p style="text-align:center;line-height: 1.1; font-size:13px;margin-bottom:30px">
+                        <span class="dot" style="background-color:rgba(146, 208, 203, 0.5)"> </span> English
+                        <span class="dot" style="background-color:rgba(244, 176, 103, 0.5)"> </span> Spanish  
+                        <span class="dot" style="background-color:rgba(8,25,103, 0.5)"> </span> Greek 
+                        <span class="dot" style="background-color:rgba(38,52,1,0.5)"> </span> Hungarian  
+                        <span class="dot" style="background-color:rgba(150,39,58,0.5)"> </span> Portuguese 
+                        <span class="dot" style="background-color:rgba(36, 74, 251, 0.5)"> </span> Italian 
+                        <span class="dot" style="background-color:rgba(46,125,181, 0.5)"> </span> Serbo-croatian
+                         <span class="dot" style="background-color:rgba(234, 105, 175, 0.5)"> </span> Arabic  
+                        <span class="dot" style="background-color:rgba(209,245,35, 0.5)"> </span> Chinese 
+                        <span class="dot" style="background-color:rgba(3,117,251,0.5)"> </span> Urdu
+                        <span class="dot" style="background-color:rgba(239,145,124, 0.5)"> </span> Japanese
+                        <span class="dot" style="background-color:rgba(106,130,108,0.5)"> </span> Korean
+                        <span class="dot" style="background-color:rgba(164,41,33,0.5)"> </span> Tagalog
+                        <span class="dot" style="background-color:rgba(237,164,253,0.5)"> </span> Polish
+                        <span class="dot" style="background-color:rgba(233,63,51,0.5)"> </span> French
+                        <span class="dot" style="background-color:rgba(242, 165, 144, 0.5)"> </span> Russian
+                        <span class="dot" style="background-color:rgba(134, 137, 152, 0.5)"> </span> Others / NR
+                    </p>
+        </div>
+
+        <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4" style="position:relative">
+
+                <div class="step zero" id="step-zero-astoria">
+                            <p style="text-align:center"></p>
+                </div>
+
+                <div class="step exploration" id="step-one-astoria">
+                            <p style="text-align:center">These are the many languages of Astoria, and their breakdown. </p>
+                </div>
+
+                <div class="step exploration" id="step-two-astoria">
+                            <p style="text-align:center">English and Spanish are dominating, as this can easily be seen. Many languages such as French, Tagalog or Chinese are each spoken by about 1% of Astoria residents.</p>
+                </div>
+                <div class="step exploration" id="step-three-astoria">
+                            <p style="text-align:center"> Greek is the third most spoken language, but only accounts for 4% of the total population of the neighborhood.</p>
+                </div>
+            
+        </div>
+    </div>
+
+        <div class="row" style='margin-top:30px'>
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <p class="p-article" style="text-align:left">Now let's try to find a neighborhood where the most spoken language is neither English, nor Spanish. But if we think about the map we had at the very beginning, one language seemed to stand out: Yiddish. </p>
+                <p class="p-article" style="text-align:left">Let's find a Yiddish speaking neighborhood.</p>
+            </div>
+        </div>
+
+        <div class="row" style='margin-top:50px'>
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-6">
+                <br>
+                <p class="p-article" style="text-align:center;font-family:'Special Elite';font-size:17px">Borough Park, Brooklyn</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <hr>
+            </div>
+        </div>
+
+        <div class="row" style='margin-top:50px'>
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <p class="p-article" style="text-align:left">Borough Park is home to one of the largest communities of Orthodox Jews in the United States, and most of its residents are Hasids - a specific branch of Orthodox Judaism.</p>
+                <p class="p-article" style="text-align:left">As a result, most residents speak Yiddish at home, and someone strolling around the area will almost exclusively encounter signs written in this language, or in Hebrew - except on Shabbat, every Friday and Saturday:  streets are deserted and stores are all closed.</p>      
+                <p class="p-article" style="text-align:left">Instead of directly looking at Borough Park as it is now, let's go back in time and see what the neighborhood was like in 1970.</p>           
+            </div>
+        </div>
+
+    <div class="row" style='margin-top:40px'>
+        <div class="offset-md-4 offset-lg-4 offset-sm-3 col-sm-6 col-md-4 col-lg-4 graphic sticky" style="height:100%">
+            <div id="text-generated" style="font-family:'Special Elite';color:transparent">THIS</div>
+                    <p style="text-align:center;line-height:1.1;font-size:13px;margin-bottom:30px">
+                        <span class="dot" id="dot-english-bp" style="background-color:rgba(146, 208, 203, 0.5)"></span><span id="dot-text-english"> English</span> 
+                        <span class="dot" id="dot-yiddish-bp" style="background-color:rgba(49,155,251,0.5)"></span><span id="dot-text-yiddish"> Yiddish</span> 
+                        <span class="dot" id="dot-italian-bp" style="background-color:rgba(36, 74, 251, 0.5)"></span><span id="dot-text-italian"> Italian</span> 
+                        <span class="dot" id="dot-spanish-bp" style="background-color:rgba(244, 176, 103, 0.5)"></span><span id="dot-text-spanish"> Spanish</span> 
+                        <span class="dot" id="dot-hungarian-bp" style="background-color:rgba(38,52,1,0.5)"> </span><span id="dot-text-hungarian"> Hungarian</span> 
+                        <span class="dot" id="dot-german-bp" style="background-color:rgba(252,219,102,0.5)"></span><span id="dot-text-german"> German</span>
+                        <span class="dot" id="dot-polish-bp" style="background-color:rgba(237,164,253,0.5)"></span><span id="dot-text-polish"> Polish</span>  
+                        <span class="dot" id="dot-french-bp" style="background-color:rgba(233,63,51,0.5)"></span><span id="dot-text-french"> French</span> 
+                        <span class="dot" id="dot-russian-bp" style="background-color:rgba(242, 165, 144, 0.5)"></span><span id="dot-text-russian"> Russian</span>
+                        <span class="dot" id="dot-others-bp" style="background-color:rgba(134, 137, 152, 0.5)"></span><span id="dot-text-others"> Others / NR</span>
+                        <span class="dot" id="dot-else-bp" style="background-color:rgba(134, 137, 152, 0)"></span><span id="dot-text-else"> </span>
+                    </p>
+             </div>
+
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4" style="position:relative">
+
+            <div class="step zero" id="step-zero-bp">
+                        <p style="text-align:center"></p>
+            </div>
+
+            <div class="step exploration" id="step-one-bp">
+                        <p style="text-align:center">This was Borough Park's language breakdown in 1970, according to Decennial Census data.</p>
+            </div>
+
+            <div class="step exploration" id="step-two-bp">
+                        <p style="text-align:center">If English was, as usual, the most spoken language, Yiddish came second, with 22% of the neighborhood's residents speaking it at home.</p>
+            </div>
+
+            <div class="step exploration" id="step-three-bp">
+                        <p style="text-align:center">Interestingly, Italians were also very present, and 21% of the residents spoke Italian at home.</p>
+            </div>
+
+            <div class="step exploration" id="step-four-bp">
+                      <p style="text-align:center">Let's see how Borough Park has changed.</p>
+            </div>
+
+            <div class="step zero-bp" id="step-six-bp">
+                        <p></p>
+            </div>
+
+            <div class="step exploration" id="step-five-bp">
+                    <p style="text-align:center">This is Borough Park today, according to 2016 ACS data.</p>
+            </div>
+
+            <div class="step exploration" id="step-seven-bp">
+                        <p style="text-align:center">Yiddish has taken over English and all other languages.</p>
+            </div>
+
+            <div class="step exploration" id="step-eight-bp">
+                        <p style="text-align:center">Italian has disappeared (less than 1% of the inhabitants of the neighborhood speak it at home), but Spanish and Chinese are on the rise.</p>
+            </div>
+
+            </div>
+  </div>
+
+        <div class="row" style='margin-top:0px'>
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <p class="p-article" style="text-align:left">Now let's pause for a second. How could we get a broader view of the city's language variety, and how could we measure where the city is most linguistically diverse?</p>
+                <p class="p-article" style="text-align:left">Enters Greenberg's Linguistic Diversity Index (LDI) </p>      
+                <p class="p-article" style="text-align:left">The LDI is a number between 0 and 1, where 0 represents a very homogenous neighborhood, and 1 a very diverse area.</p>   
+            </div>
+        </div>
+
+
+        <div class="row" style='margin-top:50px'>
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-6">
+                <br>
+                <p class="p-article" style="text-align:center;font-family:'Special Elite';font-size:17px">New York City's Language Diversity Index,<br> per census tract</p>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-md-1 col-sm-10 col-md-10 col-lg-10">
+                <div id="map-ldi"></div>           
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:50px">
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <p class='p-article'>To understand what this means, let's compare two census tracts: one very diverse, with a LDI close to 1, and one not diverse at all, with a LDI close to 0. </p>    
+                <p class='p-article'>A perfect pair seems to be Census Tract 916.01 (LDI of 0.047) and Census Tract 747 (LDI of 0.88), both located in Queens, home to 3800 and 3263 residents respectively, according to the 2016 five-years ACS. Only languages that have more than 30 or more speakers are represented in the charts that follow.</p>              
+            </div>
+        </div>
+        <br>
+
+
+        <div class="row" style="margin-top:50px">
+            <div class=" offset-md-3 col-sm-3 col-md-3 col-lg-3">
+                 <span id='radar-1'></span>
+                    <p class="legend-charts" style="text-align:center">Census Tract 747, Queens.</p>
+                    <p class="legend-charts" style="text-align:center;margin-top:-15px">LDI: 0.88</p>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <span id='radar-2'></span>  
+                    <p class="legend-charts" style="text-align:center">Census Tract 916.01, Queens</p>   
+                    <p class="legend-charts" style="text-align:center;margin-top:-15px">LDI: 0.047</p>
+
+            </div>  
+        </div>
+        <br>
+
+        <div class="row" style="margin-top:50px">
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <p class='p-article'>Census Tract 747, Queens, has a large diversity of languages. If the most spoken one is Chinese, the second most-spoken one is not English, but Russian. English comes third, closely followed by Hindi and Spanish.</p>    
+                <p class='p-article'>On the contrary, 3709 out of the 3800 residents of Census Tract 916.01, Queens, speak English. In fact, more than 95% of its residents are white, making it one of the least diverse areas in the city.</p>              
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top:50px">
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <hr>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:30px;margin-bottom:30px">
+            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+                <p class='p-bottom'>Data for 2016 comes from the 2016 ACS 5 years survey. Data for 1970 comes from the 1970 Decennial Census, adjusted for 2010 geographies. The code is available on Github.<p>             
+                <p class='p-bottom' target='_blank'>Oh, and this piece was made by <a href="https://twitter.com/mariepastora">this person</a>, by the way. And it was published in September 2018. <p>             
+            </div>
+        </div>
+
+<script src="d3-legend.min.js"></script>
+<script src="d3-tip.js"></script>
+<script src="swap.js"></script>
+<script src="image-swap.js"></script>
+<script src="puff.js"></script>
+<script src="generator.js"></script>
+<script src="script-radar.js"></script>
+
+<script src="astoria-languages.js"></script>
+<script src="bp2016.js"></script>
+<script src="scrolling-lang.js"></script>
+<script src='https://unpkg.com/intersection-observer'></script>
+<script src='https://unpkg.com/scrollama'></script>
+<script src='stickyfill.min.js'></script>
+<script src='map.js'></script>
+
+<script>
+  /* Allow position: sticky to work in old browsers */
+  var elements = document.querySelectorAll('.sticky');
+  Stickyfill.add(elements);
+
+  // instantiate the scrollama
+  var scroller = scrollama();
+
+  scroller
+    .setup({
+      // IF YOU CHANGE THIS CHANGE THE .sticky CSS
+      offset: 0.33, // how far from the top?
+      step: '.step', // class for stepping through
+      debug: false, // shows the line
+      container: 'container'
+    })
+    .onStepEnter(function(response) {
+      // trigger the stepin event
+      d3.select(response.element).dispatch('stepin')
+      d3.select(response.element).classed('active', true)
+    })
+    .onStepExit(function(response) {
+      // trigger the stepout event
+      d3.select(response.element).dispatch('stepout')
+      d3.select(response.element).classed('active', false)
+    })
+</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,152 @@
+/* Scrollama */
+
+      .step {
+        margin-bottom: 100%;
+        font-size:14px;
+        font-family:'Merriweather';
+        line-height:20px;
+ 
+      }
+
+      .exploration{
+        padding-bottom: 15px;
+        padding-top:2em;
+        padding-right:15px;
+        padding-left:15px;
+        background-color:rgba(245,245,220,1);
+        border-color:dimgray;
+        border-width: 1.5px;
+        border-style: solid;
+        line-height:22px;
+        font-size:15px;
+      }
+
+      .exploration-top{
+        padding-bottom: 15px;
+        line-height:22px;
+        padding-top:2em;
+        padding-right:15px;
+        padding-left:15px;
+        background-color:rgba(245,245,220,1);
+        border-color:dimgray;
+        border-width: 1px;
+        border-style: solid;
+        text-align:justify;
+      }
+
+      .step, .row {
+        padding-top: 2rem;
+      }
+
+      .step:last-of-type {
+        padding-bottom: 15px;
+      }
+
+.zero{
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+      .zero, .row {
+        padding-top: 0.1rem;
+      }
+   
+.zero-bp {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top:;
+}
+
+.zero-bp, .row{
+          padding-top: 0.1rem;
+
+}  
+
+.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  height: fit-content;
+        /* IF YOU CHANGE THIS CHANGE THE JAVASCRIPT NEAR THE BOTTOM */
+  top: 0%;
+      }
+
+
+.sticky-aa{
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  height: fit-content;
+        /* IF YOU CHANGE THIS CHANGE THE JAVASCRIPT NEAR THE BOTTOM */
+  top: 30%;
+
+}
+
+
+
+
+/* General */
+
+
+.container{
+  margin-top:60px;
+  font-size:18px;
+  text-align:left;
+
+}
+
+
+.title{
+  margin-bottom:40px;
+  font-family: 'Special Elite', cursive;
+  font-size:25px;
+  font-weight: 500;
+}
+
+
+html, body {
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+    word-wrap: break-word;
+    background-color:white;
+    color:black;
+  line-height:10px;
+
+}
+
+.deck{
+  color:darkgrey;
+  font-size: 30px ;
+  font-family:Lato;
+}
+
+.p-article{
+  font-family:'Merriweather';
+  font-size:15px;
+  line-height: 22px;
+  font-weight:regular;
+}
+
+#swapping{position:relative; display:inline-block; width:150px;}
+
+#swapping p{position:absolute; top:-14; left:0;)
+
+.dot {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#radar-1 {display:inline-block !important;margin-right:10px; max-width: 50%} 
+#radar-2 {display:inline-block !important; max-width: 50%} 
+
+
