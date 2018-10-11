@@ -82,7 +82,7 @@
   position: sticky;
   height: fit-content;
         /* IF YOU CHANGE THIS CHANGE THE JAVASCRIPT NEAR THE BOTTOM */
-  top: 30%;
+  top: 40%;
 
 }
 
@@ -101,8 +101,8 @@
 .title{
   margin-bottom:25px;
   font-family: 'Special Elite', cursive;
-  font-size:45px;
   font-weight: 500;
+  font-size:37px;
   line-height: 1.2;
 }
 
