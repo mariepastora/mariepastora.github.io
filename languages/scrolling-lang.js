@@ -319,6 +319,10 @@ d3.select('#step-four-bp').on('stepin', function() {
   // Legend
 })
 
+// Transformation to get Borough Park in 1970 back
+
+d3.select('#step-six-one-bp').on('stepin', boroughPark)
+
 // Transformation to get Borough Park in 2016
 
 d3.select('#step-five-bp').on('stepin', bp2016)

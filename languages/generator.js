@@ -488,7 +488,7 @@ let colors = {
   'not_reported':'rgba(134, 137, 152, 0.5)'
 }
 
-let num_paragraph_to_generate = Math.round(window.innerHeight / 3) / 150
+//let num_paragraph_to_generate = Math.round(window.innerHeight / 3) / 150
 let size_font = Math.round(window.innerHeight / 38)
 // 217
 // console.log(num_paragraph_to_generate)
@@ -502,15 +502,18 @@ percentages.forEach(function (data) {
   console.log(size_font)
   let language = data[0]
   let percentage = data[1]
-  let words = loremIpsum.getAllParagraphs(language, percentage*1.5)
-  var span = "<span style='background-color:" +colors[language]+";font-size:"+size_font+ "px' id='"+ language + "_boroughPark'>" + words + "</span>"
+  let words = loremIpsum.getAllParagraphs(language, percentage* 2)
+  var span = "<span style='background-color:" +colors[language]+";' id='"+ language + "_boroughPark'>" + words + "</span>"
   element.innerHTML = element.innerHTML + span
   element.addEventListener("mouseover", function(){
   });
-
-
 })
 
+element.setAttribute("style", `font-size:${size_font}px`)
+while(element.clientHeight > window.innerHeight*0.75){
+  size_font--
+  element.setAttribute("style", `font-size:${size_font}px`)
+}
 };
 
 

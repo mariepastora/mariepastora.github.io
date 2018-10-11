@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Languages of NYC</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -9,9 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i|Special+Elite" rel="stylesheet">
-    <script src="radar.js"></script>
-    <script src="radar2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
     <script src="https://d3js.org/d3-color.v1.min.js"></script>
     <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
@@ -37,19 +37,83 @@
         width:100% !important;
     }
     .g-aiPointText p { white-space: nowrap; }
-    #g-en_sp_all-Plan_de_travail_1 {
+        #g-second-box .g-artboard {
+        margin:0 auto;
+    }
+    #g-second-box .g-artboard {
+        margin:0 auto;
+    }
+    #g-second-box .g-artboard p {
+        margin:0;
+    }
+    .g-aiAbs {
+        position:absolute;
+    }
+    .g-aiImg {
+        display:block;
+        width:100% !important;
+    }
+    .g-aiPointText p { white-space: nowrap; }
+    #g-second-Plan_de_travail_1 {
         position:relative;
         overflow:hidden;
     }
-    #g-en_sp_all-Plan_de_travail_2 {
+    #g-second-Plan_de_travail_1 p {
+        font-weight:500;
+        font-size:15px;
+        line-height:18px;
+        height:auto;
+        filter:alpha(opacity=100);
+        -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity:1;
+        letter-spacing:0em;
+        text-align:left;
+        color:rgb(0,0,0);
+        text-transform:none;
+        padding-bottom:0;
+        padding-top:0;
+        mix-blend-mode:normal;
+        font-style:normal;
+    }
+    #g-second-Plan_de_travail_1 .g-pstyle0 {
+        height:18px;
+    }
+    #g-second-Plan_de_travail_1 .g-pstyle1 {
+        font-size:10px;
+        line-height:12px;
+        height:12px;
+        color:rgb(115,115,115);
+    }
+    #g-second-Plan_de_travail_2 {
         position:relative;
         overflow:hidden;
     }
-    #g-en_sp_all-Plan_de_travail_3 {
-        position:relative;
-        overflow:hidden;
+    #g-second-Plan_de_travail_2 p {
+        font-weight:500;
+        font-size:15px;
+        line-height:18px;
+        height:auto;
+        filter:alpha(opacity=100);
+        -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity:1;
+        letter-spacing:0em;
+        text-align:left;
+        color:rgb(0,0,0);
+        text-transform:none;
+        padding-bottom:0;
+        padding-top:0;
+        mix-blend-mode:normal;
+        font-style:normal;
     }
-
+    #g-second-Plan_de_travail_2 .g-pstyle0 {
+        height:18px;
+    }
+    #g-second-Plan_de_travail_2 .g-pstyle1 {
+        font-size:10px;
+        line-height:12px;
+        height:12px;
+        color:rgb(115,115,115);
+    }
     .block {
         display: block;
         border: solid #333 1px;
@@ -63,7 +127,7 @@
     }
 
     #text-generated span{
-       padding: 0.185em 7px;
+       padding: 0.0891em 7px;
       display:inline;
     }
 
@@ -76,7 +140,7 @@
     }
 
     #text-astoria span{
-       padding: 0.185em 7px;
+       padding: 0.0891em 7px;
       display:inline;
     }
 
@@ -110,6 +174,8 @@ hr {
   font-size:14px;
   line-height: 20px;
   color:#202020;
+  margin-top:1em ;
+  margin-bottom:1.1em;
 }
 
 .p-bottom{
@@ -117,33 +183,38 @@ hr {
   line-height: 15px;
   color:dimgray; 
 }
-</style>
 
+#swapping{position:relative; display:inline-block; width:300px;}
+
+
+</style>
   </head>
 
 
 <body onload="boroughPark();astoria()" onresize="boroughPark();astoria()">
 
+<div class="container-beginning offset-md-3 offset-sm-1 offset-lg-3 col-sm-10 col-md-6 col-lg-6" >
 
        <div class="row">
 
 
-            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-6 graphic sticky" style="margin-top:-900px">
+            <div class="graphic sticky" style="margin-top:-900px">
                 <div id="g-en_sp_all-box" class="ai2html">
                     <!-- Artboard: Plan_de_travail_1 -->
-                    <div id="g-en_sp_all-Plan_de_travail_1" class="g-artboard g-artboard-v4" data-min-width='1600'>
+                    <div id="g-en_sp_all-Plan_de_travail_1" class="g-artboard g-artboard-v4" data-min-width='900'>
                         <img id="g-en_sp_all-Plan_de_travail" class="g-aiImg" src="en_sp_all-Plan_de_travail_1.jpg"/>
                     </div>
                 </div>            
 
             </div>
 
-            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-3 sticky" style="position:relative">
+            <div class="sticky" style="position:relative">
 
                 <div class="step" id="first-step">
-                    <div class="title" style='margin-top:50px'>
+                    <div class="title offset-1 offset-sm-1 offset-md-1 offset-lg-0" style='margin-top:50px;font-size:25px'>
                     Welcome to
-                        <div id="swapping">
+                    </div>
+                    <div id="swapping" class="title offset-1 offset-sm-1 offset-md-1 offset-lg-0 ">
                             <p>New York</p>
                             <p>Nueva York</p>
                             <p>Nýja Jórvík</p>
@@ -153,17 +224,16 @@ hr {
                             <p>ເມືອງ​ນີວ​ຢອກ</p>
                             <p>ញូវយ៉ក</p>
                             <p>ニューヨーク</p>
-                        </div>
                     </div>
                     <br>
                     <br>
-                    <div class="exploration-top">
+                    <div class="exploration-top offset-1 offset-sm-1 offset-lg-0 col-10 col-sm-10 col-lg-6 ">
                         <p class="p-article">With more than 8.5 million residents, New York City is one of the most diverse metropolis in the world. The 2016 American Community Survey identified the presence of more than 40 languages in the city.</p>
                         <p class="p-article">According to the data, and without much surprise, English is the most spoken language in New York City. But let's take a closer look.</p>
-                                            </div>
+                    </div>
                         <br>
                         <br>
-                            <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px">
+                            <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px" class="offset-1 offset-sm-1 offset-lg-0 col-10 col-sm-10 col-lg-6 ">
                                 <span class="dot-top" style="background-color:rgba(146, 208, 203, 0.7)">  </span> English
                                 <span class="dot-top" style="background-color:rgba(244, 176, 103, 0.7)">  </span> Spanish  
                                <span class="dot-top" id="dot-yiddish-bp" style="background-color:rgba(49,155,251,0.7)">  </span> Yiddish
@@ -174,13 +244,13 @@ hr {
                 </div>
 
                 <div class="step" id="second-step">
-                    <div class="exploration-top">
+                    <div class="exploration-top offset-1 offset-sm-1 offset-lg-0 col-10 col-sm-10 col-lg-6 ">
                     <p class="p-article">This is what happens when we strip New York City from its residents who speak English at home. Once again, no surprise: Spanish is the second-most spoken language in the city.</p>
                     <p class="p-article">However, a few communities start to appear on the map, for example Chinese speakers, who are represented in light green, and Yiddish speakers in bright blue.</p>
                 </div>
                     <br>
                     <br>
-                    <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px">
+                    <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px" class="offset-1 offset-sm-1 offset-lg-0 col-10 col-sm-10 col-lg-6 ">
                             <span class="dot-top" style="background-color:rgba(244, 176, 103, 0.7)">  </span> Spanish  
                            <span class="dot-top" id="dot-yiddish-bp" style="background-color:rgba(49,155,251,0.7)">  </span> Yiddish
                             <span class="dot-top" style="background-color:rgba(209,245,35, 0.7)">  </span> Chinese 
@@ -194,12 +264,12 @@ hr {
                 </div>
 
                 <div class="step" id="third-step">
-                    <div class="exploration-top">
+                    <div class="exploration-top offset-1 offset-sm-1 offset-lg-0 col-10 col-sm-10 col-lg-6 ">
                     <p class="p-article">If we take away the layer of Spanish speakers, we are left with dozens of language communities. It's slightly dizzying, so let's start by taking a closer look at one neighborhood.</p>
                 </div>
                     <br>
                     <br>
-                        <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px">
+                        <p style="text-align:left;color:dimgray;line-height: 1.2; font-size:11px;margin-bottom:30px" class="offset-1 offset-sm-1 offset-lg-0 col-10 col-sm-10 col-lg-6 ">
                            <span class="dot-top" id="dot-yiddish-bp" style="background-color:rgba(49,155,251,0.7)">  </span> Yiddish
                             <span class="dot-top" style="background-color:rgba(209,245,35, 0.7)">  </span> Chinese 
                             <span class="dot-top" style="background-color:rgba(27,71,85, 0.7)">  </span> Other Hindi 
@@ -220,37 +290,32 @@ hr {
                     </p>
                 </div>
 
-                <div class="step exploration-top" id="fourth-step">
+                <div class="step exploration-top offset-1 offset-sm-1 offset-lg-0 col-10 col-sm-10 col-lg-6 " id="fourth-step">
                   <p class="p-article">As we were taking English and Spanish speakers out of the picture, the Greek community of Astoria, Queens, became more visible, so it seems like a good place to start.</p>
                 </div>
 
             </div>
 
         </div>
+    </div>
+    <div class="container-middle offset-1 offset-sm-1 offset-md-3 offset-lg-4 col-10 col-sm-10 col-md-6 col-lg-4">
 
-        <div class="row" style='margin-top:50px'>
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
                 <hr>
-            </div>
-        </div>
 
 
-        <div class="row">
-            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-6">
+
+        <div class="row justify-content-center">
                 <br>
-                <p class="p-article" style="text-align:center;font-family:'Special Elite';font-size:17px">Astoria, Queens</p>
-            </div>
+                <p style="font-family:'Special Elite';font-size:17px;">Astoria, Queens</p>
         </div>
 
-        <div class="row">
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+
                 <hr>
-            </div>
-        </div>
+
 
 
         <div class="row" style='margin-top:50px'>
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+            <div>
                 <p class="p-article" style="text-align:left">Greek immigrants started to settle in Astoria after the end of World War II. Before that, the neighborhood used to be home to mostly Italian residents. In the 90s, Greeks accounted for about half of Astoria residents, and this number has decreased since then. The area is culturally very mixed, but only 4% of Astoria residents speak Greek at home, according to 2016 ACS data.</p>
                 <p class="p-article" style="text-align:left">The neighborhood is expectedly undergoing gentrification, and the average price per square foot <a href="https://macaulay.cuny.edu/seminars/rosenberg09/articles/t/h/e/The_Gentrification_of_Astoria_3a1c.html">jumped in 2003</a>. </p>      
                 <p class="p-article" style="text-align:left">Let's look at what language diversity looks like in Astoria, according to 2016 ACS data.</p>           
@@ -259,7 +324,7 @@ hr {
 
 
     <div class="row" style='margin-top:40px'>
-        <div class="offset-md-4 offset-lg-4 offset-sm-3 col-sm-6 col-md-4 col-lg-4 graphic sticky"style="height:100%">
+        <div class="graphic sticky" style="height:100%">
             <div id="text-astoria" style="font-family:'Special Elite'">THIS</div>
                     <p style="text-align:center;line-height: 1.1; font-size:13px;margin-bottom:30px">
                         <span class="dot" style="background-color:rgba(146, 208, 203, 0.5)"> </span> English
@@ -282,7 +347,7 @@ hr {
                     </p>
         </div>
 
-        <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4" style="position:relative">
+        <div style="position:relative">
 
                 <div class="step zero" id="step-zero-astoria">
                             <p style="text-align:center"></p>
@@ -303,31 +368,26 @@ hr {
     </div>
 
         <div class="row" style='margin-top:30px'>
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+            <div>
                 <p class="p-article" style="text-align:left">Now let's try to find a neighborhood where the most spoken language is neither English, nor Spanish. But if we think about the map we had at the very beginning, one language seemed to stand out: Yiddish. </p>
                 <p class="p-article" style="text-align:left">Let's find a Yiddish speaking neighborhood.</p>
             </div>
         </div>
 
-        <div class="row" style='margin-top:50px'>
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+
                 <hr>
-            </div>
-        </div>
 
 
-        <div class="row">
-            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-6">
+        <div class="row justify-content-center">
+            <div>
                 <br>
-                <p class="p-article" style="text-align:center;font-family:'Special Elite';font-size:17px">Borough Park, Brooklyn</p>
+                <p style="text-align:center;font-family:'Special Elite';font-size:17px">Borough Park, Brooklyn</p>
             </div>
         </div>
 
-        <div class="row">
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+
                 <hr>
-            </div>
-        </div>
+
 
 <!--        <div class="row">
             <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4" >
@@ -342,7 +402,7 @@ hr {
         </div> -->
 
         <div class="row" style='margin-top:50px'>
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+            <div>
                 <p class="p-article" style="text-align:left">Borough Park is home to one of the largest communities of Orthodox Jews in the United States, and most of its residents are Hasids - a specific branch of Orthodox Judaism.</p>
                 <p class="p-article" style="text-align:left">As a result, most residents speak Yiddish at home, and someone strolling around the area will almost exclusively encounter signs written in this language, or in Hebrew - except on Shabbat, every Friday and Saturday:  streets are deserted and stores are all closed.</p>      
                 <p class="p-article" style="text-align:left">Instead of directly looking at Borough Park as it is now, let's go back in time and see what the neighborhood was like in 1970.</p>           
@@ -350,7 +410,7 @@ hr {
         </div>
 
     <div class="row" style='margin-top:40px'>
-        <div class="offset-md-4 offset-lg-4 offset-sm-3 col-sm-6 col-md-4 col-lg-4 graphic sticky" style="height:100%">
+        <div class="graphic sticky" style="height:100%">
             <div id="text-generated" style="font-family:'Special Elite';color:transparent">THIS</div>
                     <p style="text-align:center;line-height:1.1;font-size:13px;margin-bottom:30px">
                         <span class="dot" id="dot-english-bp" style="background-color:rgba(146, 208, 203, 0.5)"></span><span id="dot-text-english"> English</span> 
@@ -367,7 +427,7 @@ hr {
                     </p>
              </div>
 
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4" style="position:relative">
+            <div style="position:relative">
 
             <div class="step zero" id="step-zero-bp">
                         <p style="text-align:center"></p>
@@ -387,6 +447,10 @@ hr {
 
             <div class="step exploration" id="step-four-bp">
                       <p style="text-align:center">Let's see how Borough Park has changed.</p>
+            </div>
+
+            <div class="step zero-bp" id="step-six-one-bp">
+                        <p></p>
             </div>
 
             <div class="step zero-bp" id="step-six-bp">
@@ -409,7 +473,7 @@ hr {
   </div>
 
         <div class="row" style='margin-top:0px'>
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+            <div>
                 <p class="p-article" style="text-align:left">Now let's pause for a second. How could we get a broader view of the city's language variety, and how could we measure where the city is most linguistically diverse?</p>
                 <p class="p-article" style="text-align:left">Enters Greenberg's Linguistic Diversity Index (LDI) </p>      
                 <p class="p-article" style="text-align:left">The LDI is a number between 0 and 1, where 0 represents a very homogenous neighborhood, and 1 a very diverse area.</p>   
@@ -417,88 +481,214 @@ hr {
         </div>
 
 
-        <div class="row" style='margin-top:50px'>
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+
                 <hr>
-            </div>
-        </div>
 
 
-        <div class="row">
-            <div class="offset-md-3 col-sm-6 col-md-6 col-lg-6">
+
+        <div class="row justify-content-center">
+            <div>
                 <br>
-                <p class="p-article" style="text-align:center;font-family:'Special Elite';font-size:17px">New York City's Language Diversity Index,<br> per census tract</p>
+                <p style="text-align:center;font-family:'Special Elite';font-size:17px;line-height:1.5">New York City's Language Diversity Index,<br> per census tract</p>
             </div>
         </div>
 
-        <div class="row" >
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
                 <hr>
-            </div>
-        </div>
 
+</div>
+
+
+<div class="container-beginning col-lg-12">
         <div class="row">
-            <div class="offset-md-1 col-sm-10 col-md-10 col-lg-10">
-                <div id="map-ldi"></div>           
+            <div style="padding-right:0px !important;margin-right:0px !important;" class="offset-lg-1 col-lg-11">
+                <div id="map-ldi" ></div>           
             </div>
         </div>
+</div>  
+
+<div class="container-middle offset-1 offset-sm-1 offset-md-3 offset-lg-4 col-10 col-sm-10 col-md-6 col-lg-4">
 
         <div class="row" style="margin-top:50px">
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+            <div>
                 <p class='p-article'>To understand what this means, let's compare two census tracts: one very diverse, with a LDI close to 1, and one not diverse at all, with a LDI close to 0. </p>    
                 <p class='p-article'>A perfect pair seems to be Census Tract 916.01 (LDI of 0.047) and Census Tract 747 (LDI of 0.88), both located in Queens, home to 3800 and 3263 residents respectively, according to the 2016 five-years ACS. Only languages that have more than 30 or more speakers are represented in the charts that follow.</p>              
             </div>
         </div>
         <br>
+</div>
 
+<div class="container-beginning col-lg-12">
 
-        <div class="row" style="margin-top:50px">
-            <div class="offset-sm-1 offset-md-3 col-sm-11 col-md-3 col-lg-3">
-                 <span id='radar-1'></span>
-                    <p class="legend-charts" style="text-align:center">Census Tract 747, Queens.</p>
-                    <p class="legend-charts" style="text-align:center;margin-top:-15px">LDI: 0.88</p>
-            </div>
-            <div class="offset-sm-1 offset-md-0 col-sm-11 col-md-3 col-lg-3">
-                <span id='radar-2'></span>  
-                    <p class="legend-charts" style="text-align:center">Census Tract 916.01, Queens</p>   
-                    <p class="legend-charts" style="text-align:center;margin-top:-15px">LDI: 0.047</p>
+<div class="row" style="margin-top:50px">
 
-            </div>  
+   <div id="g-second-box" class="ai2html offset-sm-2 col-sm-8 offset-lg-2 col-lg-4">
+
+    <!-- Artboard: Plan_de_travail_1 -->
+    <div id="g-second-Plan_de_travail_1" class="g-artboard g-artboard-v4  " data-min-width='330'>
+        <img id="g-second-Plan_de_travail_1-img" class="g-aiImg" src="second-Plan_de_travail_1.png"/>
+        <div id="g-ai0-1" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:3.4327%;margin-top:-11.5px;left:39.6427%;width:77px;">
+            <p class="g-pstyle0">Chinese</p>
         </div>
+        <div id="g-ai0-2" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6536%;margin-top:-11.5px;left:19.5848%;width:76px;">
+            <p class="g-pstyle0">Russian</p>
+        </div>
+        <div id="g-ai0-3" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6536%;margin-top:-11.5px;left:60.6769%;width:75px;">
+            <p class="g-pstyle0">Tagalog</p>
+        </div>
+        <div id="g-ai0-4" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:7.9107%;margin-top:-7.7px;left:49.0909%;width:39px;">
+            <p class="g-pstyle1">629</p>
+        </div>
+        <div id="g-ai0-5" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:15.9429%;margin-top:-7.7px;left:49.0909%;width:39px;">
+            <p class="g-pstyle1">503</p>
+        </div>
+        <div id="g-ai0-6" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:23.975%;margin-top:-7.7px;left:49.0909%;width:39px;">
+            <p class="g-pstyle1">377</p>
+        </div>
+        <div id="g-ai0-7" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:25.9226%;margin-top:-11.5px;left:75.9459%;width:74px;">
+            <p class="g-pstyle0">Hebrew</p>
+        </div>
+        <div id="g-ai0-8" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:26.3242%;margin-top:-11.5px;left:3.5002%;width:76px;">
+            <p class="g-pstyle0">Spanish</p>
+        </div>
+        <div id="g-ai0-9" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:32.0071%;margin-top:-7.7px;left:49.0909%;width:39px;">
+            <p class="g-pstyle1">252</p>
+        </div>
+        <div id="g-ai0-10" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:40.0393%;margin-top:-7.7px;left:49.0909%;width:39px;">
+            <p class="g-pstyle1">126</p>
+        </div>
+        <div id="g-ai0-11" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:50.4206%;margin-top:-20.5px;left:81.8968%;width:64px;">
+            <p class="g-pstyle0">Other </p>
+            <p class="g-pstyle0">Asian</p>
+        </div>
+        <div id="g-ai0-12" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:50.4206%;margin-top:-11.5px;left:2.8687%;width:56px;">
+            <p class="g-pstyle0">Hindi</p>
+        </div>
+        <div id="g-ai0-13" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:73.3122%;margin-top:-20.5px;left:77.2748%;width:64px;">
+            <p class="g-pstyle0">Other </p>
+            <p class="g-pstyle0">Hindic</p>
+        </div>
+        <div id="g-ai0-14" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:74.517%;margin-top:-11.5px;left:4.0569%;width:71px;">
+            <p class="g-pstyle0">English</p>
+        </div>
+        <div id="g-ai0-15" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:92.1877%;margin-top:-11.5px;left:19.7704%;width:75px;">
+            <p class="g-pstyle0">Gujarati</p>
+        </div>
+        <div id="g-ai0-16" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:92.1877%;margin-top:-11.5px;left:65.9331%;width:55px;">
+            <p class="g-pstyle0">Urdu</p>
+        </div>
+        <div id="g-ai0-17" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:98.6134%;margin-top:-11.5px;left:33.1436%;width:114px;">
+            <p class="g-pstyle0">French creole</p>
+        </div>
+    </div>
+                        <div style="margin-top:2em; margin-bottom:2em;">
+                        <p class="legend-charts" style="text-align:center;font-size:1em">Census Tract 747, Queens.</p>
+                    <p class="legend-charts" style="text-align:center;margin-top:-15px;font-size:1em">LDI: 0.88</p>
+                </div>
+</div>
+    <!-- Artboard: Plan_de_travail_2 -->
+       <div id="g-second-box" class="ai2html offset-sm-2 offset-md-2 offset-lg-0 col-sm-8 col-lg-4 ">
+
+    <div id="g-second-Plan_de_travail_2" class="g-artboard g-artboard-v4" data-min-width='330'>
+        <img id="g-second-Plan_de_travail_2-img" class="g-aiImg" src="second-Plan_de_travail_2.png"/>
+        <div id="g-ai1-1" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:3.4327%;margin-top:-11.5px;left:39.6425%;width:77px;">
+            <p class="g-pstyle0">Chinese</p>
+        </div>
+        <div id="g-ai1-2" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6536%;margin-top:-11.5px;left:19.5848%;width:76px;">
+            <p class="g-pstyle0">Russian</p>
+        </div>
+        <div id="g-ai1-3" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6536%;margin-top:-11.5px;left:60.6771%;width:75px;">
+            <p class="g-pstyle0">Tagalog</p>
+        </div>
+        <div id="g-ai1-4" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:7.9107%;margin-top:-7.7px;left:49.0909%;width:44px;">
+            <p class="g-pstyle1">3709</p>
+        </div>
+        <div id="g-ai1-5" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:15.9429%;margin-top:-7.7px;left:49.0909%;width:44px;">
+            <p class="g-pstyle1">2967</p>
+        </div>
+        <div id="g-ai1-6" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:23.975%;margin-top:-7.7px;left:49.0909%;width:44px;">
+            <p class="g-pstyle1">2225</p>
+        </div>
+        <div id="g-ai1-7" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:25.9226%;margin-top:-11.5px;left:75.9461%;width:74px;">
+            <p class="g-pstyle0">Hebrew</p>
+        </div>
+        <div id="g-ai1-8" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:26.3242%;margin-top:-11.5px;left:3.5002%;width:76px;">
+            <p class="g-pstyle0">Spanish</p>
+        </div>
+        <div id="g-ai1-9" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:32.0071%;margin-top:-7.7px;left:49.0909%;width:44px;">
+            <p class="g-pstyle1">1484</p>
+        </div>
+        <div id="g-ai1-10" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:40.0393%;margin-top:-7.7px;left:49.0909%;width:39px;">
+            <p class="g-pstyle1">742</p>
+        </div>
+        <div id="g-ai1-11" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:50.4206%;margin-top:-20.5px;left:81.8969%;width:64px;">
+            <p class="g-pstyle0">Other </p>
+            <p class="g-pstyle0">Asian</p>
+        </div>
+        <div id="g-ai1-12" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:50.4206%;margin-top:-11.5px;left:2.8687%;width:56px;">
+            <p class="g-pstyle0">Hindi</p>
+        </div>
+        <div id="g-ai1-13" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:73.3122%;margin-top:-20.5px;left:77.2748%;width:64px;">
+            <p class="g-pstyle0">Other </p>
+            <p class="g-pstyle0">Hindic</p>
+        </div>
+        <div id="g-ai1-14" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:74.517%;margin-top:-11.5px;left:4.0569%;width:71px;">
+            <p class="g-pstyle0">English</p>
+        </div>
+        <div id="g-ai1-15" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:92.1877%;margin-top:-11.5px;left:19.7704%;width:75px;">
+            <p class="g-pstyle0">Gujarati</p>
+        </div>
+        <div id="g-ai1-16" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:92.1877%;margin-top:-11.5px;left:65.9331%;width:55px;">
+            <p class="g-pstyle0">Urdu</p>
+        </div>
+        <div id="g-ai1-17" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:98.6134%;margin-top:-11.5px;left:33.1436%;width:114px;">
+            <p class="g-pstyle0">French creole</p>
+        </div>
+    </div>
+                <div >
+                    <p class="legend-charts" style="text-align:center;font-size:1em">Census Tract 916.01, Queens</p>   
+                    <p class="legend-charts" style="text-align:center;margin-top:-15px;font-size:1em">LDI: 0.047</p>
+                </div>
+</div>
+</div>
+
+</div>
+
         <br>
+<div class="container-middle offset-1 offset-sm-1 offset-md-3 offset-lg-4 col-10 col-sm-10 col-md-6 col-lg-4">
 
         <div class="row" style="margin-top:50px">
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+            <div>
                 <p class='p-article'>Census Tract 747, Queens, has a large diversity of languages. If the most spoken one is Chinese, the second most-spoken one is not English, but Russian. English comes third, closely followed by Hindi and Spanish.</p>    
                 <p class='p-article'>On the contrary, 3709 out of the 3800 residents of Census Tract 916.01, Queens, speak English. In fact, more than 95% of its residents are white, making it one of the least diverse areas in the city.</p>              
             </div>
         </div>
 
 
-        <div class="row" style="margin-top:50px">
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
                 <hr>
-            </div>
-        </div>
+
 
         <div class="row" style="margin-top:30px;margin-bottom:30px">
-            <div class="offset-md-4 col-sm-4 col-md-4 col-lg-4">
+            <div>
                 <p class='p-bottom'>Data for 2016 comes from the 2016 ACS 5 years survey. Data for 1970 comes from the 1970 Decennial Census, adjusted for 2010 geographies. The code is available on Github.<p>             
-                <p class='p-bottom' target='_blank'>Oh, and this piece was made by <a href="https://twitter.com/mariepastora">this person</a>, by the way. And it was published in September 2018. <p>             
+                <p class='p-bottom' target='_blank'>Oh, and this piece was made by <a href="https://twitter.com/mariepastora">this person</a>, by the way. And it was published in September 2018. </p>             
             </div>
-        </div>
+        </div> 
+
+ 
+
+
+
+</div>
 
 <script src="d3-legend.min.js"></script>
 <script src="d3-tip.js"></script>
 <script src="swap.js"></script>
 <script src="image-swap.js"></script>
-<script src="puff.js"></script>
 <script src="generator.js"></script>
-<script src="script-radar.js"></script>
-
 <script src="astoria-languages.js"></script>
 <script src="bp2016.js"></script>
 <script src="scrolling-lang.js"></script>
+
 <script src='https://unpkg.com/intersection-observer'></script>
 <script src='https://unpkg.com/scrollama'></script>
 <script src='stickyfill.min.js'></script>

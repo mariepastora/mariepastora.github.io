@@ -693,19 +693,18 @@ function astoria() {
     let percentage = data[1]
     let words = loremIpsum.getAllParagraphs(
       language,
-      percentage*1.5
+      percentage* 2
     )
-    var span =
-      "<span style='background-color:" +
-      colors[language] +
-      ';font-size:' +
-      size_font +
-      "px' id='" +
-      language +
-      "_astoria'>" +
-      words +
-      '</span>'
+  var span = "<span style='background-color:" +colors[language]+"' id='"+ language + "_astoria'>" + words + "</span>"
+
     element.innerHTML = element.innerHTML + span
     element.addEventListener('mouseover', function() {})
   })
+
+element.setAttribute("style", `font-size:${size_font}px`)
+while(element.clientHeight > window.innerHeight*0.75){
+  size_font--
+  element.setAttribute("style", `font-size:${size_font}px`)
+}
+
 }

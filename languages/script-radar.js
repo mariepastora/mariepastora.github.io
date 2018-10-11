@@ -21,10 +21,11 @@ var svg = d3.select('#radar-1')
 	.append('svg')
 	.attr("width", width)
 	.attr("height", height)
-    .append("g")
     .call(responsivefy)
+      .style('max-width', '100%')
+    .append("g")
 
-;
+
 
 
 d3.json("data2.json", function(error, data) {
@@ -36,8 +37,9 @@ var svg = d3.select('#radar-2')
 	.append('svg')
 	.attr("width", width)
 	.attr("height", height)
+  .call(responsivefy)
+      .style('max-width', '100%')
         .append("g")
-    .call(responsivefy)
 
 
 
