@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Trying GSAP</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+  
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CustomEase.min.js"></script>
+	<link rel="stylesheet" href="main.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900|Shrikhand&amp;subset=gujarati,latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
+<script type="text/javascript">
+    (function() {
+        // only want one resizer on the page
+        if (document.documentElement.className.indexOf("g-resizer-v3-init") > -1) return;
+        document.documentElement.className += " g-resizer-v3-init";
+        // require IE9+
+        if (!("querySelector" in document)) return;
+        function resizer() {
+            var elements = Array.prototype.slice.call(document.querySelectorAll(".g-artboard[data-min-width]")),
+                widthById = {};
+            elements.forEach(function(el) {
+                var parent = el.parentNode,
+                    width = widthById[parent.id] || parent.getBoundingClientRect().width,
+                    minwidth = el.getAttribute("data-min-width"),
+                    maxwidth = el.getAttribute("data-max-width");
+                widthById[parent.id] = width;
+                if (+minwidth <= width && (+maxwidth >= width || maxwidth === null)) {
+                    el.style.display = "block";
+                } else {
+                    el.style.display = "none";
+                }
+            });
+            try {
+                if (window.parent && window.parent.$) {
+                    window.parent.$("body").trigger("resizedcontent", [window]);
+                }
+                if (window.require) {
+                    require(['foundation/main'], function() {
+                        require(['shared/interactive/instances/app-communicator'], function(AppCommunicator) {
+                            AppCommunicator.triggerResize();
+                        });
+                    });
+                }
+            } catch(e) { console.log(e); }
+        }
+        document.addEventListener('DOMContentLoaded', resizer);
+        // feel free to replace throttle with _.throttle, if available
+        window.addEventListener('resize', throttle(resizer, 200));        
+        function throttle(func, wait) {
+            // from underscore.js
+            var _now = Date.now || function() { return new Date().getTime(); },
+                context, args, result, timeout = null, previous = 0;
+            var later = function() {
+                previous = _now();
+                timeout = null;
+                result = func.apply(context, args);
+                if (!timeout) context = args = null;
+            };
+            return function() {
+                var now = _now(), remaining = wait - (now - previous);
+                context = this;
+                args = arguments;
+                if (remaining <= 0 || remaining > wait) {
+                    if (timeout) {
+                        clearTimeout(timeout);
+                        timeout = null;
+                    }
+                    previous = now;
+                    result = func.apply(context, args);
+                    if (!timeout) context = args = null;
+                } else if (!timeout && options.trailing !== false) {
+                    timeout = setTimeout(later, remaining);
+                }
+                return result;
+            };
+        }
+       
+    })();
+</script>
+</head>
+
+<body>
+
+<div class="container offset-1 col-10 offset-md-3 offset-lg-3 col-md-6 col-lg-6">
+	<div class="row">
+		<div class="col-12" style="text-align: center">
+			<h2 class="title">Fifty States <img src="burger.png"  id="pizza" height="80px" width="auto"/>f Fast Food and Restaurant Chains</h2>
+		</div>
+		<div class="col-12" style="text-align: center;margin-top:2em">
+			<h2 class="subtitle-1">For the love of Chernoff faces. And JS animations (Béziers! Curves!). And fun PNGs.</h2>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article" style="text-align:left;margin-top:5em">
+			<p id="first-paragraph">The hardest thing about moving to the United States was the enormous amount of things to learn in a short period of time. This new knowledge ranged from the names of all U.S. Presidents to the different flavors of Blizzards at Dairy Queen, from the Bill of Rights to realizing the necessity of ordering breadsticks along with my pizza when eating at Pizza Hut. Sweet, sweet Indiana.</p> 
+			<p>And then one day, I <em>moved</em> out of state and everything around me dramatically changed: where had all the Dairy Queens gone? And all the Applebee's? And what on earth was IHOP?</p>
+			<p>So I retrieved the number of restaurants of seven different fast food and restaurant chains: Panda Express, Waffle House, McDonalds, International House of Pancakes, Pizza Hut, Applebee's, and Taco Bell, and proceeded to count them by state.</p>
+			<p>I then calculated their prevalence per 500,000 residents, and for each restaurant, calculated the median prevalence. Then I plotted the difference to the median for each state, and voilà:</p>
+		</div>
+	</div>
+	<div class="row" style="margin-top:4em">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article" style="text-align: center">
+			<img src="fries.png"  class="fries" height="70px" width="auto" style="transform:rotate(-30deg)"/><img src="fries.png"  class="fries" height="70px" width="auto" style="transform:rotate(-30deg)"/><img src="fries.png"  class="fries" height="70px" width="auto" style="transform:rotate(-30deg)"/><img src="fries.png"  class="fries" height="70px" width="auto" style="transform:rotate(-30deg)"/>
+		</div>
+	</div>
+</div>
+
+<div class="container" style="margin-top:4em">
+	<div class ="row">
+		<div class="col-12 offset-md-1 col-md-10 offset-lg-3 col-lg-6 article">
+			<div id="g-legend-box" class="ai2html">
+
+	<!-- Artboard: Plan_de_travail_1 -->
+	<div id="g-legend-Plan_de_travail_1" class="g-artboard g-artboard-v4" data-min-width='507'>
+		<img id="g-legend-Plan_de_travail_1-img" class="g-aiImg" src="legend-Plan_de_travail_1.png"/>
+		<div id="g-ai0-1" class="g-Calque_1 g-aiAbs" style="top:3.7383%;left:79.0205%;width:24.8521%;">
+			<p class="g-pstyle0">Waffle House</p>
+			<p class="g-pstyle1">Structure of Face</p>
+			<p class="g-pstyle1">Width of Hair</p>
+		</div>
+		<div id="g-ai0-2" class="g-Calque_1 g-aiAbs" style="top:16.1994%;left:1.4782%;width:24.8521%;">
+			<p class="g-pstyle0">IHOP</p>
+			<p class="g-pstyle1">Height of Hair</p>
+			<p class="g-pstyle1">Width of Face</p>
+		</div>
+		<div id="g-ai0-3" class="g-Calque_1 g-aiAbs" style="top:27.4143%;left:79.0205%;width:24.8521%;">
+			<p class="g-pstyle0">Pizza Hut</p>
+			<p class="g-pstyle1">Height of Eye</p>
+			<p class="g-pstyle1">Width of Ear</p>
+		</div>
+		<div id="g-ai0-4" class="g-Calque_1 g-aiAbs" style="top:42.3676%;left:1.4782%;width:24.8521%;">
+			<p class="g-pstyle0">McDonalds</p>
+			<p class="g-pstyle1">Height of Nose</p>
+			<p class="g-pstyle1">Width of Mouth</p>
+		</div>
+		<div id="g-ai0-5" class="g-Calque_1 g-aiAbs" style="top:51.0903%;left:79.0205%;width:24.8521%;">
+			<p class="g-pstyle0">Applebee&rsquo;s</p>
+			<p class="g-pstyle1">Height of Face</p>
+			<p class="g-pstyle1">Width of Eye</p>
+		</div>
+		<div id="g-ai0-6" class="g-Calque_1 g-aiAbs" style="top:68.5358%;left:1.4782%;width:24.8521%;">
+			<p class="g-pstyle0">Panda Express</p>
+			<p class="g-pstyle1">Height of Mouth</p>
+			<p class="g-pstyle1">Style of Hair</p>
+		</div>
+		<div id="g-ai0-7" class="g-Calque_1 g-aiAbs" style="top:74.7664%;left:79.0205%;width:24.8521%;">
+			<p class="g-pstyle0">Taco Bell</p>
+			<p class="g-pstyle1">Smiling </p>
+			<p class="g-pstyle1">Width of Nose</p>
+		</div>
+	</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-top:4em">
+		<div class="col-12 article" style="text-align:left">
+			<div id="g-withouttext-box" class="ai2html">
+	<!-- Artboard: Plan_de_travail_1 -->
+		<div id="g-withouttext-Plan_de_travail_1" class="g-artboard g-artboard-v4" data-min-width='979'>
+			<img id="g-withouttext-Plan_de_travail_1-img" class="g-aiImg" src="withouttext-Plan_de_travail_1.png"/>
+			<div id="g-ai0-1" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:5.2712%;margin-top:-11px;left:8.0009%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Alabama</p>
+			</div>
+			<div id="g-ai0-2" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:5.2712%;margin-top:-11px;left:19.6697%;margin-left:-37px;width:74px;">
+				<p class="g-pstyle0">Alaska</p>
+			</div>
+			<div id="g-ai0-3" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:5.2712%;margin-top:-11px;left:31.3189%;margin-left:-40.5px;width:81px;">
+				<p class="g-pstyle0">Arizona</p>
+			</div>
+			<div id="g-ai0-4" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:5.2712%;margin-top:-11px;left:42.9548%;margin-left:-46.5px;width:93px;">
+				<p class="g-pstyle0">Arkansas</p>
+			</div>
+			<div id="g-ai0-5" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:5.2712%;margin-top:-11px;left:54.8291%;margin-left:-47.5px;width:95px;">
+				<p class="g-pstyle0">Cali<span class="g-cstyle0">f</span>ornia</p>
+			</div>
+			<div id="g-ai0-6" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:5.2712%;margin-top:-11px;left:66.2781%;margin-left:-45.5px;width:91px;">
+				<p class="g-pstyle0">Colorado</p>
+			</div>
+			<div id="g-ai0-7" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:5.2712%;margin-top:-11px;left:77.9185%;margin-left:-57px;width:114px;">
+				<p class="g-pstyle0">Connecticut</p>
+			</div>
+			<div id="g-ai0-8" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:5.2712%;margin-top:-11px;left:89.5744%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0">Del<span class="g-cstyle1">a</span>ware</p>
+			</div>
+			<div id="g-ai0-9" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:19.2418%;margin-top:-11px;left:31.3015%;margin-left:-36.5px;width:73px;">
+				<p class="g-pstyle0">H<span class="g-cstyle1">a</span>waii</p>
+			</div>
+			<div id="g-ai0-10" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:19.2418%;margin-top:-11px;left:42.9309%;margin-left:-32px;width:64px;">
+				<p class="g-pstyle0">Idaho</p>
+			</div>
+			<div id="g-ai0-11" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:19.2418%;margin-top:-11px;left:54.909%;margin-left:-36.5px;width:73px;">
+				<p class="g-pstyle0">Illinois</p>
+			</div>
+			<div id="g-ai0-12" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:19.2418%;margin-top:-11px;left:66.2451%;margin-left:-39px;width:78px;">
+				<p class="g-pstyle0">Indiana</p>
+			</div>
+			<div id="g-ai0-13" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:19.2418%;margin-top:-11px;left:77.901%;margin-left:-29px;width:58px;">
+				<p class="g-pstyle0">I<span class="g-cstyle2">o</span>wa</p>
+			</div>
+			<div id="g-ai0-14" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:19.2418%;margin-top:-11px;left:7.9596%;margin-left:-37px;width:74px;">
+				<p class="g-pstyle0">Florida</p>
+			</div>
+			<div id="g-ai0-15" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:19.2418%;margin-top:-11px;left:19.6154%;margin-left:-40.5px;width:81px;">
+				<p class="g-pstyle0">Geo<span class="g-cstyle1">r</span>gia</p>
+			</div>
+			<div id="g-ai0-16" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:19.2418%;margin-top:-11px;left:89.5993%;margin-left:-39px;width:78px;">
+				<p class="g-pstyle0">Kansas</p>
+			</div>
+			<div id="g-ai0-17" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:33.2124%;margin-top:-11px;left:19.6109%;margin-left:-47.5px;width:95px;">
+				<p class="g-pstyle0">Louisiana</p>
+			</div>
+			<div id="g-ai0-18" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:33.2124%;margin-top:-11px;left:7.983%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0"><span class="g-cstyle1">K</span>entu<span class="g-cstyle0">c</span>ky</p>
+			</div>
+			<div id="g-ai0-19" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:33.2124%;margin-top:-11px;left:31.3137%;margin-left:-34.5px;width:69px;">
+				<p class="g-pstyle0">Maine</p>
+			</div>
+			<div id="g-ai0-20" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:33.2124%;margin-top:-11px;left:42.9468%;margin-left:-46.5px;width:93px;">
+				<p class="g-pstyle0">Ma<span class="g-cstyle3">r</span>yland</p>
+			</div>
+			<div id="g-ai0-21" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:33.2124%;margin-top:-11px;left:54.8989%;margin-left:-69px;width:138px;">
+				<p class="g-pstyle0">Massa<span class="g-cstyle4">c</span>husetts</p>
+			</div>
+			<div id="g-ai0-22" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:33.2124%;margin-top:-11px;left:66.2736%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0">Mi<span class="g-cstyle4">c</span>higan</p>
+			</div>
+			<div id="g-ai0-23" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:33.2124%;margin-top:-11px;left:77.8696%;margin-left:-51px;width:102px;">
+				<p class="g-pstyle0">Minnesota</p>
+			</div>
+			<div id="g-ai0-24" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:33.3349%;margin-top:-11px;left:89.5583%;margin-left:-54px;width:108px;">
+				<p class="g-pstyle0">Mississippi</p>
+			</div>
+			<div id="g-ai0-25" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:45.6062%;margin-top:-21.1px;left:89.5283%;margin-left:-29.5px;width:59px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0"><span class="g-cstyle5">Y</span>ork</p>
+			</div>
+			<div id="g-ai0-26" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:45.7288%;margin-top:-21.1px;left:54.8837%;margin-left:-52.5px;width:105px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Hampshire</p>
+			</div>
+			<div id="g-ai0-27" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:45.7288%;margin-top:-21.1px;left:66.2965%;margin-left:-36.5px;width:73px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Je<span class="g-cstyle1">r</span>s<span class="g-cstyle1">e</span>y</p>
+			</div>
+			<div id="g-ai0-28" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:45.7288%;margin-top:-21.1px;left:77.9118%;margin-left:-38.5px;width:77px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">M<span class="g-cstyle1">e</span>xico</p>
+			</div>
+			<div id="g-ai0-29" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.183%;margin-top:-11px;left:19.6249%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Montana</p>
+			</div>
+			<div id="g-ai0-30" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.183%;margin-top:-11px;left:31.3087%;margin-left:-47.5px;width:95px;">
+				<p class="g-pstyle0">Nebraska</p>
+			</div>
+			<div id="g-ai0-31" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.183%;margin-top:-11px;left:8.0014%;margin-left:-44px;width:88px;">
+				<p class="g-pstyle0">Missouri</p>
+			</div>
+			<div id="g-ai0-32" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.183%;margin-top:-11px;left:42.9512%;margin-left:-39.5px;width:79px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span><span class="g-cstyle0">v</span>ada</p>
+			</div>
+			<div id="g-ai0-33" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:59.6994%;margin-top:-21.1px;left:89.5533%;margin-left:-42.5px;width:85px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai0-34" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:59.6994%;margin-top:-21.1px;left:77.9358%;margin-left:-37.5px;width:75px;">
+				<p class="g-pstyle0">Rhode </p>
+				<p class="g-pstyle0">Island</p>
+			</div>
+			<div id="g-ai0-35" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:59.6994%;margin-top:-21.1px;left:7.9873%;margin-left:-42.5px;width:85px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai0-36" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:59.6994%;margin-top:-21.1px;left:19.6232%;margin-left:-37.5px;width:75px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai0-37" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.1536%;margin-top:-11px;left:54.9053%;margin-left:-39px;width:78px;">
+				<p class="g-pstyle0">Oregon</p>
+			</div>
+			<div id="g-ai0-38" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.1536%;margin-top:-11px;left:66.226%;margin-left:-61px;width:122px;">
+				<p class="g-pstyle0"><span class="g-cstyle7">P</span>ennsyl<span class="g-cstyle0">v</span>ania</p>
+			</div>
+			<div id="g-ai0-39" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.1536%;margin-top:-11px;left:31.3023%;margin-left:-28.5px;width:57px;">
+				<p class="g-pstyle0">Ohio</p>
+			</div>
+			<div id="g-ai0-40" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.1536%;margin-top:-11px;left:42.9306%;margin-left:-49.5px;width:99px;">
+				<p class="g-pstyle0">Oklahoma</p>
+			</div>
+			<div id="g-ai0-41" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:73.67%;margin-top:-21.1px;left:7.9789%;margin-left:-37.5px;width:75px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai0-42" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:73.67%;margin-top:-21.1px;left:89.5849%;margin-left:-40.5px;width:81px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">W</span>est </p>
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai0-43" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:75.2467%;margin-top:-11px;left:19.647%;margin-left:-52px;width:104px;">
+				<p class="g-pstyle0"><span class="g-cstyle9">T</span>ennessee</p>
+			</div>
+			<div id="g-ai0-44" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:75.2467%;margin-top:-11px;left:31.3268%;margin-left:-33.5px;width:67px;">
+				<p class="g-pstyle0"><span class="g-cstyle9">T</span><span class="g-cstyle1">e</span>xas</p>
+			</div>
+			<div id="g-ai0-45" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:75.2467%;margin-top:-11px;left:42.9395%;margin-left:-28.5px;width:57px;">
+				<p class="g-pstyle0">Utah</p>
+			</div>
+			<div id="g-ai0-46" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:75.2467%;margin-top:-11px;left:54.886%;margin-left:-43.5px;width:87px;">
+				<p class="g-pstyle0"><span class="g-cstyle10">V</span>ermont</p>
+			</div>
+			<div id="g-ai0-47" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:75.2467%;margin-top:-11px;left:66.2766%;margin-left:-40.5px;width:81px;">
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai0-48" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:75.2467%;margin-top:-11px;left:77.9608%;margin-left:-56px;width:112px;">
+				<p class="g-pstyle0"><span class="g-cstyle11">W</span>ashington</p>
+			</div>
+			<div id="g-ai0-49" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:89.2173%;margin-top:-11px;left:8.0201%;margin-left:-50px;width:100px;">
+				<p class="g-pstyle0">Wisconsin</p>
+			</div>
+			<div id="g-ai0-50" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:89.2173%;margin-top:-11px;left:19.6461%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0"><span class="g-cstyle12">W</span><span class="g-cstyle13">y</span>oming</p>
+			</div>
+		</div>
+
+		<!-- Artboard: Plan_de_travail_8 -->
+		<div id="g-withouttext-Plan_de_travail_8" class="g-artboard g-artboard-v4" data-min-width='633' data-max-width='978'>
+			<img id="g-withouttext-Plan_de_travail_8-img" class="g-aiImg" src="withouttext-Plan_de_travail_8.png"/>
+			<div id="g-ai1-1" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9687%;margin-top:-13.4px;left:17.0051%;margin-left:-51.5px;width:103px;">
+				<p class="g-pstyle0">Alabama</p>
+			</div>
+			<div id="g-ai1-2" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9687%;margin-top:-13.4px;left:38.6335%;margin-left:-42px;width:84px;">
+				<p class="g-pstyle0">Alaska</p>
+			</div>
+			<div id="g-ai1-3" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9687%;margin-top:-13.4px;left:60.3469%;margin-left:-46.5px;width:93px;">
+				<p class="g-pstyle0">Arizona</p>
+			</div>
+			<div id="g-ai1-4" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9687%;margin-top:-13.4px;left:82.0347%;margin-left:-54px;width:108px;">
+				<p class="g-pstyle0">Arkansas</p>
+			</div>
+			<div id="g-ai1-5" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6418%;margin-top:-13.4px;left:17.2633%;margin-left:-55px;width:110px;">
+				<p class="g-pstyle0">Cali<span class="g-cstyle0">f</span>ornia</p>
+			</div>
+			<div id="g-ai1-6" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6418%;margin-top:-13.4px;left:38.5434%;margin-left:-52.5px;width:105px;">
+				<p class="g-pstyle0">Colorado</p>
+			</div>
+			<div id="g-ai1-7" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6418%;margin-top:-13.4px;left:60.1427%;margin-left:-66px;width:132px;">
+				<p class="g-pstyle0">Connecticut</p>
+			</div>
+			<div id="g-ai1-8" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6418%;margin-top:-13.4px;left:81.8588%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0">Del<span class="g-cstyle1">a</span>ware</p>
+			</div>
+			<div id="g-ai1-9" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3648%;margin-top:-13.4px;left:60.1734%;margin-left:-42px;width:84px;">
+				<p class="g-pstyle0">H<span class="g-cstyle1">a</span>waii</p>
+			</div>
+			<div id="g-ai1-10" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3648%;margin-top:-13.4px;left:81.7904%;margin-left:-36.5px;width:73px;">
+				<p class="g-pstyle0">Idaho</p>
+			</div>
+			<div id="g-ai1-11" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3648%;margin-top:-13.4px;left:16.7413%;margin-left:-42.5px;width:85px;">
+				<p class="g-pstyle0">Florida</p>
+			</div>
+			<div id="g-ai1-12" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3648%;margin-top:-13.4px;left:38.3883%;margin-left:-46.5px;width:93px;">
+				<p class="g-pstyle0">Geo<span class="g-cstyle1">r</span>gia</p>
+			</div>
+			<div id="g-ai1-13" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0379%;margin-top:-13.4px;left:17.3689%;margin-left:-41.5px;width:83px;">
+				<p class="g-pstyle0">Illinois</p>
+			</div>
+			<div id="g-ai1-14" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0379%;margin-top:-13.4px;left:38.453%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Indiana</p>
+			</div>
+			<div id="g-ai1-15" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0379%;margin-top:-13.4px;left:60.1373%;margin-left:-32.5px;width:65px;">
+				<p class="g-pstyle0">I<span class="g-cstyle2">o</span>wa</p>
+			</div>
+			<div id="g-ai1-16" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0379%;margin-top:-13.4px;left:81.892%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Kansas</p>
+			</div>
+			<div id="g-ai1-17" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7111%;margin-top:-13.4px;left:38.3926%;margin-left:-55px;width:110px;">
+				<p class="g-pstyle0">Louisiana</p>
+			</div>
+			<div id="g-ai1-18" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7111%;margin-top:-13.4px;left:16.7338%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0"><span class="g-cstyle1">K</span>entu<span class="g-cstyle0">c</span>ky</p>
+			</div>
+			<div id="g-ai1-19" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7111%;margin-top:-13.4px;left:60.1023%;margin-left:-39px;width:78px;">
+				<p class="g-pstyle0">Maine</p>
+			</div>
+			<div id="g-ai1-20" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7111%;margin-top:-13.4px;left:81.8295%;margin-left:-54px;width:108px;">
+				<p class="g-pstyle0">Ma<span class="g-cstyle3">r</span>yland</p>
+			</div>
+			<div id="g-ai1-21" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.434%;margin-top:-13.4px;left:17.3365%;margin-left:-80.5px;width:161px;">
+				<p class="g-pstyle0">Massa<span class="g-cstyle4">c</span>husetts</p>
+			</div>
+			<div id="g-ai1-22" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.434%;margin-top:-13.4px;left:38.5191%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0">Mi<span class="g-cstyle4">c</span>higan</p>
+			</div>
+			<div id="g-ai1-23" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.434%;margin-top:-13.4px;left:60.1646%;margin-left:-59.5px;width:119px;">
+				<p class="g-pstyle0">Minnesota</p>
+			</div>
+			<div id="g-ai1-24" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.434%;margin-top:-13.4px;left:81.8885%;margin-left:-63px;width:126px;">
+				<p class="g-pstyle0">Mississippi</p>
+			</div>
+			<div id="g-ai1-25" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1072%;margin-top:-13.4px;left:38.4358%;margin-left:-51.5px;width:103px;">
+				<p class="g-pstyle0">Montana</p>
+			</div>
+			<div id="g-ai1-26" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1072%;margin-top:-13.4px;left:60.0715%;margin-left:-54.5px;width:109px;">
+				<p class="g-pstyle0">Nebraska</p>
+			</div>
+			<div id="g-ai1-27" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1072%;margin-top:-13.4px;left:16.832%;margin-left:-51px;width:102px;">
+				<p class="g-pstyle0">Missouri</p>
+			</div>
+			<div id="g-ai1-28" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1072%;margin-top:-13.4px;left:81.7459%;margin-left:-45px;width:90px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span><span class="g-cstyle0">v</span>ada</p>
+			</div>
+			<div id="g-ai1-29" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.0423%;margin-top:-25.6px;left:81.8275%;margin-left:-33.5px;width:67px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0"><span class="g-cstyle5">Y</span>ork</p>
+			</div>
+			<div id="g-ai1-30" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.0423%;margin-top:-25.6px;left:17.3626%;margin-left:-61px;width:122px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Hampshire</p>
+			</div>
+			<div id="g-ai1-31" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.0423%;margin-top:-25.6px;left:38.5499%;margin-left:-41.5px;width:83px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Je<span class="g-cstyle1">r</span>s<span class="g-cstyle1">e</span>y</p>
+			</div>
+			<div id="g-ai1-32" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.0423%;margin-top:-25.6px;left:60.1696%;margin-left:-44px;width:88px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">M<span class="g-cstyle1">e</span>xico</p>
+			</div>
+			<div id="g-ai1-33" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.7154%;margin-top:-25.6px;left:16.7748%;margin-left:-49px;width:98px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai1-34" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.7154%;margin-top:-25.6px;left:38.4198%;margin-left:-43px;width:86px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai1-35" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:62.5033%;margin-top:-13.4px;left:60.1151%;margin-left:-32px;width:64px;">
+				<p class="g-pstyle0">Ohio</p>
+			</div>
+			<div id="g-ai1-36" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:62.5033%;margin-top:-13.4px;left:81.7037%;margin-left:-57px;width:114px;">
+				<p class="g-pstyle0">Oklahoma</p>
+			</div>
+			<div id="g-ai1-37" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:69.3886%;margin-top:-25.6px;left:81.8526%;margin-left:-49px;width:98px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai1-38" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:69.3886%;margin-top:-25.6px;left:60.167%;margin-left:-42.5px;width:85px;">
+				<p class="g-pstyle0">Rhode </p>
+				<p class="g-pstyle0">Island</p>
+			</div>
+			<div id="g-ai1-39" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:70.1764%;margin-top:-13.4px;left:17.3609%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Oregon</p>
+			</div>
+			<div id="g-ai1-40" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:70.1764%;margin-top:-13.4px;left:38.5031%;margin-left:-71.5px;width:143px;">
+				<p class="g-pstyle0"><span class="g-cstyle7">P</span>ennsyl<span class="g-cstyle0">v</span>ania</p>
+			</div>
+			<div id="g-ai1-41" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.1115%;margin-top:-25.6px;left:16.7612%;margin-left:-43px;width:86px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai1-42" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.8496%;margin-top:-13.4px;left:38.4739%;margin-left:-60.5px;width:121px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">T</span>ennessee</p>
+			</div>
+			<div id="g-ai1-43" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.8496%;margin-top:-13.4px;left:60.1586%;margin-left:-38px;width:76px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">T</span><span class="g-cstyle1">e</span>xas</p>
+			</div>
+			<div id="g-ai1-44" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.8496%;margin-top:-13.4px;left:81.7603%;margin-left:-32px;width:64px;">
+				<p class="g-pstyle0">Utah</p>
+			</div>
+			<div id="g-ai1-45" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:84.7847%;margin-top:-25.6px;left:81.8174%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0"><span class="g-cstyle9">W</span>est </p>
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai1-46" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.5725%;margin-top:-13.4px;left:17.3389%;margin-left:-50px;width:100px;">
+				<p class="g-pstyle0"><span class="g-cstyle10">V</span>ermont</p>
+			</div>
+			<div id="g-ai1-47" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.5725%;margin-top:-13.4px;left:38.4638%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai1-48" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.5725%;margin-top:-13.4px;left:60.2531%;margin-left:-65px;width:130px;">
+				<p class="g-pstyle0"><span class="g-cstyle11">W</span>ashington</p>
+			</div>
+			<div id="g-ai1-49" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:93.2457%;margin-top:-13.4px;left:38.6816%;margin-left:-58px;width:116px;">
+				<p class="g-pstyle0">Wisconsin</p>
+			</div>
+			<div id="g-ai1-50" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:93.2457%;margin-top:-13.4px;left:60.276%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0"><span class="g-cstyle12">W</span><span class="g-cstyle13">y</span>oming</p>
+			</div>
+		</div>
+
+		<!-- Artboard: Plan_de_travail_10 -->
+		<div id="g-withouttext-Plan_de_travail_10" class="g-artboard g-artboard-v4" data-min-width='631' data-max-width='632'>
+			<img id="g-withouttext-Plan_de_travail_10-img" class="g-aiImg" src="withouttext-Plan_de_travail_10.png"/>
+			<div id="g-ai2-1" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9687%;margin-top:-13.4px;left:17.059%;margin-left:-51.5px;width:103px;">
+				<p class="g-pstyle0">Alabama</p>
+			</div>
+			<div id="g-ai2-2" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9687%;margin-top:-13.4px;left:38.756%;margin-left:-42px;width:84px;">
+				<p class="g-pstyle0">Alaska</p>
+			</div>
+			<div id="g-ai2-3" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9687%;margin-top:-13.4px;left:60.5382%;margin-left:-46.5px;width:93px;">
+				<p class="g-pstyle0">Arizona</p>
+			</div>
+			<div id="g-ai2-4" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9687%;margin-top:-13.4px;left:82.2947%;margin-left:-54px;width:108px;">
+				<p class="g-pstyle0">Arkansas</p>
+			</div>
+			<div id="g-ai2-5" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6418%;margin-top:-13.4px;left:17.318%;margin-left:-55px;width:110px;">
+				<p class="g-pstyle0">Cali<span class="g-cstyle0">f</span>ornia</p>
+			</div>
+			<div id="g-ai2-6" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6418%;margin-top:-13.4px;left:38.6655%;margin-left:-52.5px;width:105px;">
+				<p class="g-pstyle0">Colorado</p>
+			</div>
+			<div id="g-ai2-7" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6418%;margin-top:-13.4px;left:60.3333%;margin-left:-66px;width:132px;">
+				<p class="g-pstyle0">Connecticut</p>
+			</div>
+			<div id="g-ai2-8" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6418%;margin-top:-13.4px;left:82.1182%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0">Del<span class="g-cstyle1">a</span>ware</p>
+			</div>
+			<div id="g-ai2-9" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3648%;margin-top:-13.4px;left:60.3641%;margin-left:-42px;width:84px;">
+				<p class="g-pstyle0">H<span class="g-cstyle1">a</span>waii</p>
+			</div>
+			<div id="g-ai2-10" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3648%;margin-top:-13.4px;left:82.0497%;margin-left:-36.5px;width:73px;">
+				<p class="g-pstyle0">Idaho</p>
+			</div>
+			<div id="g-ai2-11" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3648%;margin-top:-13.4px;left:16.7943%;margin-left:-42.5px;width:85px;">
+				<p class="g-pstyle0">Florida</p>
+			</div>
+			<div id="g-ai2-12" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3648%;margin-top:-13.4px;left:38.51%;margin-left:-46.5px;width:93px;">
+				<p class="g-pstyle0">Geo<span class="g-cstyle1">r</span>gia</p>
+			</div>
+			<div id="g-ai2-13" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0379%;margin-top:-13.4px;left:17.424%;margin-left:-41.5px;width:83px;">
+				<p class="g-pstyle0">Illinois</p>
+			</div>
+			<div id="g-ai2-14" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0379%;margin-top:-13.4px;left:38.5748%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Indiana</p>
+			</div>
+			<div id="g-ai2-15" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0379%;margin-top:-13.4px;left:60.3279%;margin-left:-32.5px;width:65px;">
+				<p class="g-pstyle0">I<span class="g-cstyle2">o</span>wa</p>
+			</div>
+			<div id="g-ai2-16" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0379%;margin-top:-13.4px;left:82.1516%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Kansas</p>
+			</div>
+			<div id="g-ai2-17" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7111%;margin-top:-13.4px;left:38.5143%;margin-left:-55px;width:110px;">
+				<p class="g-pstyle0">Louisiana</p>
+			</div>
+			<div id="g-ai2-18" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7111%;margin-top:-13.4px;left:16.7868%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0"><span class="g-cstyle1">K</span>entu<span class="g-cstyle0">c</span>ky</p>
+			</div>
+			<div id="g-ai2-19" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7111%;margin-top:-13.4px;left:60.2928%;margin-left:-39px;width:78px;">
+				<p class="g-pstyle0">Maine</p>
+			</div>
+			<div id="g-ai2-20" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7111%;margin-top:-13.4px;left:82.0889%;margin-left:-54px;width:108px;">
+				<p class="g-pstyle0">Ma<span class="g-cstyle3">r</span>yland</p>
+			</div>
+			<div id="g-ai2-21" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.434%;margin-top:-13.4px;left:17.3914%;margin-left:-80.5px;width:161px;">
+				<p class="g-pstyle0">Massa<span class="g-cstyle4">c</span>husetts</p>
+			</div>
+			<div id="g-ai2-22" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.434%;margin-top:-13.4px;left:38.6412%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0">Mi<span class="g-cstyle4">c</span>higan</p>
+			</div>
+			<div id="g-ai2-23" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.434%;margin-top:-13.4px;left:60.3553%;margin-left:-59.5px;width:119px;">
+				<p class="g-pstyle0">Minnesota</p>
+			</div>
+			<div id="g-ai2-24" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.434%;margin-top:-13.4px;left:82.148%;margin-left:-63px;width:126px;">
+				<p class="g-pstyle0">Mississippi</p>
+			</div>
+			<div id="g-ai2-25" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1072%;margin-top:-13.4px;left:38.5577%;margin-left:-51.5px;width:103px;">
+				<p class="g-pstyle0">Montana</p>
+			</div>
+			<div id="g-ai2-26" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1072%;margin-top:-13.4px;left:60.2619%;margin-left:-54.5px;width:109px;">
+				<p class="g-pstyle0">Nebraska</p>
+			</div>
+			<div id="g-ai2-27" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1072%;margin-top:-13.4px;left:16.8854%;margin-left:-51px;width:102px;">
+				<p class="g-pstyle0">Missouri</p>
+			</div>
+			<div id="g-ai2-28" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1072%;margin-top:-13.4px;left:82.005%;margin-left:-45px;width:90px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span><span class="g-cstyle0">v</span>ada</p>
+			</div>
+			<div id="g-ai2-29" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.0423%;margin-top:-25.6px;left:82.0868%;margin-left:-33.5px;width:67px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0"><span class="g-cstyle5">Y</span>ork</p>
+			</div>
+			<div id="g-ai2-30" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.0423%;margin-top:-25.6px;left:17.4176%;margin-left:-61px;width:122px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Hampshire</p>
+			</div>
+			<div id="g-ai2-31" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.0423%;margin-top:-25.6px;left:38.6721%;margin-left:-41.5px;width:83px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Je<span class="g-cstyle1">r</span>s<span class="g-cstyle1">e</span>y</p>
+			</div>
+			<div id="g-ai2-32" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.0423%;margin-top:-25.6px;left:60.3603%;margin-left:-44px;width:88px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">M<span class="g-cstyle1">e</span>xico</p>
+			</div>
+			<div id="g-ai2-33" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.7154%;margin-top:-25.6px;left:16.828%;margin-left:-49px;width:98px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai2-34" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.7154%;margin-top:-25.6px;left:38.5416%;margin-left:-43px;width:86px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai2-35" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:62.5033%;margin-top:-13.4px;left:60.3056%;margin-left:-32px;width:64px;">
+				<p class="g-pstyle0">Ohio</p>
+			</div>
+			<div id="g-ai2-36" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:62.5033%;margin-top:-13.4px;left:81.9627%;margin-left:-57px;width:114px;">
+				<p class="g-pstyle0">Oklahoma</p>
+			</div>
+			<div id="g-ai2-37" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:69.3886%;margin-top:-25.6px;left:82.112%;margin-left:-49px;width:98px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai2-38" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:69.3886%;margin-top:-25.6px;left:60.3578%;margin-left:-42.5px;width:85px;">
+				<p class="g-pstyle0">Rhode </p>
+				<p class="g-pstyle0">Island</p>
+			</div>
+			<div id="g-ai2-39" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:70.1764%;margin-top:-13.4px;left:17.4159%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Oregon</p>
+			</div>
+			<div id="g-ai2-40" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:70.1764%;margin-top:-13.4px;left:38.6251%;margin-left:-71.5px;width:143px;">
+				<p class="g-pstyle0"><span class="g-cstyle7">P</span>ennsyl<span class="g-cstyle0">v</span>ania</p>
+			</div>
+			<div id="g-ai2-41" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.1115%;margin-top:-25.6px;left:16.8144%;margin-left:-43px;width:86px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai2-42" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.8496%;margin-top:-13.4px;left:38.5958%;margin-left:-60.5px;width:121px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">T</span>ennessee</p>
+			</div>
+			<div id="g-ai2-43" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.8496%;margin-top:-13.4px;left:60.3493%;margin-left:-38px;width:76px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">T</span><span class="g-cstyle1">e</span>xas</p>
+			</div>
+			<div id="g-ai2-44" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.8496%;margin-top:-13.4px;left:82.0195%;margin-left:-32px;width:64px;">
+				<p class="g-pstyle0">Utah</p>
+			</div>
+			<div id="g-ai2-45" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:84.7847%;margin-top:-25.6px;left:82.0768%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0"><span class="g-cstyle9">W</span>est </p>
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai2-46" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.5725%;margin-top:-13.4px;left:17.3939%;margin-left:-50px;width:100px;">
+				<p class="g-pstyle0"><span class="g-cstyle10">V</span>ermont</p>
+			</div>
+			<div id="g-ai2-47" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.5725%;margin-top:-13.4px;left:38.5857%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai2-48" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.5725%;margin-top:-13.4px;left:60.4441%;margin-left:-65px;width:130px;">
+				<p class="g-pstyle0"><span class="g-cstyle11">W</span>ashington</p>
+			</div>
+			<div id="g-ai2-49" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:93.2457%;margin-top:-13.4px;left:38.8042%;margin-left:-58px;width:116px;">
+				<p class="g-pstyle0">Wisconsin</p>
+			</div>
+			<div id="g-ai2-50" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:93.2457%;margin-top:-13.4px;left:60.4671%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0"><span class="g-cstyle12">W</span><span class="g-cstyle13">y</span>oming</p>
+			</div>
+		</div>
+
+		<!-- Artboard: Plan_de_travail_12 -->
+		<div id="g-withouttext-Plan_de_travail_12" class="g-artboard g-artboard-v4" data-min-width='508' data-max-width='630'>
+			<img id="g-withouttext-Plan_de_travail_12-img" class="g-aiImg" src="withouttext-Plan_de_travail_12.png"/>
+			<div id="g-ai3-1" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9393%;margin-top:-11.2px;left:17.0666%;margin-left:-43.5px;width:87px;">
+				<p class="g-pstyle0">Alabama</p>
+			</div>
+			<div id="g-ai3-2" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9393%;margin-top:-11.2px;left:38.8543%;margin-left:-36px;width:72px;">
+				<p class="g-pstyle0">Alaska</p>
+			</div>
+			<div id="g-ai3-3" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9393%;margin-top:-11.2px;left:60.6682%;margin-left:-39.5px;width:79px;">
+				<p class="g-pstyle0">Arizona</p>
+			</div>
+			<div id="g-ai3-4" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:0.9393%;margin-top:-11.2px;left:82.4719%;margin-left:-45.5px;width:91px;">
+				<p class="g-pstyle0">Arkansas</p>
+			</div>
+			<div id="g-ai3-5" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6458%;margin-top:-11.2px;left:17.3609%;margin-left:-46.5px;width:93px;">
+				<p class="g-pstyle0">Cali<span class="g-cstyle0">f</span>ornia</p>
+			</div>
+			<div id="g-ai3-6" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6458%;margin-top:-11.2px;left:38.7684%;margin-left:-44.5px;width:89px;">
+				<p class="g-pstyle0">Colorado</p>
+			</div>
+			<div id="g-ai3-7" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6458%;margin-top:-11.2px;left:60.5138%;margin-left:-55.5px;width:111px;">
+				<p class="g-pstyle0">Connecticut</p>
+			</div>
+			<div id="g-ai3-8" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6458%;margin-top:-11.2px;left:82.3554%;margin-left:-45px;width:90px;">
+				<p class="g-pstyle0">Del<span class="g-cstyle1">a</span>ware</p>
+			</div>
+			<div id="g-ai3-9" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.2907%;margin-top:-11.2px;left:60.5196%;margin-left:-36px;width:72px;">
+				<p class="g-pstyle0">H<span class="g-cstyle1">a</span>waii</p>
+			</div>
+			<div id="g-ai3-10" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.2907%;margin-top:-11.2px;left:82.251%;margin-left:-31.5px;width:63px;">
+				<p class="g-pstyle0">Idaho</p>
+			</div>
+			<div id="g-ai3-11" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.2907%;margin-top:-11.2px;left:16.8534%;margin-left:-36.5px;width:73px;">
+				<p class="g-pstyle0">Florida</p>
+			</div>
+			<div id="g-ai3-12" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.2907%;margin-top:-11.2px;left:38.6801%;margin-left:-40px;width:80px;">
+				<p class="g-pstyle0">Geo<span class="g-cstyle1">r</span>gia</p>
+			</div>
+			<div id="g-ai3-13" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:23.9972%;margin-top:-11.2px;left:17.4466%;margin-left:-35.5px;width:71px;">
+				<p class="g-pstyle0">Illinois</p>
+			</div>
+			<div id="g-ai3-14" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:23.9972%;margin-top:-11.2px;left:38.669%;margin-left:-38px;width:76px;">
+				<p class="g-pstyle0">Indiana</p>
+			</div>
+			<div id="g-ai3-15" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:23.9972%;margin-top:-11.2px;left:60.5167%;margin-left:-28.5px;width:57px;">
+				<p class="g-pstyle0">I<span class="g-cstyle2">o</span>wa</p>
+			</div>
+			<div id="g-ai3-16" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:23.9972%;margin-top:-11.2px;left:82.3615%;margin-left:-38px;width:76px;">
+				<p class="g-pstyle0">Kansas</p>
+			</div>
+			<div id="g-ai3-17" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7038%;margin-top:-11.2px;left:38.6132%;margin-left:-46.5px;width:93px;">
+				<p class="g-pstyle0">Louisiana</p>
+			</div>
+			<div id="g-ai3-18" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7038%;margin-top:-11.2px;left:16.8505%;margin-left:-45px;width:90px;">
+				<p class="g-pstyle0"><span class="g-cstyle1">K</span>entu<span class="g-cstyle0">c</span>ky</p>
+			</div>
+			<div id="g-ai3-19" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7038%;margin-top:-11.2px;left:60.5311%;margin-left:-34px;width:68px;">
+				<p class="g-pstyle0">Maine</p>
+			</div>
+			<div id="g-ai3-20" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.7038%;margin-top:-11.2px;left:82.2654%;margin-left:-45.5px;width:91px;">
+				<p class="g-pstyle0">Ma<span class="g-cstyle3">r</span>yland</p>
+			</div>
+			<div id="g-ai3-21" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.3486%;margin-top:-11.2px;left:17.4178%;margin-left:-67px;width:134px;">
+				<p class="g-pstyle0">Massa<span class="g-cstyle4">c</span>husetts</p>
+			</div>
+			<div id="g-ai3-22" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.3486%;margin-top:-11.2px;left:38.7632%;margin-left:-45px;width:90px;">
+				<p class="g-pstyle0">Mi<span class="g-cstyle4">c</span>higan</p>
+			</div>
+			<div id="g-ai3-23" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.3486%;margin-top:-11.2px;left:60.4861%;margin-left:-50px;width:100px;">
+				<p class="g-pstyle0">Minnesota</p>
+			</div>
+			<div id="g-ai3-24" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.4103%;margin-top:-11.2px;left:82.3711%;margin-left:-53px;width:106px;">
+				<p class="g-pstyle0">Mississippi</p>
+			</div>
+			<div id="g-ai3-25" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.0552%;margin-top:-11.2px;left:38.6225%;margin-left:-43.5px;width:87px;">
+				<p class="g-pstyle0">Montana</p>
+			</div>
+			<div id="g-ai3-26" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.0552%;margin-top:-11.2px;left:60.3994%;margin-left:-46px;width:92px;">
+				<p class="g-pstyle0">Nebraska</p>
+			</div>
+			<div id="g-ai3-27" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.0552%;margin-top:-11.2px;left:16.8736%;margin-left:-43px;width:86px;">
+				<p class="g-pstyle0">Missouri</p>
+			</div>
+			<div id="g-ai3-28" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.0552%;margin-top:-11.2px;left:82.2335%;margin-left:-38.5px;width:77px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span><span class="g-cstyle0">v</span>ada</p>
+			</div>
+			<div id="g-ai3-29" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:53.9502%;margin-top:-21.1px;left:82.2727%;margin-left:-29px;width:58px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0"><span class="g-cstyle5">Y</span>ork</p>
+			</div>
+			<div id="g-ai3-30" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:53.9502%;margin-top:-21.1px;left:17.4914%;margin-left:-51.5px;width:103px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Hampshire</p>
+			</div>
+			<div id="g-ai3-31" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:53.9502%;margin-top:-21.1px;left:38.7515%;margin-left:-35.5px;width:71px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Je<span class="g-cstyle1">r</span>s<span class="g-cstyle1">e</span>y</p>
+			</div>
+			<div id="g-ai3-32" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:53.9502%;margin-top:-21.1px;left:60.4936%;margin-left:-37.5px;width:75px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">M<span class="g-cstyle1">e</span>xico</p>
+			</div>
+			<div id="g-ai3-33" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.6568%;margin-top:-21.1px;left:16.8384%;margin-left:-41.5px;width:83px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai3-34" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.6568%;margin-top:-21.1px;left:38.6773%;margin-left:-37px;width:74px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai3-35" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:62.4066%;margin-top:-11.2px;left:60.4754%;margin-left:-28px;width:56px;">
+				<p class="g-pstyle0">Ohio</p>
+			</div>
+			<div id="g-ai3-36" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:62.4066%;margin-top:-11.2px;left:82.2529%;margin-left:-48.5px;width:97px;">
+				<p class="g-pstyle0">Oklahoma</p>
+			</div>
+			<div id="g-ai3-37" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:69.3016%;margin-top:-21.1px;left:60.5325%;margin-left:-36.5px;width:73px;">
+				<p class="g-pstyle0">Rhode </p>
+				<p class="g-pstyle0">Island</p>
+			</div>
+			<div id="g-ai3-38" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:69.3016%;margin-top:-21.1px;left:82.2956%;margin-left:-41.5px;width:83px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai3-39" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:70.0515%;margin-top:-11.2px;left:17.4541%;margin-left:-38px;width:76px;">
+				<p class="g-pstyle0">Oregon</p>
+			</div>
+			<div id="g-ai3-40" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:70.0515%;margin-top:-11.2px;left:38.6617%;margin-left:-59.5px;width:119px;">
+				<p class="g-pstyle0"><span class="g-cstyle7">P</span>ennsyl<span class="g-cstyle0">v</span>ania</p>
+			</div>
+			<div id="g-ai3-41" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.0082%;margin-top:-21.1px;left:16.8924%;margin-left:-37px;width:74px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai3-42" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.758%;margin-top:-11.2px;left:38.7069%;margin-left:-51px;width:102px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">T</span>ennessee</p>
+			</div>
+			<div id="g-ai3-43" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.758%;margin-top:-11.2px;left:60.4513%;margin-left:-32.5px;width:65px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">T</span><span class="g-cstyle1">e</span>xas</p>
+			</div>
+			<div id="g-ai3-44" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.758%;margin-top:-11.2px;left:82.2467%;margin-left:-28px;width:56px;">
+				<p class="g-pstyle0">Utah</p>
+			</div>
+			<div id="g-ai3-45" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:84.7147%;margin-top:-21.1px;left:82.3434%;margin-left:-39.5px;width:79px;">
+				<p class="g-pstyle0"><span class="g-cstyle9">W</span>est </p>
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai3-46" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.4645%;margin-top:-11.2px;left:17.4438%;margin-left:-42.5px;width:85px;">
+				<p class="g-pstyle0"><span class="g-cstyle10">V</span>ermont</p>
+			</div>
+			<div id="g-ai3-47" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.4645%;margin-top:-11.2px;left:38.7369%;margin-left:-39.5px;width:79px;">
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai3-48" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.4645%;margin-top:-11.2px;left:60.5871%;margin-left:-54.5px;width:109px;">
+				<p class="g-pstyle0"><span class="g-cstyle11">W</span>ashington</p>
+			</div>
+			<div id="g-ai3-49" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:93.1711%;margin-top:-11.2px;left:38.9193%;margin-left:-49px;width:98px;">
+				<p class="g-pstyle0">Wisconsin</p>
+			</div>
+			<div id="g-ai3-50" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:93.1711%;margin-top:-11.2px;left:60.6468%;margin-left:-45px;width:90px;">
+				<p class="g-pstyle0"><span class="g-cstyle12">W</span><span class="g-cstyle13">y</span>oming</p>
+			</div>
+		</div>
+
+		<!-- Artboard: Plan_de_travail_13 -->
+		<div id="g-withouttext-Plan_de_travail_13" class="g-artboard g-artboard-v4" data-min-width='294' data-max-width='507'>
+			<img id="g-withouttext-Plan_de_travail_13-img" class="g-aiImg" src="withouttext-Plan_de_travail_13.png"/>
+			<div id="g-ai4-1" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:1.0015%;margin-top:-6.3px;left:17.0899%;margin-left:-30px;width:60px;">
+				<p class="g-pstyle0">Alabama</p>
+			</div>
+			<div id="g-ai4-2" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:1.0015%;margin-top:-6.3px;left:38.7327%;margin-left:-25.5px;width:51px;">
+				<p class="g-pstyle0">Alaska</p>
+			</div>
+			<div id="g-ai4-3" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:1.0015%;margin-top:-6.3px;left:60.4556%;margin-left:-27.5px;width:55px;">
+				<p class="g-pstyle0">Arizona</p>
+			</div>
+			<div id="g-ai4-4" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:1.0015%;margin-top:-6.3px;left:82.1881%;margin-left:-31px;width:62px;">
+				<p class="g-pstyle0">Arkansas</p>
+			</div>
+			<div id="g-ai4-5" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6277%;margin-top:-6.3px;left:17.3048%;margin-left:-31.5px;width:63px;">
+				<p class="g-pstyle0">Cali<span class="g-cstyle0">f</span>ornia</p>
+			</div>
+			<div id="g-ai4-6" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6277%;margin-top:-6.3px;left:38.6809%;margin-left:-30.5px;width:61px;">
+				<p class="g-pstyle0">Colorado</p>
+			</div>
+			<div id="g-ai4-7" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6277%;margin-top:-6.3px;left:60.2261%;margin-left:-36.5px;width:73px;">
+				<p class="g-pstyle0">Connecticut</p>
+			</div>
+			<div id="g-ai4-8" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:8.6277%;margin-top:-6.3px;left:81.9997%;margin-left:-30.5px;width:61px;">
+				<p class="g-pstyle0">Del<span class="g-cstyle1">a</span>ware</p>
+			</div>
+			<div id="g-ai4-9" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3613%;margin-top:-6.3px;left:60.3134%;margin-left:-25.5px;width:51px;">
+				<p class="g-pstyle0">H<span class="g-cstyle1">a</span>waii</p>
+			</div>
+			<div id="g-ai4-10" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3613%;margin-top:-6.3px;left:81.9921%;margin-left:-23px;width:46px;">
+				<p class="g-pstyle0">Idaho</p>
+			</div>
+			<div id="g-ai4-11" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3613%;margin-top:-6.3px;left:16.7195%;margin-left:-25.5px;width:51px;">
+				<p class="g-pstyle0">Florida</p>
+			</div>
+			<div id="g-ai4-12" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:16.3613%;margin-top:-6.3px;left:38.455%;margin-left:-27.5px;width:55px;">
+				<p class="g-pstyle0">Geo<span class="g-cstyle1">r</span>gia</p>
+			</div>
+			<div id="g-ai4-13" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0949%;margin-top:-6.3px;left:17.3364%;margin-left:-25px;width:50px;">
+				<p class="g-pstyle0">Illinois</p>
+			</div>
+			<div id="g-ai4-14" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0949%;margin-top:-6.3px;left:38.4959%;margin-left:-26.5px;width:53px;">
+				<p class="g-pstyle0">Indiana</p>
+			</div>
+			<div id="g-ai4-15" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0949%;margin-top:-6.3px;left:60.2503%;margin-left:-21px;width:42px;">
+				<p class="g-pstyle0">I<span class="g-cstyle2">o</span>wa</p>
+			</div>
+			<div id="g-ai4-16" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:24.0949%;margin-top:-6.3px;left:82.0183%;margin-left:-26.5px;width:53px;">
+				<p class="g-pstyle0">Kansas</p>
+			</div>
+			<div id="g-ai4-17" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.8285%;margin-top:-6.3px;left:38.4746%;margin-left:-31.5px;width:63px;">
+				<p class="g-pstyle0">Louisiana</p>
+			</div>
+			<div id="g-ai4-18" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.8285%;margin-top:-6.3px;left:16.7508%;margin-left:-30.5px;width:61px;">
+				<p class="g-pstyle0"><span class="g-cstyle1">K</span>entu<span class="g-cstyle0">c</span>ky</p>
+			</div>
+			<div id="g-ai4-19" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.8285%;margin-top:-6.3px;left:60.2068%;margin-left:-24px;width:48px;">
+				<p class="g-pstyle0">Maine</p>
+			</div>
+			<div id="g-ai4-20" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:31.8285%;margin-top:-6.3px;left:81.9825%;margin-left:-31px;width:62px;">
+				<p class="g-pstyle0">Ma<span class="g-cstyle3">r</span>yland</p>
+			</div>
+			<div id="g-ai4-21" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.5622%;margin-top:-6.3px;left:17.4237%;margin-left:-43.5px;width:87px;">
+				<p class="g-pstyle0">Massa<span class="g-cstyle4">c</span>husetts</p>
+			</div>
+			<div id="g-ai4-22" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.5622%;margin-top:-6.3px;left:38.5776%;margin-left:-30.5px;width:61px;">
+				<p class="g-pstyle0">Mi<span class="g-cstyle4">c</span>higan</p>
+			</div>
+			<div id="g-ai4-23" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.5622%;margin-top:-6.3px;left:60.2559%;margin-left:-33.5px;width:67px;">
+				<p class="g-pstyle0">Minnesota</p>
+			</div>
+			<div id="g-ai4-24" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:39.5622%;margin-top:-6.3px;left:81.9775%;margin-left:-35px;width:70px;">
+				<p class="g-pstyle0">Mississippi</p>
+			</div>
+			<div id="g-ai4-25" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1884%;margin-top:-6.3px;left:38.562%;margin-left:-30px;width:60px;">
+				<p class="g-pstyle0">Montana</p>
+			</div>
+			<div id="g-ai4-26" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.1884%;margin-top:-6.3px;left:60.2739%;margin-left:-31.5px;width:63px;">
+				<p class="g-pstyle0">Nebraska</p>
+			</div>
+			<div id="g-ai4-27" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.2958%;margin-top:-6.3px;left:16.8258%;margin-left:-29.5px;width:59px;">
+				<p class="g-pstyle0">Missouri</p>
+			</div>
+			<div id="g-ai4-28" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:47.2958%;margin-top:-6.3px;left:81.9629%;margin-left:-27px;width:54px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span><span class="g-cstyle0">v</span>ada</p>
+			</div>
+			<div id="g-ai4-29" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.2422%;margin-top:-12px;left:81.9941%;margin-left:-21.5px;width:43px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0"><span class="g-cstyle5">Y</span>ork</p>
+			</div>
+			<div id="g-ai4-30" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.2422%;margin-top:-12px;left:17.3051%;margin-left:-34px;width:68px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Hampshire</p>
+			</div>
+			<div id="g-ai4-31" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.2422%;margin-top:-12px;left:38.558%;margin-left:-25px;width:50px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">Je<span class="g-cstyle1">r</span>s<span class="g-cstyle1">e</span>y</p>
+			</div>
+			<div id="g-ai4-32" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:54.2422%;margin-top:-12px;left:60.3337%;margin-left:-26.5px;width:53px;">
+				<p class="g-pstyle0">N<span class="g-cstyle1">e</span>w </p>
+				<p class="g-pstyle0">M<span class="g-cstyle1">e</span>xico</p>
+			</div>
+			<div id="g-ai4-33" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.8684%;margin-top:-12px;left:16.7448%;margin-left:-28.5px;width:57px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai4-34" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:61.9758%;margin-top:-12px;left:38.5304%;margin-left:-26px;width:52px;">
+				<p class="g-pstyle0">No<span class="g-cstyle6">r</span>th </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai4-35" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:62.6556%;margin-top:-6.3px;left:60.3074%;margin-left:-21px;width:42px;">
+				<p class="g-pstyle0">Ohio</p>
+			</div>
+			<div id="g-ai4-36" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:62.6556%;margin-top:-6.3px;left:81.8921%;margin-left:-32.5px;width:65px;">
+				<p class="g-pstyle0">Oklahoma</p>
+			</div>
+			<div id="g-ai4-37" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:69.6021%;margin-top:-12px;left:60.2284%;margin-left:-25.5px;width:51px;">
+				<p class="g-pstyle0">Rhode </p>
+				<p class="g-pstyle0">Island</p>
+			</div>
+			<div id="g-ai4-38" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:69.6021%;margin-top:-12px;left:81.9469%;margin-left:-28.5px;width:57px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Ca<span class="g-cstyle0">r</span>olina</p>
+			</div>
+			<div id="g-ai4-39" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:70.3892%;margin-top:-6.3px;left:17.3639%;margin-left:-26.5px;width:53px;">
+				<p class="g-pstyle0">Oregon</p>
+			</div>
+			<div id="g-ai4-40" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:70.3892%;margin-top:-6.3px;left:38.5244%;margin-left:-39px;width:78px;">
+				<p class="g-pstyle0"><span class="g-cstyle7">P</span>ennsyl<span class="g-cstyle0">v</span>ania</p>
+			</div>
+			<div id="g-ai4-41" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:77.3357%;margin-top:-12px;left:16.8305%;margin-left:-26px;width:52px;">
+				<p class="g-pstyle0">South </p>
+				<p class="g-pstyle0">Da<span class="g-cstyle1">k</span>ota</p>
+			</div>
+			<div id="g-ai4-42" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:78.1228%;margin-top:-6.3px;left:38.5357%;margin-left:-34px;width:68px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">T</span>ennessee</p>
+			</div>
+			<div id="g-ai4-43" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:78.1228%;margin-top:-6.3px;left:60.2516%;margin-left:-23.5px;width:47px;">
+				<p class="g-pstyle0"><span class="g-cstyle8">T</span><span class="g-cstyle1">e</span>xas</p>
+			</div>
+			<div id="g-ai4-44" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:78.1228%;margin-top:-6.3px;left:81.9941%;margin-left:-21px;width:42px;">
+				<p class="g-pstyle0">Utah</p>
+			</div>
+			<div id="g-ai4-45" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.0693%;margin-top:-12px;left:82.0462%;margin-left:-27.5px;width:55px;">
+				<p class="g-pstyle0"><span class="g-cstyle9">W</span>est </p>
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai4-46" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.8565%;margin-top:-6.3px;left:17.3217%;margin-left:-29px;width:58px;">
+				<p class="g-pstyle0"><span class="g-cstyle10">V</span>ermont</p>
+			</div>
+			<div id="g-ai4-47" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.8565%;margin-top:-6.3px;left:38.6098%;margin-left:-27.5px;width:55px;">
+				<p class="g-pstyle0">Vi<span class="g-cstyle1">r</span>ginia</p>
+			</div>
+			<div id="g-ai4-48" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:85.8565%;margin-top:-6.3px;left:60.3244%;margin-left:-36px;width:72px;">
+				<p class="g-pstyle0"><span class="g-cstyle11">W</span>ashington</p>
+			</div>
+			<div id="g-ai4-49" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:93.5901%;margin-top:-6.3px;left:38.7995%;margin-left:-33px;width:66px;">
+				<p class="g-pstyle0">Wisconsin</p>
+			</div>
+			<div id="g-ai4-50" class="g-Calque_1 g-aiAbs g-aiPointText" style="top:93.5901%;margin-top:-6.3px;left:60.3759%;margin-left:-30.5px;width:61px;">
+				<p class="g-pstyle0"><span class="g-cstyle12">W</span><span class="g-cstyle13">y</span>oming</p>
+			</div>
+	
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+<div class="container offset-1 col-10 offset-md-3 offset-lg-3 col-md-6 col-lg-6" style="margin-top:4em">
+	
+	<div class="row">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article article" style="text-align:left">
+					<p>Sure, there is a lot going on because these are called Chernoff faces, and they make it possible to represent multiple variables at the same time. But let's look at some of these faces in greater detail.</p>
+		</div>
+	</div>
+	<div class="row" style="margin-top:4em">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article">
+			<img src="fries.png"  class="wrap" height="90px" width="auto"/>
+		</div>
+	</div>
+	<div class="row" style="margin-top:4em">
+		<div class="col-12" style="text-align: center">
+			<img src="waffle.png"  id="waffle1" height="60px" width="auto"/><img src="waffle.png" id="waffle2" height="60px" width="auto"/><img src="wafflehouse.png"  id="wafflehouse" height="150px" width="auto"/><img src="waffle.png" id="waffle3" height="60px" width="auto"/><img src="waffle.png" id="waffle4" height="60px" width="auto"/><h2 class="subtitle" style="margin-top:-1em">Georgia: where all the Waffle Houses are</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article " style="text-align:left;margin-top:3.5em">
+				<p>Georgia has the most Waffle Houses: 400, which represents roughly 21 per 500,000. This prevalence of Waffle Houses is visible while looking at the width of the hair of its Chernoff face, and at the face's structure itself. The more Waffle Houses, the wider the hair and the sharper the face.</p>
+				<img src = "georgia.png" style="margin-top:2em;margin-bottom:2em" class="center"/>
+				<p>The chaine is present in 25 different states, but most particularly in the South - it is headquartered in Georgia, and was also founded there. There are quite a few Waffle Houses in Mississippi (15 per 500,000), and in South Carolina (17 per 500,000). They are, however, completely absent from Massachusetts or New York.</p> 
+				<p>As Waffle Houses are open 24/7, the Federal Emergency Management Agency uses the "Waffle House Index": as an informal way to measure how bad a a storm is. If a Waffle House is closed, the situation is <b>really</b> bad.</p>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top:3em">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article">
+			<img src="fries.png"  id="friesthree" height="90px" width="auto"/>
+		</div>
+	</div>
+	<div class="row" style="margin-top:5em">
+		<div class="col-12" style="text-align: center;margin-top:4em">
+			<img src="salad.png"  class="salad" height="70px" width="auto" style="margin-right:1em"/><img src="soda.png"  id="wafflehouse" height="70px" width="auto"/><img src="salad.png" class="salad" height="60px" width="auto"/><h2 class="subtitle" style="margin-top:0.5em">North Dakota: no McDonalds but a lot of Applebee's</h2>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top:4em">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article" style="text-align:left">
+				<p>North Dakota's Chernoff face is very long, and its eyes are wide, due to the number of Applebee's. With 4 restaurants per 500,000, North Dakota is the state with the biggest number of Applebee's.</p>
+				<img src = "northdakota.png" style="margin-top:2em;margin-bottom:2em" class="center"/>
+				<p>However, its Chernoff face has a small nose and a tiny mouth, due to the relative absence of McDonalds: it is by far the state with the least, with 19 restaurants per 500,000, when the national average is 26 per 500,000.</p> 
+				<p>Sure, maybe Applebee's isn't as much as a fast food restaurants as all of the others here - but it is still a chain.</p>
+		</div>
+	</div>
+	<div class="row" style="margin-top:4em">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article" style="text-align: center">
+			<img src="fries.png"  class="fries" height="70px" width="auto" style="transform:rotate(-30deg)"/><img src="fries.png"  class="fries" height="70px" width="auto" style="transform:rotate(-30deg)"/><img src="fries.png"  class="fries" height="70px" width="auto" style="transform:rotate(-30deg)"/><img src="fries.png"  class="fries" height="70px" width="auto" style="transform:rotate(-30deg)"/>
+		</div>
+	</div>
+	<div class="row" style="margin-top:4em">
+		<div class="col-12" style="text-align: center;margin-top:4em">
+			<img src="pizzasmol.png"  id="waffle1" height="60px" width="auto"/><img src="pizzahut.png"  id="wafflehouse" height="70px" width="auto"/><img src="pizzasmol.png" id="waffle3" height="60px" width="auto"/><h2 class="subtitle" style="margin-top:0.5em">Kansas and Wyoming: Pizza Hut land</h2>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top:4em">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article" style="text-align:left">
+				<p>The Chernoff faces of these two states have long eyes and wide ears, as Kansas has 27 Pizza Huts per 500,000 and Wyoming has 26, when the national average is 11.</p>
+		</div>
+	</div>
+	
+	<div class="row"style="margin-top:2em;margin-bottom:2em">
+			<img src = "wyoming.png" style="margin:auto" />
+			<img src = "kansas.png" style="margin:auto" />
+	</div>
+		
+	<div class="row">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article" style="text-align:left">
+				<p>Kansas also has more McDonalds and Taco Bells than the average. It is also one of the two states with the bigges International House of Pancakes prevalence, along with New Mexico.</p> 
+
+		</div>
+	</div>
+
+
+
+	<div class="row">
+			<img src="pancakes.png"  id="pancakes" height="170px" width="auto"/>
+	</div>
+
+
+	<div class="row" style="margin-top:5em">
+		<div class="col-12 offset-md-1 offset-lg-2 col-md-10 col-lg-8 article" style="text-align:left;color:dimgray">
+				<hr/>
+				<p>PNGs come from <a href="https://www.kisspng.com">this website</a>. Click on the name of the chain to get its data: <a href="http://investors.dineequity.com/index.php/static-files/bdfb54c9-de99-4318-b738-b9244a9cb222<">Applebee's</a>, <a href="http://investors.dineequity.com/index.php/static-files/bdfb54c9-de99-4318-b738-b9244a9cb222">IHOP</a>, <a href="https://find.mapmuse.com/brand/waffle-house">Waffle House</a>, <a href="https://www.pandaexpress.com/userlocation">Panda Express</a>, <a href="https://www.statista.com/statistics/631235/number-of-mcdonald-s-us-by-state/">McDonalds</a>, <a href="tacobell.com">Taco Bell</a>, <a href="https://find.mapmuse.com/brand/pizza-hut">Pizza Hut</a>.</p>
+		</div>	</div>
+
+</div>
+
+<script src="animation.js"></script>
+<script type="text/javascript">
+
+//tl.to("#pancakes", 2, {y:400, ease:Bounce.easeOut});
+//tl.to("#waffle", 1, {y:300, ease:Bounce.easeOut});
+
+//tl.to(".grey", 1, {x:200, scale:2, y:20});
+
+/*TweenMax.to(document.getElementById("waffle"), 5, {bezier:{type:"cubic", values:[{x:100, y:250}, {x:150, y:100}, {x:300, y:500}, {x:500, y:400}], autoRotate:["x","y","rotation",45,false]}, ease:Power1.easeInOut, repeat:4, yoyo:true});
+TweenMax.to(document.getElementById("pizza"), 5, {bezier:{type:"cubic", values:[{x:100, y:250}, {x:150, y:100}, {x:300, y:500}, {x:500, y:400}], autoRotate:["x","y","rotation",45,false]}, ease:Power1.easeInOut, repeat:4, yoyo:true});*/
+</script>
+
+</body>
+
+</html>
