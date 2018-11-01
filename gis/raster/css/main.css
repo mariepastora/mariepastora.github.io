@@ -1,0 +1,110 @@
+html{
+	overflow-x: hidden;
+
+}
+
+.title{
+	margin-top:1.5em;
+	font-family:'neue-haas-grotesk-display';
+	font-size:48px;
+	font-weight:600;
+	text-align: center;
+	line-height:1.2em;
+	color:white;
+
+}
+.lede{
+	margin-top:3em;
+	text-align: center;
+	line-height:1.2em;
+	color:white;
+}
+
+.main-section{
+}
+
+h1{
+	margin-bottom:1.5em;
+	font-family:'neue-haas-grotesk-display';
+	font-size:25px;
+	font-weight:600;
+	text-align: center;
+	line-height:1.2em;
+	color:#343A40;
+}
+
+.center{
+	    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top:2em;
+    margin-bottom:2em;
+ }
+
+.center-smol{
+	    display: block;
+    margin-left: auto;
+    margin-right: auto;	
+    margin-top:2em;
+    margin-bottom:2em;
+}
+.center-vid{
+	    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top:2em;
+    margin-bottom:2em;
+ }
+.footer{
+	margin-bottom:5em;
+}
+
+
+.bg {
+    /* The image used */
+    background-image: url(../img/finalversion.png);
+
+    /* Full height */
+    height: 37em; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom:4em;
+}
+
+.centered {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered-below {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+hr{
+	margin-bottom:3em;
+	margin-top:3em;
+}
+
+.emoji {
+  font-size: 60px;
+  vertical-align: middle;
+  line-height: 2;
+}
+
+.end{
+	text-align: center;
+	font-family: 'neue-haas-grotesk-display';
+	font-weight:600;
+}
+

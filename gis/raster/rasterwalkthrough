@@ -1,0 +1,235 @@
+Exprorting
+
+First things first, you'll want to have two .tif files: one that will be your basemap, and another one that contains the actual data - the Hansen deforestation data between 2000 and 2017. 
+
+You can get that from <a href="https://code.earthengine.google.com/">Google Earth Engine</a>. Fire it up, and create a new repository! Once this is done, click on New again > File > and select the right repository from the dropdown menu.
+
+Your new empty file should appear in the middle window. You'll want Landsat 7 data for Brazil between January 2016 and January 2017, so you can copy paste this code:
+
+<code>
+// Defining a bounding box 
+// min x min y max x y max y 
+var region = ee.Geometry.Rectangle(-55.0, -8.5, -41.5, 2.0);
+
+// We're using landsat7 data
+var collection = ee.ImageCollection('LE7_L1T') 
+  // retrieving all data for that period
+  .filterDate('2016-01-01', '2017-01-01')
+  .filterBounds(region); 
+  
+// using landsat simple composite algorithm
+var composite = ee.Algorithms.Landsat.simpleComposite(collection, 75, 3);
+         
+// exporting the image to the drive    
+Export.image.toDrive({
+  image: composite,
+  description: 'landsat-7-2016-2017',
+  scale: 300,
+  maxPixels: 270000000,
+  crs: 'EPSG:32723',
+  region: region
+});
+
+</code>
+
+Click on Run, then on Tasks in the third window, and you'll have to click on run, next to the new file that just appeared in this window.
+
+It should take a while to run, but once this is done, you'll have a brand new .tif file in your Google Drive. And that's your basemap!
+
+Now, off to the Hansen data, so we can get out of Google Earth Engine and move on to Photoshop.
+
+You can copy paste this code:
+
+<code>
+// Load a forest cover loss data and get lossyear.
+var forestLoss = ee.Image ('UMD/hansen/global_forest_change_2017_v1_5')
+                   .select ('lossyear');
+// Create a geometry representing an export region.
+var region = ee.Geometry.Rectangle ([-55.0, -8.5, -41.5, 2.0]);
+// Export the image, specifying scale and region.
+Export.image.toDrive ({
+  image:       forestLoss,
+  description: 'hansen-data-filter',
+  scale:       300,
+  maxPixels:   270000000,
+  crs:         'EPSG:32723',
+  region:      region
+});
+</code>
+
+And proceed as you just did for the basemap. This should - hopefully - give you something solid to work with, with not too much error once you open the file in QGIS or Photoshop.
+
+Download the two .tif files from your Drive, and now you can move on to Photoshop.
+
+<h1>Making a somewhat ok basemap in Photoshop</h1>
+
+<b>First note:</b>if have a version of Photoshop in a language other than English and you're just <em>sick of it</em, maybe <a href="file:///Users/mariepatino/Downloads/georeferencing/index.html#list-item-1">this link</a> can be kind of helpful.
+
+Open your basemap .tif file in Photoshop. Under channels, you should see this:
+
+What you are going to do is copy the first three bands into a new file's Red, Green and Blue channels to get an image you can modify, so that it can look slightly more decent. Refer to <a href="https://landsat.usgs.gov/what-are-best-spectral-bands-use-my-study">this page</a> for more information about which bands to use in general when dealing with rasters.
+
+Before you create a new file, click on the Gray channel. It should get highlighted, and there should be an eye icon next to it. You want to make sure it is <b>selected</b>, which means that you'll need to press Command + A, or go under Select > All. There should be dotted lines around your image, like this:
+
+
+Copy (Command + C or Edit > Copy), and now that this selection is on your clipboard, you can create a new file.
+
+Go under File > New > and you'll want to change the Color Mode to RGB Color 8 bit, and make  sure that you have Clipboard selected, like this:
+
+Click ok, and now, you are going to paste the the Grey layer you selected in the original basemap to the Blue Channel of your new document.
+
+VIDEO.
+
+Now you can do the same thing over again for Alpha 1, which should be pasted in the Green channel of your new document, and Alpha 2, which should be pasted in the Red channel of your new document. 
+
+The new file should somewhat look like this:
+
+Now is time for much Photoshop fun.
+
+First, you can see that your file is super dark. You can solve that problem by using the levels tool, with all your bands selected (to select all your bands at once, just click on the RGB channel). Levels are under Image > Adjustments > Levels. Or Command + L.
+
+Adjust the cursors that are at each extremity of the curve. In class, we used these numbers, that seem to give a pretty good result:
+
+IMAGE
+
+If you are satisfied, click OK, then you can either adjust levels for each layer if you feel like it, or click on Image > Auto Tone, then Image > Auto Contrast, then Image > Auto Color. Or do this, then slightly adjust the colors of the layers, I don't know, whatever makes you happy. 
+
+Now you're left with a small problem: the piece of ocean that looks like trash. You'll want to take it out, and you'll need additional layers in order to do that.
+
+Hopefully you didn't close the original .tif file, because now we need it again! If you look at all the bands closely, you'll see that Alpha 3 has a big contrast. So we are going to copy paste this band in our new file, but not under any channel, under layers. Your new file should now look like this:
+
+IMAGE
+
+Now, we are going to push the contrast of this new layer even more by using the levels tool. To me, that looks kind of decent:
+
+Now, you are going to fill the black on this layer with another color - like red, for example, so you can see what you're doing.
+
+To do this, click on Select > Color Range > Eye Dropper > Click somewhere in the ocean on your image, so you have the black color selected > increase the fuzziness to, for example, 140 or whatever, try different things so that you don't have too much land in it > Click Ok.
+
+Now you should have your ocean and rivers selected. You are going to fill this selection with red, for that you'll need to create a new layer ( it is this little button on the bottom right corner).
+
+Lock the layer where the selection is - that is to say the Alpha 3 band you copy / pasted from the .tif file. Your workspace should look like this:
+
+You'll want to change the foreground color here to red!
+
+IMAGE
+
+Select the second layer, go under Edit > Fill > select Foreground Color in the Content dropdown menu > make sure the opacity is set to 100% > click Ok.
+
+Beautiful.
+
+Now, you can color the land in black to make the ocean easier to clean up. Make sure your foreground color is set to black (refer to the image above when we set the foreground color to red). 
+Create a new layer, that you'll put between the red one and the former Alpha 3 one. 
+You are going to <b>invert the selection</b>, under Select > Inverse (Command + Shift + I ). Go under Edit > Fill > select Background Color in the Content dropdown menu > opacity 100% > Ok.
+
+MAXI VIDEO
+
+You can deselect everything (Select > Deselect or Command + D), select the red layer, and click on the Brush tool (IMAGE). You can change its size, but now is your chance to make things look better. Maybe this looks adequate, idk, you tell me.
+
+IMAGE
+
+If you want to choose a good color to fill your ocean, maybe you can go back to the background layer and use the eyedropper tool on the ocean. You need to unselect all the layers in order to do that. Put it as a foreground color, for example.
+
+Select (Command + A!!) the layer with the ocean - the red one - and lock it. Then do as usual Edit > Fill > Foreground color if blue is your foreground color, otherwise you can select color and copy / paste the hex code of the blue in there > Opacity 100%.
+
+You can now unclick all the layers you don't need and tada, 
+
+IMAGE
+
+
+Now, off to the Hansen data
+
+<h1>Hansen data in QGIS</h1>
+
+OPEN QGIS 
+
+Create a new project, drag the Hansen data .tif file. It should look like this:
+IMAGE
+
+What we can do is <b>create two layers:</b>
+
+<ul>
+<li>- One that will represent all the data, that is to say deforestation between 2000-2017.</li>
+<li>- One that will represent the loss for some years only, for our purpose let's say since 2015, but definitely feel free to change this. It is just so you can have an example.</li>
+</ul>
+
+Let's start with the data for all the years.
+
+Right click on the layer > Properties > Symbology > change the Render Type to Singleband pseudocolor > change the color ramp by clicking on the arrow next to it > Create new color ramp > Gradient > click Ok > change color 1 and color 2 so that they are the same (to red, maybe?) > lick Ok > change the mode of classification to Equal Interval > Change the opacity of the 0 class to 0 by right clicking > Opacity 0 > Change the values of your interval so that it covers all values starting from 1 to 17 seems like a good thing to do. You are left with this:
+
+IMAGE
+
+Let's create the second layer.
+
+Duplicate the layer you just created: Right click > Duplicate. Do what you just did for the new layer. You'll want the color ramp to be of a different color, though. And you'll also want the class to be different if you want data ranging from 2015 to 2017, you could do something like this:
+
+
+IMAGE
+
+Now, let's export our two layers
+
+Right Click on the layer > Export > Save as > check Raw Data > change the CRS to be WGS84 - UTM zone 23S
+
+VIDEO
+
+Ok now we can sliightly cheat. 
+
+Check out the size of your image basemap in Photoshop by clicking on this picture:
+IMAGE
+and put the values here in QGIS:
+IMAGE
+
+Don't forget to put a filename in, and click Ok. 
+
+Do the same thing over again for the other layer, and then open the two new .tif in Photoshop.
+
+<h1>Hansen data in Photoshop</h1>
+
+You can add a 1 px stroke on both of your .tif files. Make sure the image is selected (Command + A ) > Edit > Stroke > select the right color > 1 px > Inside > Ok. Do this on both files.
+
+Copy / Paste in place (Command + V) the two layers on your basemap!
+
+We're aaaalmost there. And now you can start getting creative. For example, if you double click on the background layer, you can make it a "layer 0", so you can move it around, put the white layer  (Layer 1 ), behind it, and change the opacity of the Layer 0, so it can look prettier. 
+
+You can also change the colors of your Hansen data: you need to lock the layer, select (Command + A), and Edit > Fill > Color in the dropdown so you can choose the color > Ok. 
+
+Once you're satisfied, you can export all this to Illustrator: File > Export > Export as png, maybe?
+
+Open it in Illustrator, make an artboard that's 900px wide so it can work on Desktop! And then resize your huuuge image so it fits. Add all you want, have a blast.
+
+
+D O N E.
+
+
+
+
+
+IMAGE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VIDEO 
+
+
+
+
+
+
+
+
+
+
+
