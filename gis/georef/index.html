@@ -51,25 +51,25 @@
       	<div class="written-text" >
       	<h1 >If Photoshop is not in English on your computer <br>(and you're sick of it.)</h1>
 
-		<p>Fun fact: it is <b>extremely</b> annoying to change it. First, quit Photoshop. Then, you need to open the Adobe Creative Cloud App! (If you're on Mac, it's clicking on the icon that looks like this: <img src="img/icon1.png" />)</p>
+		<p>Fun fact: it is <b>extremely</b> annoying to change it. First, quit Photoshop. Then, open the Adobe Creative Cloud App! (If you're on a Mac, it means clicking on the icon that looks like this: <img src="img/icon1.png" />)</p>
 
 		<p>Then click on the three dots > preferences > Creative Cloud > App Language and change it to whatever suits your needs - maaaybe English?</p>
 
 		<img class="center" src="img/icon2.png" />
 
-		<p>Then, it's an unecessary trainwreck.</p>
+		<p>Then, it's an unecessary mess.</p>
 
-		<p>Still in that little window, go back to where you can see all your apps, and you're going to have to click on Install. Yes, we're reinstalling Photoshop <b>again</b>.</p>
+		<p>Still in that little window, go back to where you can see all your apps, and click on Install. Yes, we're <b>reinstalling</b> Photoshop.</p>
 
 		<p>Then, open Photoshop, go under Photoshop CC > Preferences > Interface</p>
 
 		<img class="center" src="img/icon3.png" />
 
-		 <p>Change the language in the dropdown menu (you're wondering "oh, why didn't we do this first and went through all these steps" and the answer is "because turns out that you didn't have that other language option in the dropdown menu before you did all these steps, but you didn't check, so you don't know, so I'm telling you.")</p>
+		 <p>Change the language in the dropdown menu (you're wondering "oh, why didn't we do this first and went through all these steps" and the answer is "because turns out that you didn't have that other language option in the dropdown menu before you did all of this.")</p>
 
 		<p>Then re-start Photoshop and hopefully-fingers-crossed it is now in English.</p>
 
-		<p>Oh yeah, guess what, you can do the same thing for Illustrator.</p>
+		<p>And you can do the same thing for Illustrator. The joy.</p>
 		</div>
       </div>
 	</div>
@@ -83,11 +83,11 @@
 
 		<p>Download the data - hopefully you already have it - from the GIS Drive, open QGIS, create a new project. Open the google-satellite and the google-roads tif files by dragging them into QGIS.</p>
 
-		<p>Eventually, you'll want to change that base map though! For that, you can use the week-1 google drive folder, and also download additional data from, for example, <a href="https://opendata.cityofnewyork.us/">NYC Open Data</a>. If you have some space on your hardrive, you can take a stab at the <a href="https://data.cityofnewyork.us/Housing-Development/Building-Footprints/nqwf-w8eh">Building footprints</a> data, and export it as a shapefile. Just know that it takes <b>forever</b>, a weird blank new tab will show up and load, and then eventually after like 7 minutes, you'll see that a zip file is being downloaded.</p>
+		<p>Eventually, you'll want to change that base map though! For that, you can use the week-1 google drive folder, and also download additional data from, for example, <a href="https://opendata.cityofnewyork.us/">NYC Open Data</a>. If you have some space on your hardrive, you can take a stab at the <a href="https://data.cityofnewyork.us/Housing-Development/Building-Footprints/nqwf-w8eh">Building Footprints</a> data, and export it as a shapefile. Just know that it takes <b>forever</b>, a weird blank new tab will show up and load, and then eventually after like 7 minutes, you'll see that a zip file is being downloaded.</p>
 
 		<p>But backing up a bit.</p>
 
-		<p>So now that you have your two tif files open in QGIS, let's georeference things.</p>
+		<p>So now that you have your two .tif files open in QGIS, let's georeference things.</p>
 
 		<p>Start by clicking on Raster > Georeferencer.</p>
 
@@ -96,11 +96,11 @@
 
 		<p>And now it should probably appear.</p>
 
-		<p>Click on File > Open Raster > Select the map- 1845.jpg file. A new window should pop up, asking you to select a coordinate reference system. You'll want to select <b>ESPG:4326 </b> then click Ok.</p>
+		<p>Click on File > Open Raster > Select the map- 1845.jpg file. A new window should pop up, asking you to select a coordinate reference system. You'll want to select <b>ESPG:4326, </b> then click Ok.</p>
 
 		<p>Tada, you have the image ready to georeference.</p>
 
-		<p>Remember that you want to put the now disappeared Harlem Creek on a modern map! So we can start georeferencing by adding points in the corners of our image, but also most specifically around the creek itself, so we can have a result as precise as possible.</p>
+		<p>Remember that you want to put the now disappeared Harlem Creek on a modern map! So you can start georeferencing by adding points in the corners of your image, but also most specifically around the creek itself, so your result can be as precise as possible.</p>
 
 		<p>Sidenote: the old 8th Avenue is now Central Park West, and turns into Frederick Douglass Boulevard after Central Park. So with that in mind, you can pull up Google Map in your fav web browser (jk, in Google Chrome), and you can maybe start with geocoding the corners, like we did in class.</p>
 
@@ -113,10 +113,10 @@
 			</ul>
 		</p>
 
-		<p>For the first datapoint, go to Google maps, go to Central Park West and 75th st, right click > What's here > Click on the element that just popped up once more, so you can see the lat / long of the location.</p>
+		<p>For the first datapoint, go to Google maps, go to Central Park West and 75th st, right click > What's here > Click on the element that just popped up once more, so you can see the lat/long of the location better.</p>
 
-		<p>Go back to the Georeferencing window, click on the button that looks like this <img src="img/icon5.png" />, and find 75th and 8th av on the image. Now in the new window, you are going to copy/paste the lat long you got from Google Maps. 
-		But you'll need to copy/paste them in <b>reverse order</b>. So the -73.whateverwhatever comes in the X/East box, and the 40.blah comes in the Y/North box.</p>
+		<p>Go back to the Georeferencing window, click on the button that looks like this <img src="img/icon5.png" />, and find 75th and 8th av on the image. Now in the new window, you are going to copy/paste the lat/long you got from Google Maps. 
+		But you'll need to copy/paste these numbers in <b>reverse order</b>. So the -73.whateverwhatever goes in the X/East box, and the 40.blah goes in the Y/North box.</p>
 
 		<video controls class="center-vid">
 		  <source src="img/vid1.mp4" type="video/mp4">
@@ -124,21 +124,21 @@
 
 		</video>
 
-		<p>Now that you have a dot for one location, do the same thing all over again many, many times. Choose points around the Harlem Creek - also, midtown 4th Avenue is the now Park Avenue.</p>
+		<p>Now that you have a dot for one location, do the same thing all over again many, many times. Choose points around the Harlem Creek - also, midtown 4th Avenue is now Park Avenue, according to a <a href="https://www.huffingtonpost.com/quora/why-is-there-no-4th-ave-i_b_4611034.html">HuffPost article</a></p>
 
-		<p>Now you have a few dots, click on the golden wheel button <img src="img/icon6.png" /> to get the Transformation Settings window to pop up > Change the transformation type to Polynomial 1 > Resampling method to Cubic Spline > Target SRS to ESPG:4326 > Change the name of the "output raster" by clicking on the 3 dots on the right and save it in a convenient location (just save it in the same folder, that will be easier) > Check the "Use 0 for transparency when needed" checkbox > Check the "Load in QGIS when done" box > Click Ok</p>
+		<p>Once you have a few dots, click on the golden wheel button <img src="img/icon6.png" /> to get the Transformation Settings window to pop up > Change the transformation type to Polynomial 1 > Resampling method to Cubic Spline > Target SRS to ESPG:4326 > Change the name of the "output raster" by clicking on the 3 dots on the right and save it in a convenient location (just save it in the same folder, that will be easier) > Check the "Use 0 for transparency when needed" checkbox > Check the "Load in QGIS when done" box > Click Ok</p>
 
 		<p>Click the green button <img src="img/icon7.png"/> that is probably supposed to look like a "Play" button.</p>
 
-		<p>Right click on your new layer > Properties > Symbology > In the Color Rendering section change the Blending Mode to Multiply.</p>
+		<p>Right click on your new layer > Properties > Symbology > in the Color Rendering section change the Blending Mode to Multiply.</p>
 
-		<p>Now you have a new, wonderful geocoded layer in QGIS, and make sure that it is somewhat accurate, otherwise think about maybe adding more points!</p>
+		<p>You have a new, wonderfully geocoded layer in QGIS, and make sure that it is somewhat accurate, otherwise think about maybe adding more points!</p>
 
-		<p>Now before we go further, <b>let's talk about that basemap!</b> </p>
+		<p>Now before you go further, <b>let's think about that basemap!</b> </p>
 
 		<p>You can drag all the things you want to be on your basemap in your current QGIS project. Style them a bit, and before you export your map, deselect the google_satellite and google-roads layer. Note that you might now want the blending mode of the georeferenced layer to be multiply anymore, and might want to return it to normal, otherwise you probably won't be able to see anything in Illustrator.</p>
 
-		<p>You can export your whole thing project using the print composer - make sure you're slightly zoomed in on the Harlem Creek! - , so click on New Print Layout > Click on the thing that looks like this <img src="img/icon8.png"/>. On the right, under Layout, change the Export Resolution (under Export Settings), to 72 dpi > under Item Properties you can go under "Position and Size" and change the width to 900 px (but click on the lock to make sure height and width will resize accordingly) > export as pdf.</p>
+		<p>You can export your whole project using the print composer - make sure you're slightly zoomed in on the Harlem Creek before you click on it! - , so click on New Print Layout > click on the thing that looks like this <img src="img/icon8.png"/>. On the right, under Layout, change the Export Resolution (under Export Settings), to 72 dpi > under Item Properties you can go under "Position and Size" and change the width to 900 px (but click on the lock to make sure height and width will resize accordingly) > export as pdf.</p>
 		</div>
       </div>
 	</div>
@@ -152,11 +152,11 @@
 		<p>Open your file! You might get an error saying that an image was unrecognized, just ignore it I guess.</p>
 
 		<p>You should probably release the multiple clipping masks (Object > Clipping Mask > Release as times many as you need)
-		You can select the pen tool (it looks like this <img src="img/icon9.png" />) and draw the shape of the Harlem Creek - you probably want to draw the stroke only.</p>
+		You can select the pen tool (it looks like this <img src="img/icon9.png" />) and draw the shape of the Harlem Creek - you might want to draw the stroke only.</p>
 
 		<p>You now have a cool shape, but everything else looks super messy. You can delete the image! It might take a few clicking and deleting, just so you know.</p>
 
-		<p>Now you can go crazy with styling, make it look good, add legend, scale, title, explanatory text, etc. Basically make it look wayyyy better than this:</p>
+		<p>You can go crazy with styling, make it look good, add legend, scale, title, explanatory text, etc. Basically make it look wayyyy better than this:</p>
 
 		<img src=img/icon10.png class="center-vid"/>
 		<br>

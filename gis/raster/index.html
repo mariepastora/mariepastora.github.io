@@ -35,7 +35,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Top<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#earth-engine">Google Earth Engine</a>
@@ -68,14 +68,14 @@
         <div class="offset-2 col-8" >
             <h1 >Exporting data from Google Earth Engine</h1>
             <p>
-            First things first, you'll want to have two .tif files: one that will be your basemap, and another one that containing the actual data - the Hansen deforestation data from 2000 to 2017. 
+            You'll want two .tif files: a basemap, and another one containing the actual data - the Hansen deforestation data from 2000 to 2017. 
             </p>
             <p>
             You can get these two .tif files from <a href="https://code.earthengine.google.com/">Google Earth Engine</a>. Fire it up, and create a new repository!             </p>
             <img src=img/icon1.png class="center-smol">
 
             <p>
-            Once this is done, click on New again > File > and select the right repository from the dropdown menu.
+            Once this is done, click on New > File > and select the right repository from the dropdown menu.
             </p>
             <p>
             Your new empty file should appear in the middle window. You want Landsat 7 data for Brazil between January 2016 and January 2017, so you can copy paste this code:
@@ -131,10 +131,10 @@
             });<br><br>
             </code>
             <p>
-            And proceed as you just did for the basemap. This should - hopefully - give you something solid to work with once you open the file in QGIS or Photoshop.
+            And proceed as you just did with the basemap.
             </p>
             <p>
-            Download the two .tif files from your Drive, and now you can move on to Photoshop.
+            Download the two .tif files from your Drive, and open P H O T O S H O P.
             </p>
         </div>
     </div>
@@ -142,81 +142,81 @@
         <div class="offset-2 col-8" id="basemap-photoshop">
         <hr>    
 
-            <h1>Making a somewhat ok basemap in Photoshop</h1>
+            <h1>Making an okay-ish basemap in Photoshop</h1>
 
-            <p><b>First note:</b>if you have a version of Photoshop in a language other than English and you're just <em>sick of it</em>, maybe <a href="file:///Users/mariepatino/Downloads/georeferencing/index.html#list-item-1">this link</a> can be kind of helpful.</p>
+            <p><b>Sidenote:</b>if your version of Phothoshop is in a language other than English and you're just <em>sick of it</em>, maybe <a href="file:///Users/mariepatino/Downloads/georeferencing/index.html#list-item-1">this link</a> can be kind of helpful.</p>
 
             <p>Open your basemap .tif file in Photoshop. Under channels, you should see this:</p>
 
             <img src="img/icon3.png" class="center-smol">
 
-            <p>What you are going to do is copy/paste the first three bands into a new file's Red, Green and Blue channels to get an image you can modify, so that it can look slightly more decent. Refer to <a href="https://landsat.usgs.gov/what-are-best-spectral-bands-use-my-study">this page</a> for more information about which bands to use in general when dealing with rasters.</p>
+            <p>What you are going to do is copy/paste the first three bands into a new file's Red, Green and Blue channels to get an image you can modify, so that it can look slightly more decent. Refer to <a href="https://landsat.usgs.gov/what-are-best-spectral-bands-use-my-study">this page</a> for more information about which bands to use when dealing with rasters.</p>
 
-            <p>Before you create a new file, click on the Gray channel. It should get highlighted, and there should be an eye icon next to it. You'll want to make sure the layer is <b>selected</b>, which means that you'll need to press Command + A, or go under Select > All. There should be dotted lines around your image, like this:</p>
+            <p>Before you create a new file, click on the Gray channel. It should get highlighted, and there should be an eye icon next to it. You'll want to make sure the layer is <b>selected</b>, which means that you'll need to press Command + A, or go under Select > All. There should be dots around your image, like this:</p>
             <img src="img/icon4.png" class="center">
 
             <p>Copy (Command + C or Edit > Copy), and now that this selection is on your clipboard, you can create a new file.</p>
 
             <p>Go under File > New > and you'll want to change the Color Mode to RGB Color 8 bit. Make sure you select the <b>Clipboard</b> option.</p>
 
-            <p>Click ok, and now, you are going to paste the the Grey layer you selected in the original basemap to the Blue Channel in your new file.</p>
+            <p>Click ok, and paste the Gray layer you selected in the original basemap to the Blue Channel in your new file.</p>
 
-            <p>You can do the same thing over again for Alpha 1, which should be pasted in the Green channel of your new document, and Alpha 2, which should be pasted in the Red channel of your new document. </p>
+            <p>You can do the same thing over again for Alpha 1, which should be pasted to the Green channel of your new document, and Alpha 2, which should be pasted to the Red channel of your new document. </p>
 
             <p>The new file should sort of look like this:</p>
             <img src="img/icon5.png" class="center">
 
-            <p>Now, it's time for much <b>Photoshop fun</b>.</p>
+            <p>Now, it's time for <b>Photoshop things</b>.</p>
 
-            <p>First, you can see that your file is super dark. You can solve this problem by using the levels tool, with all your bands selected (to select all your bands at once, just click on the RGB channel). Levels are under Image > Adjustments > Levels. Or Command + L.</p>
+            <p>First, you can see that your file is super dark. You can solve this problem by using the levels tool, with all your bands selected (to select all bands at once, just click on the RGB channel). Levels are under Image > Adjustments > Levels. Or Command + L.</p>
 
-            <p>Adjust the cursors on each side of the curve. In class, we used these numbers that seem to give a pretty good result:</p>
+            <p>Adjust the cursors on each side of the curve. In class, we used these numbers that seemed to give pretty good results:</p>
 
             <img src="img/icon6.png" class="center-smol">
 
-            <p>If you are satisfied, click OK. Then you can either adjust the levels for each layer if you feel like it, or click on Image > Auto Tone, then Image > Auto Contrast, then Image > Auto Color. Or do this, then slightly adjust the colors of the layers, I don't know, whatever makes you happy.</p>
+            <p>If you are satisfied, click OK. Then you can either adjust the levels for each layer if you feel like it, or click on Image > Auto Tone, then Image > Auto Contrast, then Image > Auto Color. Or do this, then slightly adjust the levels of the layers, I don't know, whatever makes you happy.</p>
 
-            <p>Now, you're left with a small problem: the piece of ocean that looks like trash. You'll want to take it out, and you'll need additional layers in order to do that.</p>
+            <p>Now, you're left with a small problem: the piece of ocean that looks like trash. You'll want to take it out, and you'll need additional layers in order to do this.</p>
 
             <p>Hopefully you didn't close the original .tif file, because now you need it again! If you look at each band closely, you'll see that Alpha 3 has a big contrast. So, you are going to copy paste this band in your new file, but not under a channel, under <b>layers</b>. Your new file's layers should look like this:</p>
 
             <img src="img/icon7.png" class="center-smol">
 
-            <p>You are going to accentuate the contrast of this new layer by using the levels tool. To me, this looks kind of decent:</p>
+            <p>You can accentuate the contrast of this new layer by using the levels tool. To me, this looks kind of decent:</p>
             <img src="img/icon8.png" class="center">
 
-            <p>You are going to fill the black on this layer with another color - like red, for example, so you can see what you're doing.</p>
+            <p>You can fill the black color on this layer with another color - like red, for example, so you can see what you're doing better.</p>
 
-            <p>To do this, click on Select > Color Range > Eye Dropper > Click somewhere in the ocean on your image, so you have the black color selected > increase the fuzziness to, for example, 140 or whatever, try different things so that you don't have too much land in it > Click Ok.</p>
+            <p>To do this, click on Select > Color Range > Eye Dropper > Click somewhere in the ocean on your image, so you have the black color selected > increase the fuzziness to, for example, 140 or whatever, try different things so that you don't have too much land in your selection > Click Ok.</p>
 
-            <p>Now you should have your ocean and rivers selected. You are going to fill this selection with red, for that you'll need to create a new layer (it is this little button on the bottom right corner). <img src="img/icon9.png"></p>
+            <p>Now you should have your ocean and rivers selected. You can fill this selection with red, and for that you'll need to create a new layer (it is this little button on the bottom right corner). <img src="img/icon9.png"></p>
 
-            <p>Lock the layer where the selection is - that is to say the Alpha 3 band you copy / pasted from the .tif file. Your workspace should look like this:</p>
+            <p>Lock the layer where your selection is - that is to say the Alpha 3 band you previously copy/pasted from the .tif file. Your workspace should look like this:</p>
             <img src="img/icon10.png" class="center-smol">
 
             <p>You'll want to change the foreground color here to red!</p>
             <img src="img/icon11.png" class="center-smol">
 
-            <p>Select the ocean layer (Layer 2, probably - COMMAND + A, I swear this thing gets me every time), go under Edit > Fill > select Foreground Color in the Content dropdown menu > make sure the opacity is set to 100% > click Ok.</p>
+            <p>Select the ocean layer (Layer 2, probably - COMMAND + A, I swear this thing gets me <em>every time</em>), go under Edit > Fill > select Foreground Color in the Content dropdown menu > make sure the opacity is set to 100% > click Ok.</p>
 
             <p>Beautiful.</p>
 
             <img src="img/icon12.png" class="center">
 
-            <p>Now, you can color the land in black to make the ocean easier to clean up - because there are still things we don't want in it! Make sure your foreground color is set to black (refer to the image above when we set the foreground color to red). 
+            <p>Now, you can color the land in black to make the ocean easier to clean up - because there are still things we don't want to see in it! Make sure your background color is set to black (refer to the image above when we set the foreground color to red). 
             Create a new layer, that you'll put between the red one and the former Alpha 3 one. 
-            You are going to <b>invert the selection</b>, under Select > Inverse (Command + Shift + I ). Then go under Edit > Fill > select Background Color in the Content dropdown menu > opacity 100% > Ok.</p>
+            You are going to <b>invert the selection</b>, under Select > Inverse (or Command + Shift + I ). Then go under Edit > Fill > select Background Color in the Content dropdown menu > opacity 100% > Ok.</p>
 
             <p>You can deselect everything (Select > Deselect or Command + D). Select the red layer, and click on the Brush tool <img src="img/icon13.png">. You can change the size of the brush, and now is your chance to make things look <b>better</b>.</p>
 
-            <p>If you want to choose a good color to fill your ocean, maybe you can go back to the background layer and use the eyedropper tool on the ocean. You need to unselect all the layers in order to do that. Put it as a foreground color, for example.</p>
+            <p>If you want to choose a good color to fill your ocean, maybe you can go back to the background layer and use the eyedropper tool on an interesting part of the ocean. You need to unselect all the layers in order to do that. Put the blue you like as a foreground color, for example.</p>
 
-            <p>Select (Command + A!!) the layer with the ocean - the red one - and lock it. Then do as usual Edit > Fill > Foreground color if blue is your foreground color, otherwise you can select Color from the dropdown menu and copy / paste the hex code of the blue you chose in there > Opacity 100%.</p>
+            <p>Select (Command + A!!!!) the layer with the ocean - the red one - and lock it. Then do as usual Edit > Fill > Foreground color if blue is your foreground color, otherwise you can select Color from the dropdown menu and copy/paste the hex code of the blue you chose in there > Opacity 100% > Ok.</p>
 
             <p>You can now unclick all the layers you don't need and tada:</p>
             <img src="img/icon14.png" class="center">
 
-            <p>Yea I know, there's too much water on that land, sorry about this, but now, off to the <b>Hansen data</b></p>
+            <p>Yea I know, there's too much water on that land, sorry about this, but let's deal with the <b>Hansen data</b></p>
 
         </div>
     </div>
@@ -242,20 +242,20 @@
 
             <p>Let's start with the data for all the years.</p>
 
-            <p>Right click on the layer > Properties > Symbology > change the Render Type to Singleband pseudocolor > change the color ramp by clicking on the arrow next to it > Create new color ramp > Gradient > click Ok > change color 1 and color 2 so that they are the same (to red, maybe?) > click Ok > change the mode of classification to Equal Interval > Change the opacity of the 0 class to 0 by right clicking > Opacity 0 > Change the values of your interval so that the range covers all values starting from 1 to 17 seems like a good thing to do. This was so long and convoluted, oh my.</p>
+            <p>Right click on the layer > Properties > Symbology > change the Render Type to Singleband pseudocolor > change the color ramp by clicking on the arrow next to it > Create new color ramp > Gradient > click Ok > change color 1 and color 2 so that they are the same (to red, maybe?) > click Ok > change the mode of classification to Equal Interval > Change the opacity of the "0" class to 0 by right clicking > Opacity > 0% > change the values of your interval so that the range covers all values starting from 1 to 17 seems like a good thing to do. This was so long and convoluted, oh my.</p>
             <img src="img/icon19.png" class="center-smol" style="width:60%">
 
             <p>Let's create the second layer.</p>
 
-            <p>Duplicate the layer you just created: Right click > Duplicate. Do what you just did for the new layer. You'll want the color ramp to be a different color, though. And you'll also want the classes to be different. If you want data ranging from 2015 to 2017, you could do something like this, maybe:</p>
+            <p>Duplicate the layer you just created: Right click > Duplicate. Do what you just did all over again! You'll want the color ramp to be a different color, though. And you'll also want the classes to be different. If you want data ranging from 2015 to 2017, you could do something like this, maybe:</p>
 
             <img src="img/icon16.png" class="center-smol" style="width:60%">
 
-            <p>Now, let's export our two layers.</p>
+            <p>Now, let's export the two layers.</p>
 
-            <p>Right Click on the layer > Export > Save as > check Raw Data > change the CRS to WGS84 - UTM zone 23S</p>
+            <p>Right Click on the layer > Export > Save as > check the Raw Data checkbox > change the CRS to WGS84 - UTM zone 23S</p>
 
-            <p>Ok now you can sliightly cheat.</p>
+            <p>Ok now you can sliiiightly cheat.</p>
 
             <p>Check out the size of your image basemap in Photoshop by clicking on this icon:             <img src="img/icon17.png">
             </p>
@@ -278,15 +278,15 @@
 
             <p>You can add a 1 px stroke on both of your .tif files. Make sure the image is selected (Command + A ) > Edit > Stroke > select the right color > 1 px > Inside > Ok. Do this on both files.</p>
 
-            <p>Copy / Paste in place (Command + V) the two layers on your basemap!</p>
+            <p>Copy/Paste in place (Command + V) the two layers on your basemap!</p>
 
-            <p>We're aaaalmost there. And now you can start getting creative. For example, if you double click on the background layer, you can make it a "layer 0", so you can move it around. You can put the white layer (Layer 1) under it, and change the opacity of Layer 0, so it can look <b>pretty</b>.</p>
+            <p>You're aaaalmost there. And now you can start getting creative. For example, if you double click on the background layer, you can make it the "Layer 0", so you can move it around. You can put the white layer (Layer 1) under it, and change the opacity of Layer 0, so it can look <b>pretty</b>.</p>
 
-            <p>You can also change the colors of your Hansen data: you need to lock the layer, select it (Command + A), and go to Edit > Fill > Color in the dropdown so you can choose the color > Ok. </p>
+            <p>You can also change the colors of your Hansen data: you need to lock the layer, select it (not working? Did you <b>Command + A</b>?), and go to Edit > Fill > select Color in the dropdown menu so you can choose the color > Ok. </p>
 
             <p>Once you're satisfied, you can export all this to Illustrator: File > Export > Export as png, maybe?</p>
 
-            <p>Open it in Illustrator, make an artboard that's 900px wide so your final product can work on Desktop! And then resize your huuuge image for it to fit the artboard. Add all you want, have a blast.</p>
+            <p>Open it in Illustrator, make an artboard that's 900px wide so your final product can work fine on Desktop! And then resize your huuuge image for it to fit the artboard. Add all you want, have a blast.</p>
 
             <p class="end">D O N E.<br><span class="emoji">✨ 🗺️ ✨</span></p>
         </div>
