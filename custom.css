@@ -4,8 +4,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'neue-haas-grotesk-display', 'Arial';
-  font-weight: 400;
+  font-family: 'neue-haas-grotesk-display' !important, 'Arial';
+  font-weight: 700;
 }
 
 .display-3{
@@ -24,7 +24,7 @@ a {
 }
 
 a:hover {
-  color: #1d1e22;
+  color: #1d1e22 !important;
 }
 
 .snippet-header {
@@ -41,7 +41,7 @@ a:hover {
 }
 
 .nav.colored {
-  background: rgba(233,67,98,0.7);
+  background: rgba(233,67,98,0.7) !important;
   font-weight:500;
   font-size:1.1em;
 }
@@ -50,7 +50,7 @@ a:hover {
   color: #fff;
 }
 .nav.colored a:hover{
-  color:grey;
+  color:#1d1e22;
 }
 
 .fancy-header {
@@ -106,7 +106,7 @@ img {
 }
 
 .footer {
-  background: rgba(233,67,98,0.7);
+  background: rgba(233,67,98,0.7) !important;
   color:white;
 }
 
