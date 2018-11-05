@@ -1,4 +1,4 @@
-console.log("So the Konami code is up,up,down,down,left,right,left,right,b,a ")
+console.log("Type the Konami code on your keyboard! I mean, click out of the console first, anywhere on the page that's not a link. And then the Konami code is up,up,down,down,left,right,left,right,b,a ")
 
 // Making timeline
 var tl = new TimelineMax({ repeatDelay: 20, repeat: 50 })
