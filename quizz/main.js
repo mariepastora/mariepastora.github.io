@@ -180,7 +180,7 @@ const myQuestions = [
       b: "Daniela Dos Santos",
       c: "La reponse D mais c'est la C lol"
     },
-    correctAnswer: "a",
+    correctAnswer: "b",
     number: "12/13"
   },
       {
