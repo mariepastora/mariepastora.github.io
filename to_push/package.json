@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "babel-preset-env": "^1.7.0",
-    "d3": "^5.7.0",
+    "d3": "^7.6.1",
     "desandro-matches-selector": "^2.0.2",
     "enter-view": "^1.0.0",
     "ev-emitter": "^1.1.1",
